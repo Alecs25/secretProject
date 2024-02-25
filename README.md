@@ -29,9 +29,9 @@ localhost:5137
 * Non modificare parti comuni del progetto per adattare il proprio lavoro.
 
 ### Workflow
-* Assegnatavi una task, create un branch con un nome breve ed esplicativo che ne ricordi lo scope
+* Assegnatavi una task, create un branch dal develop con un nome breve ed esplicativo che ne ricordi lo scope della task.
 * Suddividete il lavoro in ulteriori piccole task, fate spesso pull e piccole commit, in modo da mergiare la task a lavoro completo con il minor numero di conflitti. Se perdete il flow, ripartite con un pull e fate merge nel vostro branch della più recente versione di develop.
-* Una volta completata la task, eseguiti i test ed accertato quindi il corretto funzionamento, pushate sul vostro branch l'ultima commit e richiedete il pull sul develop. Non pushare direttamente su develop! 
+* Una volta completata la task, eseguiti i test ed accertato quindi il corretto funzionamento, pushate sul vostro branch l'ultima commit e richiedete il pull sul develop. Non pushare direttamente su develop! Una volta completata la task, ricordatevi di eliminare il branch per tenere pulito il workspace.
 
 
 ## Autori
