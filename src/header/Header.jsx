@@ -59,7 +59,7 @@ export function Header() {
 	];
 
 	return (
-		<div>
+		<div className="pb-5">
 			<Menubar model={items} />
 		</div>
 	);
