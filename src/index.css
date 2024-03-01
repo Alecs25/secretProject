@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:sans-serif;
+}
+.mainContainer{
+    width: 100vw;
+    height: 100vh;
+    /* background-color: #393e46; */
+    background-color: #737373;
+    transition: 0.5s;
+}
+.mainContainer.light{
+    background-color: #7f7eff;
+}
