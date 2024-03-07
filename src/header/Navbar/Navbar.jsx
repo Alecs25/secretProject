@@ -1,11 +1,11 @@
 import React from "react";
 import "./Navbar.css"
-import logo_light from "../Assets/home.png"
-import logo_dark from "../Assets/home-b.png"
-import toggle_light from "../Assets/day.png"
- import toggle_dark from "../Assets/night.png"
- import search_light from "../Assets/search-w.png"
-import search_dark from "../Assets/search-b.png"
+import logo_light from "../assets/home.png"
+import logo_dark from "../assets/home-b.png"
+import toggle_light from "../assets/day.png"
+ import toggle_dark from "../assets/night.png"
+ import search_light from "../assets/search-w.png"
+import search_dark from "../assets/search-b.png"
 
 export function Navbar({theme, setTheme}){
     const toggle_mode=()=>{
