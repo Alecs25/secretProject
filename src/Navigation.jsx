@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router";
 import { Home } from "./pages/Home";
 import { PrimeReactProvider } from "primereact/api";
-import "primereact/resources/themes/lara-dark-purple/theme.css";
 import "/node_modules/primeflex/primeflex.css";
 
 export function Navigation() {
