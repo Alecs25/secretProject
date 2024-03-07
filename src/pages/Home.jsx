@@ -16,6 +16,7 @@ localStorage.setItem("current_theme", theme )
 				<div className="flex-3 h-4rem bg-primary font-bold text-center p-4 border-round">1</div>
 				<div className="flex-6 h-4rem text-center p-4 border-round mx-4">
 					<CarouselHome />
+					<PostsLists/>	
 				</div>
 				<div className="flex-3 h-4rem bg-primary font-bold text-center p-4 border-round">3</div>
 			</div>
