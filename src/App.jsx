@@ -11,6 +11,7 @@ function App() {
     <div className={`mainContainer ${theme}`}>
       <Navbar theme={theme} setTheme={setTheme}/>
       <Carousel/>
+      
     </div>
   );
 }
