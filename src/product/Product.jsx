@@ -1,12 +1,16 @@
 import TemplateDemo from "../header/Header";
-import "../product/product.css"
+import "../product/product.css";
 export function Product() {
   return (
-    <main className=".mainContainer">
-      <div>
-       <TemplateDemo/>
-        <section className=".firstimgsection">
-          <img src="https://sm.ign.com/ign_it/screenshot/default/final-fantasy-vii-rebirth-cover_zysw.jpg" alt="sottoNavbar" />
+    
+    <div >
+      <TemplateDemo />
+      <div className="flex flex-column flex-wrap justify-content-center">
+        <section className="SezioneTop">
+          <img
+            src="https://sm.ign.com/ign_it/screenshot/default/final-fantasy-vii-rebirth-cover_zysw.jpg"
+            alt="sottoNavbar"
+          />
         </section>
         <hr />
         <section>
@@ -14,9 +18,11 @@ export function Product() {
             <h2>{"Gioco.nome"}</h2>
           </div>
         </section>
-        <article>
-          <img src="" alt="immagine" />
-          <img src="" alt="immagine2" />
+        <article >
+          <img
+            src="https://www.rgj.com/gcdn/presto/2022/12/14/PREN/4d9d8337-96a2-4b6c-affc-01a43ad5019c-FF7_Crisis_Core_04.jpg?width=700&height=394&fit=crop&format=pjpg&auto=webp"
+            alt="immagine"
+          />
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, quia
             consectetur quisquam repellendus quam corporis fugit quas ea atque
@@ -35,7 +41,10 @@ export function Product() {
             blanditiis unde veniam laboriosam facere voluptas id incidunt. Animi
             nostrum corrupti iusto itaque accusamus deserunt, sequi ratione
             repellendus temporibus ex vitae dolores nobis architecto tempora{" "}
-            <img src="" alt="immagine 3" />
+            <img
+              src="https://www.truetrophies.com/imgs/l/073102/crisis-core.jpg"
+              alt="immagine 3"
+            />
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi,
             culpa illum. Corrupti perferendis sequi voluptatum totam enim sed
             necessitatibus magni, neque consequatur quis autem dolorem, harum
@@ -48,7 +57,10 @@ export function Product() {
             temporibus, quod odio accusamus nobis. Quae doloribus, aut tempore
             qui dolores sit beatae harum eaque repellendus praesentium, placeat
             dolore. Facere, aliquam illo accusantium adipisci nemo atque esse.{" "}
-            <img src="" alt="immagine 4" />
+            <img
+              src="https://fyre.cdn.sewest.net/ffvii-hub/64787720aed7bb35a2977f46/share-crisis-core-FtYtWO57Y.jpg"
+              alt="immagine 4"
+            />
           </p>
         </article>
         <article>
@@ -57,11 +69,17 @@ export function Product() {
             impedit nulla reprehenderit quibusdam blanditiis vero odio mollitia
             libero debitis laudantium, facilis assumenda. Eligendi ipsum, ut
             nisi rem aliquid repellendus tempore vel id alias cupiditate atque{" "}
-            <img src="" alt="immagine5" />
+            <img
+              src="https://fyre.cdn.sewest.net/ffvii-hub/64787720aed7bb35a2977f46/share-crisis-core-FtYtWO57Y.jpg"
+              alt="immagine5"
+            />
             doloribus assumenda. Nemo nisi quasi quaerat inventore similique
             earum reiciendis in dicta error ea? Officia!
           </p>
-          <img src="" alt="immagine 6" />
+          <img
+            src="https://www.allgamestaff.it/wp-content/uploads/2022/07/FFVII_Crisis_Core_Reunion_zack_fair.jpg"
+            alt="immagine 6"
+          />
         </article>
         <div>
           {/* <ARTICOLISTA /> */}
@@ -70,8 +88,7 @@ export function Product() {
           </div>
         </div>
         <hr />
-        <section>SEZIONE COMMENTI</section>
+        <section>SEZIONE COMMENTI</section></div>
       </div>
-    </main>
   );
 }
