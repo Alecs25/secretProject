@@ -26,7 +26,6 @@ export function PostsLists() {
 	}, []);
 
 	return (
-		<div>
 			<div className="flex flex-wrap gap-5">
 				{posts &&
 					posts.map((e, i) => (
@@ -41,6 +40,5 @@ export function PostsLists() {
 						</div>
 					))}
 			</div>
-		</div>
 	);
 }
