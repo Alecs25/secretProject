@@ -1,4 +1,4 @@
-import { Menubar } from "primereact/menubar";
+import { Navbar } from "./Navbar/Navbar";
 
 export function Header() {
 	const items = [
@@ -25,9 +25,7 @@ export function Header() {
 	];
 
 	return (
-		<div className="pb-5">
-			<Menubar model={items} />
-		</div>
+		<Navbar/>
 	);
 }
 

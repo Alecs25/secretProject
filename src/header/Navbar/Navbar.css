@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #222831;
+    background-color: rgba(24,24,24,255);
     padding: 15px 7%;
     transition: 0.5s;
 }

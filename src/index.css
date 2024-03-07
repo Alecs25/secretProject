@@ -8,7 +8,7 @@
     width: 100vw;
     height: 100vh;
     /* background-color: #393e46; */
-    background-color: #737373;
+    background-color: rgba(31,31,31,255);
     transition: 0.5s;
 }
 .mainContainer.light{
