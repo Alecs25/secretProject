@@ -1,24 +1,17 @@
-import { Navbar } from "../Navbar/Navbar";
-
+import TemplateDemo from "../header/Header";
+import "../product/product.css"
 export function Product() {
   return (
     <main className=".mainContainer">
       <div>
-        <Navbar />
-        <div>
-          <Link to="Qualsiasi">Qualsiasi</Link>|
-          <Link to="Qualsiasi">Playstation 5</Link>|
-          <Link to="Qualsiasi">Nintendo Switch</Link>|
-          <Link to="Qualsiasi">XBox Series X|S</Link>|
-          <Link to="Qualsiasi">PC Windows</Link>|
-        </div>
-        <section>
-          <img src="" alt="sottoNavbar" />
+       <TemplateDemo/>
+        <section className=".firstimgsection">
+          <img src="https://sm.ign.com/ign_it/screenshot/default/final-fantasy-vii-rebirth-cover_zysw.jpg" alt="sottoNavbar" />
         </section>
         <hr />
         <section>
           <div>
-            <h2>{Gioco.nome}</h2>
+            <h2>{"Gioco.nome"}</h2>
           </div>
         </section>
         <article>
@@ -71,9 +64,9 @@ export function Product() {
           <img src="" alt="immagine 6" />
         </article>
         <div>
-          <ARTICOLISTA />
+          {/* <ARTICOLISTA /> */}
           <div>
-            <p>pubblicato il {aricolo.data}</p>
+            <p>pubblicato il {"aricolo.data"}</p>
           </div>
         </div>
         <hr />
