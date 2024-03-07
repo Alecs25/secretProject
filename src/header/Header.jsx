@@ -63,10 +63,12 @@ export default function TemplateDemo({theme, setTheme}) {
 
     const start = <img alt="logo" src="https://primefaces.org/cdn/primereact/images/logo.png" height="40" className="mr-2"></img>;
     const end = (
-        <div className="flex align-items-center gap-2">
-            <InputText placeholder="Search" type="text" className="w-8rem sm:w-auto" />
-			<img src={theme == "dark" ? search_dark : search_light} alt="" />
+        <div className="flex align-items-center ">
 			<img onClick={()=>{toggle_mode()}}src={theme == "dark" ? toggle_light : toggle_dark} className="toggle-icon" />
+			<div className='navSearch'>
+            <input type="text" placeholder='Cerca' />
+			<img src={theme == "dark" ? search_dark : search_light} alt="" />
+			</div>
         </div>
     );
 
