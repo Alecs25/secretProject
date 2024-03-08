@@ -1,7 +1,4 @@
-*{
-    font-family:monospace;
-}
-.mainContainer{
+/* .mainContainer{
     width: 100%;
     height: 100vh;
     background-color: rgba(31,31,31,255);
@@ -10,4 +7,4 @@
 }
 .mainContainer.light{
     background-color: #ffffff;
-}
+} */

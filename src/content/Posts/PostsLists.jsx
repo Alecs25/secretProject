@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Card } from "primereact/card";
 import { Button } from "primereact/button";
 import { Image } from "primereact/image";
+import { Chip } from "primereact/chip";
 export function PostsLists() {
 	const [posts, setPosts] = useState(null);
 
@@ -32,6 +33,9 @@ export function PostsLists() {
 							<Card title={e.title}>
 								<Image src="https://www.html.am/images/html-codes/links/boracay-white-beach-sunset-300x225.jpg"></Image>
 								<p className="m-0">{e.body}</p>
+								{e.tags.map((t) => (
+									<Chip label={t}></Chip>
+								))}
 							</Card>
 						</div>
 					))}
