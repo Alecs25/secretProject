@@ -29,7 +29,7 @@ export function PostsLists() {
 			<div className="flex flex-wrap gap-5">
 				{posts &&
 					posts.map((e, i) => (
-						<div key={e.id} style={{ flex: " 1 1 32%" }} className="flex-basis-0 card flex justify-content-center">
+						<div key={i} style={{ flex: " 1 1 32%" }} className="flex-basis-0 card flex justify-content-center">
 							<Card title={e.title}>
 								<Image src="https://www.html.am/images/html-codes/links/boracay-white-beach-sunset-300x225.jpg"></Image>
 								<p className="m-0">{e.body}</p>

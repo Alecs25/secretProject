@@ -4,6 +4,7 @@ import { PrimeReactProvider } from "primereact/api";
 import "/node_modules/primeflex/primeflex.css";
 import "primeicons/primeicons.css";
 import { Header } from "./header/Header";
+import { Product } from "./pages/Product";
 import { Footer } from "./footer/Footer";
 
 export function Navigation() {
@@ -15,7 +16,8 @@ export function Navigation() {
 				{/* ▼ Rendering del header ▼ */}
 				<Header />
 				<Routes>
-					<Route path="/" element={<Home />}></Route>
+					<Route path="/" element={<Home />} />
+					<Route path="/product" element={<Product />} />
 				</Routes>
 				{/* ▼ Rendering del footer ▼ */}
 				<Footer />

@@ -3,6 +3,7 @@
     height: 100vh;
     background-color: rgba(31,31,31,255);
     transition: 0.5s;
+    
 }
 .mainContainer.light{
     background-color: #ffffff;
