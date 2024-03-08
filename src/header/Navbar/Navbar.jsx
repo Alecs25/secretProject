@@ -6,11 +6,13 @@ import toggle_dark from "../assets/night.png";
 import { useContext, useState } from "react";
 import { PrimeReactContext } from "primereact/api";
 import { Image } from "primereact/image";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Navbar() {
 	const { changeTheme } = useContext(PrimeReactContext);
 	const themes = ["bootstrap4-dark-purple", "bootstrap4-light-purple"];
 	const [currentTheme, setCurrentTheme] = useState(themes[0]);
+	const navigate = useNavigate();
 
 	function handleThemeChange() {
 		if (currentTheme === "bootstrap4-dark-purple") {
@@ -35,10 +37,12 @@ export function Navbar() {
 		{
 			label: "Home",
 			icon: "pi pi-home",
+			command: () => navigate("/"),
 		},
 		{
 			label: "Novità",
 			icon: "pi pi-star",
+			command: () => navigate("/product"),
 		},
 		{
 			label: "Piattaforme",

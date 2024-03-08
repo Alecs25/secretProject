@@ -12,8 +12,8 @@ export function Navigation() {
 			<div className="flex flex-column  m-auto justify-content-center gap-5 w-10">
 				<Header />
 				<Routes>
-					<Route path="/" element={<Home />}/>
-					<Route path="product" element={<Product/>}/>
+					<Route path="/" element={<Home />} />
+					<Route path="/product" element={<Product />} />
 				</Routes>
 			</div>
 		</PrimeReactProvider>
