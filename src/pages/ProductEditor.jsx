@@ -1,38 +1,28 @@
-
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Editor } from "primereact/editor";
-import * as data from './articoli.json';
+import { Button } from "primereact/button";
+import { ArticlesContext } from "../content/articles/ArticlesLoader";
 
 export function EditorProduct() {
-    const [text, setText] = useState('');
-    const [article, setArticole]=useState('')
-    const myRequest = new Request("./articoli.json");
-    const name = data;
-    async function Fetch(){
-        try {
-            const call = await fetch(myRequest)
-            const response = await call.json()
-            console.log(name)
+	const [text, setText] = useState("");
+	const articles = useContext(ArticlesContext);
 
-     
-        } catch (error) {
-         console.log(error)   
-        }
-      
-    }
-    function Pusher(e){
-        e.preventDefault();
-        data.posts.push(text)
-    }
-useEffect(()=>{console.log(name)},[])
+	function handleSubmit(e) {
+		try {
+			e.preventDefault();
+			const article = {
+				body: text,
+			};
+			articles[1]([...articles[0], article]);
+			console.log(text);
+			console.log(articles);
+		} catch (error) {}
+	}
 
-    return (
-        <form onSubmit={Pusher}>
-        <div className="card">
-            <Editor value={text} onTextChange={(e) => setText(e.htmlValue)} style={{ height: '320px' }} />
-        </div>
-        <button>mammma</button>
-        </form>
-    )
+	return (
+		<form onSubmit={handleSubmit} className="card">
+			<Editor value={text} onTextChange={(e) => setText(e.htmlValue)} style={{ height: "320px" }} />
+			<Button label="Mamma"></Button>
+		</form>
+	);
 }
-     

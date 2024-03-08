@@ -7,7 +7,7 @@ import { Header } from "./header/Header";
 import { Product } from "./pages/Product";
 import { Footer } from "./footer/Footer";
 import { EditorProduct } from "./pages/ProductEditor";
-
+import { ArticlesLoader } from "./content/articles/ArticlesLoader";
 
 export function Navigation() {
 	return (
@@ -17,11 +17,13 @@ export function Navigation() {
 			<div className="flex flex-column  m-auto justify-content-center gap-5 w-10">
 				{/* ▼ Rendering del header ▼ */}
 				<Header />
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/product" element={<Product />} />
-					<Route path="/editor" element={<EditorProduct/>}/>
-				</Routes>
+				<ArticlesLoader>
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/product" element={<Product />} />
+						<Route path="/editor" element={<EditorProduct />} />
+					</Routes>
+				</ArticlesLoader>
 				{/* ▼ Rendering del footer ▼ */}
 				<Footer />
 			</div>
