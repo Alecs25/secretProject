@@ -15,10 +15,10 @@ export function Navbar() {
 	function handleThemeChange() {
 		if (currentTheme === "bootstrap4-dark-purple") {
 			changeTheme(themes[0], themes[1], "app-theme");
-			setCurrentTheme(themes[1]);
+			setCurrentTheme(() => themes[1]);
 		} else {
 			changeTheme(themes[1], themes[0], "app-theme");
-			setCurrentTheme(themes[0]);
+			setCurrentTheme(() => themes[0]);
 		}
 	}
 	const itemRenderer = (item) => (
