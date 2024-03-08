@@ -8,6 +8,7 @@ import { Product } from "./pages/Product";
 import { Footer } from "./footer/Footer";
 import { EditorProduct } from "./pages/ProductEditor";
 import { ArticlesLoader } from "./content/articles/ArticlesLoader";
+import { Login } from "./pages/Login";
 
 export function Navigation() {
 	return (
@@ -21,6 +22,7 @@ export function Navigation() {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/product" element={<Product />} />
+						<Route path="/login" element={<Login />} />
 						<Route path="/editor" element={<EditorProduct />} />
 					</Routes>
 				</ArticlesLoader>
