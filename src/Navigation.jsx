@@ -6,6 +6,7 @@ import "primeicons/primeicons.css";
 import { Header } from "./header/Header";
 import { Product } from "./pages/Product";
 import { Footer } from "./footer/Footer";
+import { Login } from "./pages/Login";
 
 export function Navigation() {
 	return (
@@ -16,8 +17,11 @@ export function Navigation() {
 				{/* ▼ Rendering del header ▼ */}
 				<Header />
 				<Routes>
+					
 					<Route path="/" element={<Home />} />
 					<Route path="/product" element={<Product />} />
+					<Route path="/login" element={<Login />} />
+
 				</Routes>
 				{/* ▼ Rendering del footer ▼ */}
 				<Footer />
