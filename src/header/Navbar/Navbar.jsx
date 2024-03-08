@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import { PrimeReactContext } from "primereact/api";
 import { Image } from "primereact/image";
 import { Link, useNavigate } from "react-router-dom";
+import { Button } from "primereact/button";
 
 export function Navbar() {
 	const { changeTheme } = useContext(PrimeReactContext);
@@ -94,6 +95,11 @@ export function Navbar() {
 				<i className="pi pi-search" />
 				<InputText placeholder="Search" />
 			</span>
+
+			<a href="/login" target="_blank" rel="noopener noreferrer" className="p-button font-regular" style={{textDecoration: "none"}}>
+                Accedi
+            </a>
+
 		</div>
 	);
 
