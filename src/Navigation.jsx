@@ -6,6 +6,8 @@ import "primeicons/primeicons.css";
 import { Header } from "./header/Header";
 import { Product } from "./pages/Product";
 import { Footer } from "./footer/Footer";
+import { EditorProduct } from "./pages/ProductEditor";
+import { ArticlesLoader } from "./content/articles/ArticlesLoader";
 import { Login } from "./pages/Login";
 
 export function Navigation() {
@@ -16,13 +18,14 @@ export function Navigation() {
 			<div className="flex flex-column  m-auto justify-content-center gap-5 w-10">
 				{/* ▼ Rendering del header ▼ */}
 				<Header />
-				<Routes>
-					
-					<Route path="/" element={<Home />} />
-					<Route path="/product" element={<Product />} />
-					<Route path="/login" element={<Login />} />
-
-				</Routes>
+				<ArticlesLoader>
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/product" element={<Product />} />
+						<Route path="/login" element={<Login />} />
+						<Route path="/editor" element={<EditorProduct />} />
+					</Routes>
+				</ArticlesLoader>
 				{/* ▼ Rendering del footer ▼ */}
 				<Footer />
 			</div>

@@ -38,35 +38,42 @@ export function Navbar() {
 		{
 			label: "Home",
 			icon: "pi pi-home",
+			id: 1,
 			command: () => navigate("/"),
 		},
 		{
 			label: "Novità",
 			icon: "pi pi-star",
+			id: 2,
 			command: () => navigate("/product"),
 		},
 		{
 			label: "Piattaforme",
 			icon: "pi pi-search",
+			id: 3,
 			items: [
 				{
 					label: "Xbox Series X|S",
 					icon: "pi pi-bolt",
+					id: 1,
 					template: itemRenderer,
 				},
 				{
 					label: "Playstation 5",
 					icon: "pi pi-server",
+					id: 2,
 					template: itemRenderer,
 				},
 				{
 					label: "Nintendo Switch",
 					icon: "pi pi-pencil",
+					id: 3,
 					template: itemRenderer,
 				},
 				{
 					label: "Pc Windows",
 					icon: "pi pi-palette",
+					id: 4,
 					template: itemRenderer,
 				},
 			],
@@ -75,6 +82,7 @@ export function Navbar() {
 			label: "Contatti",
 			icon: "pi pi-envelope",
 			badge: 3,
+			id: 4,
 			template: itemRenderer,
 		},
 	];
