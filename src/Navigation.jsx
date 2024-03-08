@@ -6,6 +6,8 @@ import "primeicons/primeicons.css";
 import { Header } from "./header/Header";
 import { Product } from "./pages/Product";
 import { Footer } from "./footer/Footer";
+import { EditorProduct } from "./pages/ProductEditor";
+
 
 export function Navigation() {
 	return (
@@ -18,6 +20,7 @@ export function Navigation() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/product" element={<Product />} />
+					<Route path="/editor" element={<EditorProduct/>}/>
 				</Routes>
 				{/* ▼ Rendering del footer ▼ */}
 				<Footer />
