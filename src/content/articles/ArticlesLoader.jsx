@@ -6,7 +6,7 @@ export const ArticlesContext = createContext(null);
 export function ArticlesLoader({ children }) {
 	const [articles, setArticles] = useState(data.posts);
 	const store = [articles, setArticles];
-	useEffect(() => {}, []);
+
 
 	return <ArticlesContext.Provider value={store}>{children}</ArticlesContext.Provider>;
 }
