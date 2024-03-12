@@ -13,7 +13,7 @@ export function EditorProduct() {
 			const article = {
 				body: text,
 			};
-			articles[1]([...articles[0], article]);
+			articles[1]([...articles[0], article]);	
 			console.log(text);
 			console.log(articles);
 		} catch (error) {}
