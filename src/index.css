@@ -1,0 +1,21 @@
+body{
+    width: 100vw;
+    height: 100vh;
+}
+.welcome{
+    height: 50px;
+    width: 300px;
+    background-color: aquamarine;
+    border: solid 2px grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+.conteiner{
+    border: solid grey 2px;
+    background-color: rgba(50, 205, 109, 0.283);
+    margin: 10px;
+    padding: 30px;
+    user-select: none;
+}
