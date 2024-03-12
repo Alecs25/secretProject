@@ -1,0 +1,18 @@
+.divbigmama{
+    height: 932px;
+    width: 852px;
+    
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divcardconteiner {
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    gap: 16px; 
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+  }

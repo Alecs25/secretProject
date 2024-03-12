@@ -1,0 +1,58 @@
+#root{
+    --altezza:500px
+}
+.divcard{
+    display: flex;
+    height: 300px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+}
+.divcard1{
+    display: flex;
+    border: solid 2px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    position: relative;
+}
+
+.title{
+    height: 4%;
+    position: absolute;
+    top: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.title1{
+    margin: 0;
+    padding: 0;
+}
+.immage0991{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    
+    top: 10%;
+}
+.description{
+    position: absolute;
+    margin-left: 4%;
+    font-size: 70%;
+    bottom: 10%;
+}
+.buttondiv{
+    position: absolute;
+    bottom: 3%;
+}
