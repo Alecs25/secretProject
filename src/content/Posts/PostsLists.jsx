@@ -5,14 +5,12 @@ import { Image } from "primereact/image";
 import { Chip } from "primereact/chip";
 import { ArticlesContext } from "../articles/ArticlesLoader";
 import parse from "html-react-parser";
-
-
-
+import { Link } from "react-router-dom";
 
 export function PostsLists() {
 	// const [posts, setPosts] = useState(null);
 	const articles = useContext(ArticlesContext);
-	const parser = new DOMParser();
+
 	// useEffect(() => {
 	// 	async function FetchPosts() {
 	// 		try {
@@ -37,11 +35,17 @@ export function PostsLists() {
 			{articles[0] &&
 				articles[0].map((e, i) => (
 					<div key={i} style={{ flex: " 1 1 32%" }} className="flex-basis-0 card flex justify-content-center">
-						<Card title={e.title}>
-							<Image src="https://www.html.am/images/html-codes/links/boracay-white-beach-sunset-300x225.jpg"></Image>
-							{parse(e.body)}
-							{e.tags && e.tags.map((t) => <Chip label={t}></Chip>)}
-						</Card>
+						<Link style={{ textDecoration: "none" }} to={`article/` + e.id}>
+							<Card title={e.title}>
+								<div className="flex flex-column align-items-center gap-3">
+									<Image src="https://www.html.am/images/html-codes/links/boracay-white-beach-sunset-300x225.jpg"></Image>
+									{parse(e.body)}
+									<div className="flex gap-3 justify-content-center">
+										{e.tags && e.tags.map((t) => <Chip key={t} label={t}></Chip>)}
+									</div>
+								</div>
+							</Card>
+						</Link>
 					</div>
 				))}
 		</div>

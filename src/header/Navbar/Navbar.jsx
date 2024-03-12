@@ -45,35 +45,41 @@ export function Navbar() {
 			label: "Novità",
 			icon: "pi pi-star",
 			id: 2,
-			command: () => navigate("/product"),
+			// command: () => navigate("/product"),
+		},
+		{
+			label: "Editor",
+			icon: "pi pi-wrench",
+			id: 3,
+			command: () => navigate("/editor"),
 		},
 		{
 			label: "Piattaforme",
 			icon: "pi pi-search",
-			id: 3,
+			id: 4,
 			items: [
 				{
 					label: "Xbox Series X|S",
 					icon: "pi pi-bolt",
-					id: 1,
+					id: 5,
 					template: itemRenderer,
 				},
 				{
 					label: "Playstation 5",
 					icon: "pi pi-server",
-					id: 2,
+					id: 6,
 					template: itemRenderer,
 				},
 				{
 					label: "Nintendo Switch",
 					icon: "pi pi-pencil",
-					id: 3,
+					id: 7,
 					template: itemRenderer,
 				},
 				{
 					label: "Pc Windows",
 					icon: "pi pi-palette",
-					id: 4,
+					id: 8,
 					template: itemRenderer,
 				},
 			],
@@ -82,7 +88,7 @@ export function Navbar() {
 			label: "Contatti",
 			icon: "pi pi-envelope",
 			badge: 3,
-			id: 4,
+			id: 9,
 			template: itemRenderer,
 		},
 	];
@@ -104,10 +110,15 @@ export function Navbar() {
 				<InputText placeholder="Search" />
 			</span>
 
-			<a href="/login" target="_blank" rel="noopener noreferrer" className="p-button font-regular" style={{textDecoration: "none"}}>
-                Accedi
-            </a>
-
+			<a
+				href="/login"
+				target="_blank"
+				rel="noopener noreferrer"
+				className="p-button font-regular"
+				style={{ textDecoration: "none" }}
+			>
+				Accedi
+			</a>
 		</div>
 	);
 
