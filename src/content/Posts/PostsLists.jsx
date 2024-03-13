@@ -6,6 +6,7 @@ import { Chip } from "primereact/chip";
 import { ArticlesContext } from "../articles/ArticlesLoader";
 import parse from "html-react-parser";
 import { Link } from "react-router-dom";
+import "./PostsLists.css"
 
 export function PostsLists() {
 	// const [posts, setPosts] = useState(null);
@@ -34,14 +35,13 @@ export function PostsLists() {
 		<div className="flex flex-wrap gap-5">
 			{articles[0] &&
 				articles[0].map((e, i) => (
-					<div key={i} style={{ flex: " 1 1 32%" }} className="flex-basis-0 card flex justify-content-center">
+					<div key={i} style={{ flex: " 1 1 30%" }} className="flex-basis-0 card flex justify-content-center">
 						<Link style={{ textDecoration: "none" }} to={`article/` + e.id}>
-							<Card title={e.title}>
+							<Card  title={e.title}>
 								<div className="flex flex-column align-items-center gap-3">
-									<Image src="https://www.html.am/images/html-codes/links/boracay-white-beach-sunset-300x225.jpg"></Image>
-									{parse(e.body)}
+									<p>{parse(e.body)}</p>
 									<div className="flex gap-3 justify-content-center">
-										{e.tags && e.tags.map((t) => <Chip key={t} label={t}></Chip>)}
+										<button className="cardBtn">Scopri di più <img src="/secretProject/src/assets/right.png" alt="" /> </button>
 									</div>
 								</div>
 							</Card>
