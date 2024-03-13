@@ -13,7 +13,7 @@ export function Navigation() {
 		<PrimeReactProvider>
 			{/* La width  dei componenti (header, body e footer) è gestita qui, w-10 indica una width del 83.33% 
 			il width dei componenti dentro questo div si baserà sul 83.33% della viewport*/}
-			<div className="flex flex-column  m-auto justify-content-center gap-5 w-10">
+			<div style={{position:"relative"}} className="flex flex-column  m-auto justify-content-center gap-5 w-10">
 				{/* ▼ Rendering del header ▼ */}
 				<Header />
 				<Routes>

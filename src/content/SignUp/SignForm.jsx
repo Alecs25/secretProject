@@ -39,7 +39,7 @@ export function SignForm() {
   }
 
   function HandleSubmit(event) {
-    event.preventDefault() // ti previene dei comportamenti che ha di base il form(Es. residui)
+    event.preventDefault() 
     setSubmitted(true)
     console.log(data)
   }
@@ -47,7 +47,7 @@ export function SignForm() {
 
   return (
     <div className="cardSign">
-      <h2 style={{color: "#565efa"}}>Iscriviti</h2>
+      <h2 className="loginH2" style={{color: "#565efa"}}>Iscriviti</h2>
       <form onSubmit={HandleSubmit} className="form-control">
         <input
           className="Username"
@@ -88,7 +88,7 @@ export function SignForm() {
           <button className="privacyButton" type="button">Conferma</button>
         </div>}
         <div className="button-container">
-          <button type="submit"disabled={!data.username || !data.password || !data.email}>
+          <button className="loginButton" type="submit"disabled={!data.username || !data.password || !data.email}>
            Iscriviti
           </button>
         </div>

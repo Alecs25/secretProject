@@ -1,15 +1,11 @@
 import { useState } from "react"
 import "./LoginForm.css"
+import { SignForm } from "./SignForm"
 
 export function LoginForm() {
 
     const[data, setData] = useState(createData())
-
-    // useState per rendere personalizzabile il componente "Login" - in forse, da revisionare con Matteo e Alex
-
-    const [theme, setTheme] = useState('light');
-    const [layout, setLayout] = useState('default');
-    const [backgroundImage, setBackgroundImage] = useState('');
+    const [loginButton, setLoginButton] = useState(false)
   
 
 
@@ -34,20 +30,9 @@ export function LoginForm() {
         console.log(data)
     }
 
-    // cambio del tema
-  const handleThemeChange = (newTheme) => {
-    setTheme(newTheme);
-  };
-
-  // cambio del layout
-  const handleLayoutChange = (newLayout) => {
-    setLayout(newLayout);
-  };
-
-  // cambio dell'immagine di sfondo
-  const handleBackgroundChange = (event) => {
-    setBackgroundImage(event.target.value);
-  };
+  const onClickSignIn = () => {
+    <SignForm />
+  }
 
 
 
@@ -76,6 +61,9 @@ export function LoginForm() {
               <button type="submit"disabled={!data.username || !data.password || !data.email}>
               Accedi
               </button>
+            </div>            
+            <div className="button-container">
+              <button onClick={onClickSignIn} type="button" style={{textDecoration: "none"}}>Non hai un'account? Iscriviti</button>
             </div>
           </form>
         </div>

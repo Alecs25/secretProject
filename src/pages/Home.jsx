@@ -1,5 +1,6 @@
 import { CarouselHome } from "../content/Carousel/CarouselHome";
 import { PostsLists } from "../content/Posts/PostsLists";
+import { LoginModal } from "../content/SignUp/loginModal";
 
 export function Home() {
 	return (
@@ -7,7 +8,6 @@ export function Home() {
 			<div className="w-3 h-4rem bg-primary font-bold text-center p-4 border-round">1</div>
 			<div className="w-8  text-center p-4 border-round mx-4">
 				<CarouselHome />
-				<PostsLists />
 			</div>
 			<div className="w-3 h-4rem bg-primary font-bold text-center p-4 border-round">3</div>
 		</div>
