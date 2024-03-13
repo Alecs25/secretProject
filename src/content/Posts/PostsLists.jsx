@@ -5,6 +5,7 @@ import { Image } from "primereact/image";
 import { Chip } from "primereact/chip";
 import { ArticlesContext } from "../articles/ArticlesLoader";
 import parse from "html-react-parser";
+import { Link } from "react-router-dom";
 
 
 
@@ -37,11 +38,13 @@ export function PostsLists() {
 			{articles[0] &&
 				articles[0].map((e, i) => (
 					<div key={i} style={{ flex: " 1 1 32%" }} className="flex-basis-0 card flex justify-content-center">
+					<Link to={"/product"} className="no-underline">
 						<Card title={e.title}>
 							<Image src="https://www.html.am/images/html-codes/links/boracay-white-beach-sunset-300x225.jpg"></Image>
 							{parse(e.body)}
 							{e.tags && e.tags.map((t) => <Chip label={t}></Chip>)}
 						</Card>
+						</Link>
 					</div>
 				))}
 		</div>
