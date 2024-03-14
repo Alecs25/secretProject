@@ -1,11 +1,13 @@
 import { useState } from "react"
 import "./LoginForm.css"
 import { SignForm } from "./SignForm"
+import { LoginModal } from "./loginModal"
 
 export function LoginForm() {
 
     const[data, setData] = useState(createData())
     const [loginButton, setLoginButton] = useState(false)
+    const [SignUpButton, setSignUpButton] = useState(false)
   
 
 
@@ -30,9 +32,6 @@ export function LoginForm() {
         console.log(data)
     }
 
-  const onClickSignIn = () => {
-    <SignForm />
-  }
 
 
 
@@ -63,11 +62,12 @@ export function LoginForm() {
               </button>
             </div>            
             <div className="button-container">
-              <button onClick={onClickSignIn} type="button" style={{textDecoration: "none"}}>Non hai un'account? Iscriviti</button>
+              <button onClick={()=>setSignUpButton(true)} type="button" style={{textDecoration: "none"}}>Non hai un'account? Iscriviti</button>
             </div>
+            <LoginModal isVisible={SignUpButton} onClose={()=> setSignUpButton(false)} children={<SignForm/>}></LoginModal>
           </form>
+
         </div>
         </div>
       );
     }
-    

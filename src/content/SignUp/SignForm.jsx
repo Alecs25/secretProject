@@ -38,17 +38,12 @@ export function SignForm() {
     setPasswordError(data.password !== event.target.value);
   }
 
-  function HandleSubmit(event) {
-    event.preventDefault() 
-    setSubmitted(true)
-    console.log(data)
-  }
+ 
 
 
   return (
     <div className="cardSign">
       <h2 className="loginH2" style={{color: "#565efa"}}>Iscriviti</h2>
-      <form onSubmit={HandleSubmit} className="form-control">
         <input
           className="Username"
           placeholder="Username"
@@ -92,7 +87,6 @@ export function SignForm() {
            Iscriviti
           </button>
         </div>
-      </form>
     </div>
   );
 }

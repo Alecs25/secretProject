@@ -57,13 +57,6 @@
     padding: 10px;
   }
   
-  .privacy {
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-    color: black;
-    font-size: small;
-  }
   
   .textPassword {
     font-family: helvetica;
@@ -71,7 +64,7 @@
     color: rgb(210, 0, 0);
   }
   
-  button {
+  .loginButton {
     border-radius: 8px;
     border: 1px solid transparent;
     font-size: 1em;
@@ -102,4 +95,6 @@
     cursor: not-allowed;
     padding: 7px;
   }
-  
+  .distance-card{
+    margin-top: 5% ;
+  }
