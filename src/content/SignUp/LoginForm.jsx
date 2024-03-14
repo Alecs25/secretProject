@@ -52,34 +52,38 @@ export function LoginForm() {
 
 
     return (
-        <div className="Container">
-        <div className="cardLogin">
-          <h2 style={{color: "#565efa"}}>Accedi</h2>
-          <form onSubmit={HandleSubmit} className="form-control">
-            <input
-              className="Username"
-              placeholder="Username"
-              onChange={HandleUsernameChange}
-              name="username"
-              type="text"
-              value={data.username}
-            />
-            <input
-              className="Password"
-              placeholder="Password"
-              onChange={HandlePasswordChange}
-              name="password"
-              type="password"
-              value={data.password}
-            />
-            <div className="button-container">
-              <button type="submit"disabled={!data.username || !data.password || !data.email}>
-              Accedi
-              </button>
-            </div>
-          </form>
-        </div>
-        </div>
-      );
+			<div className="Container">
+				<div className="cardLogin">
+					<h2 style={{ color: "#565efa" }}>Accedi</h2>
+					<form onSubmit={HandleSubmit} className="form-control">
+						<input
+							className="Username"
+							placeholder="Username"
+							onChange={HandleUsernameChange}
+							name="username"
+							type="text"
+							value={data.username}
+						/>
+						<input
+							className="Password"
+							placeholder="Password"
+							onChange={HandlePasswordChange}
+							name="password"
+							type="password"
+							value={data.password}
+						/>
+						<div className="button-container">
+							<button
+								className="button-signup"
+								type="submit"
+								disabled={!data.username || !data.password || !data.email}
+							>
+								Accedi
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		);
     }
     
