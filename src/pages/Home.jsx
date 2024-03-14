@@ -8,6 +8,7 @@ export function Home() {
 			<div className="w-3 h-4rem bg-primary font-bold text-center p-4 border-round">1</div>
 			<div className="text-center p-4 border-round mx-4">
 				<CarouselHome />
+				<PostsLists/>
 			</div>
 			<div className="w-3 h-4rem bg-primary font-bold text-center p-4 border-round">3</div>
 		</div>

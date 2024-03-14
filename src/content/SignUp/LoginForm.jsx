@@ -64,9 +64,10 @@ export function LoginForm() {
             <div className="button-container">
               <button onClick={()=>setSignUpButton(true)} type="button" style={{textDecoration: "none"}}>Non hai un'account? Iscriviti</button>
             </div>
+             </form>
+            <div className="card-signup">
             <LoginModal isVisible={SignUpButton} onClose={()=> setSignUpButton(false)} children={<SignForm/>}></LoginModal>
-          </form>
-
+            </div>
         </div>
         </div>
       );

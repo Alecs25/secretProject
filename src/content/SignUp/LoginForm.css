@@ -98,3 +98,10 @@
   .distance-card{
     margin-top: 5% ;
   }
+  .card-signup{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 17%;
+    margin-top: -2%;
+  }
