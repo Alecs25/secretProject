@@ -6,8 +6,10 @@ import "primeicons/primeicons.css";
 import { Header } from "./header/Header";
 import { Product } from "./pages/Product";
 import { Footer } from "./footer/Footer";
-import { SignForm } from "./content/SignUp/SignForm";
+import { EditorProduct } from "./pages/ProductEditor";
+import { ArticlesLoader } from "./content/articles/ArticlesLoader";
 import { Login } from "./pages/Login";
+import { ArticleTemplate } from "./pages/Template/ArticleTemplate";
 
 export function Navigation() {
 	return (
@@ -17,15 +19,17 @@ export function Navigation() {
 			<div style={{position:"relative"}} className="flex flex-column  m-auto justify-content-center gap-5">
 				{/* ▼ Rendering del header ▼ */}
 				<Header />
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/product" element={<Product />} />
-					<Route path="/SignUp" element={<SignForm/>}></Route>
-					<Route path="/Login" element={<Login/>}></Route>
-				</Routes>
-				{/* ▼ Rendering del footer ▼ */}
-				<Footer />
-			</div>
+				<ArticlesLoader>
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/product" element={<Product />} />
+						<Route path="/login" element={<Login />} />
+						<Route path="/editor" element={<EditorProduct />} />
+						<Route path="/article/:articleId"  element={<ArticleTemplate />} />
+					</Routes>
+					<Footer />
+				</ArticlesLoader>
+				</div>
 		</PrimeReactProvider>
 	);
 }
