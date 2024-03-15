@@ -91,7 +91,7 @@ export function SignForm() {
 					</div>
 				)}
 				<div className="button-container">
-					<button className="button-signup" type="submit" disabled={!data.username || !data.password || !data.email}>
+					<button className="loginButton" type="submit" disabled={!data.username || !data.password || !data.email}>
 						Iscriviti
 					</button>
 				</div>

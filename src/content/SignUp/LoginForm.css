@@ -12,7 +12,7 @@
   .cardLogin {
     display: flex;
     flex-direction: column;
-    background-color: #bababa;
+    background-color: #212121;
     border-radius: 8px;
     box-shadow: 0 4px 40px rgba(24, 24, 24, 0.1);
     padding: 20px;
@@ -54,15 +54,9 @@
   .button-container {
     margin-top: 30px;
     text-align: center;
+    padding: 10px;
   }
   
-  .privacy {
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-    color: black;
-    font-size: small;
-  }
   
   .textPassword {
     font-family: helvetica;
@@ -70,7 +64,7 @@
     color: rgb(210, 0, 0);
   }
   
-  .button-signup {
+  .loginButton {
     border-radius: 8px;
     border: 1px solid transparent;
     font-size: 1em;
@@ -79,19 +73,35 @@
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
+    padding: 10px;
   }
   
   .button-container button {
-    background-color:  #565efa;
-    color: #fff;
+    background-color: #212121;
+    color: #565ee6;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: small;
-  }
+    padding: 10px;
+}
+
+.button-container button:hover {
+  background-color: #151515;
+}
   
   .button-container button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+    padding: 7px;
   }
-  
+  .distance-card{
+    margin-top: 5% ;
+  }
+  .card-signup{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 17%;
+    margin-top: -2%;
+  }

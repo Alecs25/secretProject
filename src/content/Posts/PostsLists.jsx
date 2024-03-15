@@ -6,6 +6,10 @@ import { Chip } from "primereact/chip";
 import { ArticlesContext } from "../articles/ArticlesLoader";
 import parse from "html-react-parser";
 import { Link } from "react-router-dom";
+import { SassColor } from "sass";
+import arrowBtn from "../../assets/angle-small-right.png"
+import "./PostLists.css"
+
 
 export function PostsLists() {
 	// const [posts, setPosts] = useState(null);
@@ -34,17 +38,15 @@ export function PostsLists() {
 		<div className="flex flex-wrap gap-5">
 			{articles[0] &&
 				articles[0].map((e, i) => (
-					<div key={i} style={{ flex: " 1 1 32%" }} className="flex-basis-0 card flex justify-content-center">
-						<Link style={{ textDecoration: "none" }} to={`article/` + e.id}>
-							<Card title={e.title}>
-								<div className="flex flex-column align-items-center gap-3">
-									<Image src="https://www.html.am/images/html-codes/links/boracay-white-beach-sunset-300x225.jpg"></Image>
-									{parse(e.body)}
-									<div className="flex gap-3 justify-content-center">
-										{e.tags && e.tags.map((t) => <Chip key={t} label={t}></Chip>)}
-									</div>
-								</div>
-							</Card>
+					<div key={i}  className="card-wrapper">
+					<Link to={"/product"} className="no-underline">
+						<Card title={e.title}>
+							<p className="card-description ellipsis"><span className="text-concat">{parse(e.body)}</span></p>
+							<div className="flex align-items-center ">
+							<button className="cardBtn flex	align-items-center">Scopri di più <img src={arrowBtn} style={{width:"17px"}} />
+							 </button>
+							</div>
+						</Card>
 						</Link>
 					</div>
 				))}

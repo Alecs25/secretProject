@@ -1,4 +1,4 @@
-.h2 {
+.loginH2 {
   color: black;
 }
 
@@ -42,7 +42,7 @@
   padding: 2px
 }
 
-.button-container {
+.loginButton-container {
   margin-top: 30px;
   text-align: center;
 }
@@ -61,7 +61,7 @@
   color: rgb(210, 0, 0);
 }
 
-.button-signup {
+.loginButton {
   border-radius: 8px;
   border: 1px solid transparent;
   font-size: 1em;
@@ -70,18 +70,21 @@
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  padding: 10px;
 }
 
-.button-container button {
+.loginButton-container .loginButton {
   background-color: #565efa;
   color: #fff;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: small;
+  padding: 10px;
 }
 
-.button-container button:disabled {
+.loginButton-container .loginButton:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+  padding: 10px;
 }

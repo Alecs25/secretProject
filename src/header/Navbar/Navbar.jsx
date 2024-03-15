@@ -7,9 +7,11 @@ import { useContext, useState } from "react";
 import { PrimeReactContext } from "primereact/api";
 import { Image } from "primereact/image";
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "primereact/button";
+import { LoginModal } from "../../content/SignUp/loginModal";
+import { LoginForm } from "../../content/SignUp/LoginForm";
 
 export function Navbar() {
+	const [showModal, setShowModal] = useState(false) // per gestire i forms Accedi e Iscriviti con un Modal
 	const { changeTheme } = useContext(PrimeReactContext);
 	const themes = ["bootstrap4-dark-purple", "bootstrap4-light-purple"];
 	const [currentTheme, setCurrentTheme] = useState(themes[0]);
@@ -63,12 +65,14 @@ export function Navbar() {
 					icon: "pi pi-bolt",
 					id: 5,
 					template: itemRenderer,
+					command: ()=> navigate("/SignUp")
 				},
 				{
 					label: "Playstation 5",
 					icon: "pi pi-server",
 					id: 6,
 					template: itemRenderer,
+					command: ()=> navigate("/Login")
 				},
 				{
 					label: "Nintendo Switch",
@@ -109,22 +113,14 @@ export function Navbar() {
 				<i className="pi pi-search" />
 				<InputText placeholder="Search" />
 			</span>
-
-			<a
-				href="/login"
-				target="_blank"
-				rel="noopener noreferrer"
-				className="p-button font-regular"
-				style={{ textDecoration: "none" }}
-			>
-				Accedi
-			</a>
+			<button onClick={() => setShowModal(true)} className="p-button font-regular">Accedi</button>
 		</div>
 	);
 
 	return (
 		<div className="card">
-			<Menubar model={items} start={start} end={end} />
+		<LoginModal isVisible={showModal} onClose={() => setShowModal(false)}><LoginForm/></LoginModal>
+		<Menubar model={items} start={start} end={end} />
 		</div>
 	);
 }
