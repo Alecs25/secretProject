@@ -10,6 +10,7 @@ import { EditorProduct } from "./pages/ProductEditor";
 import { ArticlesLoader } from "./content/articles/ArticlesLoader";
 import { Login } from "./pages/Login";
 import { ArticleTemplate } from "./pages/Template/ArticleTemplate";
+import { ChiSiamo } from "./pages/Chi_siamo";
 
 export function Navigation() {
 	return (
@@ -26,6 +27,7 @@ export function Navigation() {
 						<Route path="/login" element={<Login />} />
 						<Route path="/editor" element={<EditorProduct />} />
 						<Route path="/article/:articleId"  element={<ArticleTemplate />} />
+						<Route path="/chiSiamo"element={<ChiSiamo/>}/>
 					</Routes>
 					<Footer />
 				</ArticlesLoader>
