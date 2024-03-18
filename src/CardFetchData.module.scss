@@ -1,6 +1,6 @@
 .divbigmama{
-    height: 932px;
-    width: 852px;
+    height: 440px;
+    width: 1200px;
     
     box-sizing: border-box;
     display: flex;
@@ -10,9 +10,9 @@
 
 .divcardconteiner {
     display: grid;
-    grid-template-columns: repeat(3, 250px);
+    grid-template-columns: repeat(20, 150px);
+    grid-auto-flow: column;
     gap: 16px; 
-    height: 100%;
+    height: 80%;
     overflow: auto;
-    overflow-x: hidden;
   }
