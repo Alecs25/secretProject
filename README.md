@@ -8,16 +8,18 @@ Ultimo progetto, poi si va a Berlino, Beppe.
 
 ### Dipendenze
 
-* Vite, React, react-router, node.js, git
+* Vite, React, react-router, node.js, git, express js
 
 
 ### Installazione
 
-npm install 
+npm install nella root
+npm install nella cartella Backend per runnare il server
 
 ### Esecuzione 
 
 npm run dev
+node index.js in cartella backend
 
 localhost:5137
 
