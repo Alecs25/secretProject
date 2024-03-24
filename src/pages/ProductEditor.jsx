@@ -9,17 +9,30 @@ export function EditorProduct() {
 	const articles = useContext(ArticlesContext);
 	const [title, setTitle] = useState("");
 
-	function handleSubmit(e) {
+	async function handleSubmit(e) {
+		// try {
+		// 	articles[1]([...articles[0], article]);
+		// 	console.log(text);
+		// 	console.log(articles);
+		// } catch (error) {}
+		e.preventDefault();
+		const article = {
+			body: body,
+			title: title,
+			id: articles[0].length + 1,
+		};
 		try {
-			e.preventDefault();
-			const article = {
-				body: body,
-				title: title,
-				id: articles[0].length + 1,
-			};
-			articles[1]([...articles[0], article]);	
-			console.log(text);
-			console.log(articles);
+			console.log(article);
+			const response = await fetch("http://localhost:3000/createArticle", {
+				method: "POST",
+				mode: "cors",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(article),
+			});
+			const result = await response.json();
+			console.log("Success:", result);
 		} catch (error) {}
 	}
 

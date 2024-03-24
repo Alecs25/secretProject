@@ -1,44 +1,44 @@
 .p-card {
-  background-image: url("https://www.html.am/images/html-codes/links/boracay-white-beach-sunset-300x225.jpg");
-  background-size: cover;
-  transition: 0.5s ease;
+	background-image: url("https://picsum.photos/500/300/?blur");
+	background-size: cover;
+	transition: 0.5s ease;
 }
 .p-card:hover {
-  transform: scale(1.1);
+	transform: scale(1.1);
 }
 .cardBtn {
-  background-color: rgb(181, 103, 254);
-  color: black;
+	background-color: rgb(181, 103, 254);
+	color: black;
 }
 .p-card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .card-description {
-  position: relative;
-  font-size: 20px;
-  width: 250px;
+	position: relative;
+	font-size: 20px;
+	width: 250px;
 }
 .text-concat {
-  position: relative;
-  display: inline-block;
-  word-wrap: break-word;
-  overflow: hidden;
-  max-height: 3.6em;
-  line-height: 1.2em;
-  text-align: center;
+	position: relative;
+	display: inline-block;
+	word-wrap: break-word;
+	overflow: hidden;
+	max-height: 3.6em;
+	line-height: 1.2em;
+	text-align: center;
 }
 
 .card-description.ellipsis::after {
-  content: "...";
-  position: absolute;
-  right: -5px;
-  bottom: 4px;
+	content: "...";
+	position: absolute;
+	right: -5px;
+	bottom: 4px;
 }
 .card-wrapper {
-  display: flex;
-  flex: 1 1 30%;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex: 1 1 30%;
+	justify-content: center;
+	align-items: center;
 }
