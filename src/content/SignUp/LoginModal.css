@@ -1,9 +1,0 @@
-.loginModalContainer {
-    width: 100%;
-    height: 100%;
-    display:flex;
-    justify-content: center;
-    background: rgba(0, 0, 0, .85);
-    position: absolute;
-    z-index: 1;
-}
