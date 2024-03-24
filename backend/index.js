@@ -3,8 +3,12 @@ const app = express();
 const port = 3000;
 const cors = require("cors");
 const articles = require("./data/posts.json");
-app.use(cors());
 let users = [];
+
+// CORS
+app.use(cors());
+app.use(express.json());
+// FINE CORS
 
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);
@@ -16,7 +20,7 @@ const db = new sqlite3.cached.Database(":memory:");
 db.serialize(() => {
 	db.run(
 		`CREATE TABLE users(
-    user_id INTEGER PRIMARY KEY,
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT ,
     username VARCHAR,
     password VARCHAR,
     gender BOOLEAN,
@@ -28,7 +32,7 @@ db.serialize(() => {
 
 	db.run(
 		`CREATE TABLE articles(
-    article_id INTEGER PRIMARY KEY,
+    article_id INTEGER PRIMARY KEY AUTOINCREMENT ,
     user_id INTEGER,
     title VARCHAR,
 	prevw_img VARCHAR,
@@ -40,7 +44,7 @@ db.serialize(() => {
 	//console.log(typeof articles.posts);
 	articles.posts.forEach((article) => {
 		db.all(
-			`INSERT INTO articles VALUES (${article.id}, ${1}, ${JSON.stringify(article.title)}, null,null, ${JSON.stringify(
+			`INSERT INTO articles VALUES (null, ${1}, ${JSON.stringify(article.title)}, null,null, ${JSON.stringify(
 				article.body
 			)})`,
 			(err, row) => {
@@ -66,6 +70,26 @@ app.get("/articles", async (req, res) => {
 	});
 	// console.log(posts);
 	// res.send(posts);
+});
+
+app.post("/createArticle", async (req, res) => {
+	console.dir(req.body);
+	// console.dir( res );
+
+	const createArticle = await db.all(
+		`INSERT INTO articles VALUES (null, null, ${JSON.stringify(req.body.title)}, null, null, ${JSON.stringify(
+			req.body.body
+		)})`,
+		(err, row) => {
+			console.log(err);
+		}
+	);
+	console.dir(createArticle);
+
+	 await db.all("SELECT * FROM articles", (err, row) => {
+	 	console.log(err);
+	 	row.forEach((col) => console.log(col));
+	 });
 });
 
 // db.close();
