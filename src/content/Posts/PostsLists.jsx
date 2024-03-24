@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { Card } from "primereact/card";
 import { Button } from "primereact/button";
-import { Image } from "primereact/image";
-import { Chip } from "primereact/chip";
+// import { Image } from "primereact/image";
+// import { Chip } from "primereact/chip";
 import { ArticlesContext } from "../articles/ArticlesLoader";
 import parse from "html-react-parser";
 import { Link } from "react-router-dom";
 // import { SassColor } from "sass";
-import arrowBtn from "../../assets/angle-small-right.png";
+// import arrowBtn from "../../assets/angle-small-right.png";
 import "./PostLists.css";
 
 export function PostsLists() {
@@ -35,19 +35,22 @@ export function PostsLists() {
 	}, []);
 
 	return (
-		<div className="flex flex-wrap gap-5">
+		<div className="flex flex-wrap gap-8">
 			{posts &&
 				posts.map((e, i) => (
-					<div key={i} className="card-wrapper">
+					<div key={i}>
 						<Link to={"/product"} className="no-underline">
-							<Card title={e.title}>
-								<p className="card-description ellipsis">
-									<span className="text-concat">{parse(e.body)}</span>
+							<Card className="md:w-30rem h-full flex align-items-center justify-content-center" title={e.title}>
+								<p className=" mt-3 overflow-hidden text-overflow-ellipsis text-xl">
+									{parse(e.body.substring(0, 120).substring(0, e.body.substring(0, 118).lastIndexOf(" ")) + "...")}
 								</p>
 								<div className="flex align-items-center ">
-									<button className="cardBtn flex	align-items-center">
-										Scopri di più <img src={arrowBtn} style={{ width: "17px" }} />
-									</button>
+									<Button
+										label="Scopri di più"
+										icon="pi pi-angle-right"
+										iconPos="right"
+										className="align-items-end"
+									></Button>
 								</div>
 							</Card>
 						</Link>
