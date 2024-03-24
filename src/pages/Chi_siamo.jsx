@@ -53,10 +53,10 @@ export function ChiSiamo() {
       <section className=" w-full">
         <div className="flex flex-row justify-content-evenly">
           
-<i className="pi pi-discord" style={{ color: 'blue' }}>Discord</i>
-<i className="pi pi-github" style={{ color: 'blue' }}>Github</i>
-<span className="pi pi-linkedin" style={{color: 'red' }}>Linkedin</span>
-<span className="pi pi-user" style={{ color: 'blue' }}>Staff</span>
+<i className="pi pi-discord" style={{ color: 'purple' }}>Discord</i>
+<i className="pi pi-github" style={{ color: 'purple' }}>Github</i>
+<span className="pi pi-linkedin" style={{color: 'purple' }}>Linkedin</span>
+<span className="pi pi-user" style={{ color: 'purple' }}>Staff</span>
         
         </div>
       </section>
