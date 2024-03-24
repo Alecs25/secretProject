@@ -33,7 +33,6 @@ db.serialize(() => {
 	db.run(
 		`CREATE TABLE articles(
     article_id INTEGER PRIMARY KEY AUTOINCREMENT ,
-    user_id INTEGER,
     title VARCHAR,
 	prevw_img VARCHAR,
     description VARCHAR,
@@ -77,19 +76,19 @@ app.post("/createArticle", async (req, res) => {
 	// console.dir( res );
 
 	const createArticle = await db.all(
-		`INSERT INTO articles VALUES (null, null, ${JSON.stringify(req.body.title)}, null, null, ${JSON.stringify(
+		`INSERT INTO articles VALUES (null, ${JSON.stringify(req.body.title)}, null, null, ${JSON.stringify(
 			req.body.body
 		)})`,
 		(err, row) => {
 			console.log(err);
 		}
 	);
-	console.dir(createArticle);
+	// console.dir(createArticle);
 
-	 await db.all("SELECT * FROM articles", (err, row) => {
-	 	console.log(err);
-	 	row.forEach((col) => console.log(col));
-	 });
+	//  await db.all("SELECT * FROM articles", (err, row) => {
+	//  	console.log(err);
+	//  	row.forEach((col) => console.log(col));
+	//  });
 });
 
 // db.close();
