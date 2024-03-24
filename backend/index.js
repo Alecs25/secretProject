@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const cors = require("cors");
 const articles = require("./data/posts.json");
-
+app.use(cors());
 let users = [];
 
 app.listen(port, () => {
@@ -35,6 +36,7 @@ db.serialize(() => {
     body VARCHAR
 	)`
 	);
+
 	//console.log(typeof articles.posts);
 	articles.posts.forEach((article) => {
 		db.all(
