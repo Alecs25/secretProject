@@ -1,7 +1,7 @@
-export async function createArticle(req, res) {
-	console.dir(req.body);
-	// console.dir( res );
+const { db } = require("../initDb");
 
+
+async function createArticle(req, res) {
 	const createArticle = await db.all(
 		`INSERT INTO articles VALUES (null, ${JSON.stringify(req.body.title)}, null, null, ${JSON.stringify(
 			req.body.body
@@ -12,12 +12,12 @@ export async function createArticle(req, res) {
 	);
 }
 
-
-export async function getArticles(req, res){
-	// res.send("Hello World!");
+async function getArticles(req, res){
 	const posts = await db.all("SELECT * FROM articles", (err, row) => {
 		res.send(row);
 	});
-	// console.log(posts);
-	// res.send(posts);
 }
+
+
+
+module.exports = { getArticles, createArticle };
