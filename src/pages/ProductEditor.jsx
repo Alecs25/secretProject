@@ -10,14 +10,9 @@ export function EditorProduct() {
 	const [title, setTitle] = useState("");
 
 	async function handleSubmit(e) {
-		// try {
-		// 	articles[1]([...articles[0], article]);
-		// 	console.log(text);
-		// 	console.log(articles);
-		// } catch (error) {}
-		e.preventDefault();
+			e.preventDefault();
 		const article = {
-			body: body,
+			articleBody: body,
 			title: title,
 			id: articles[0].length + 1,
 		};
