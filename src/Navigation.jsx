@@ -11,6 +11,7 @@ import { ArticlesLoader } from "./content/articles/ArticlesLoader";
 import { Login } from "./pages/Login";
 import { ArticleTemplate } from "./pages/Template/ArticleTemplate";
 import { ArticlesManager } from "./pages/ArticlesManager";
+import { ChiSiamo } from "./pages/Chi_siamo";
 
 export function Navigation() {
 	return (
@@ -28,6 +29,7 @@ export function Navigation() {
 						<Route path="/editor" element={<EditorProduct />} />
 						<Route path="/articlemanager" element={<ArticlesManager />} />
 						<Route path="/article/:articleId" element={<ArticleTemplate />} />
+						<Route path="/chiSiamo"element={<ChiSiamo/>}/>
 					</Routes>
 					<Footer />
 				</ArticlesLoader>
