@@ -13,9 +13,9 @@ export function CreateArticle() {
 		fetchArticles(setArticles);
 	}, []);
 
-	useEffect(() => {
-		console.log(articles);
-	}, [articles]);
+	// useEffect(() => {
+	// 	console.log(articles);
+	// }, [articles]);
 
 	async function handleSubmit(e) {
 		e.preventDefault();

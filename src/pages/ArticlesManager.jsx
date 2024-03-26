@@ -15,7 +15,7 @@ export function ArticlesManager() {
 	];
 
 	useEffect(() => {
-		fetchArticles()
+		fetchArticles(setArticles);
 	}, []);
 
 	async function DeletePost(articleId) {
@@ -28,7 +28,7 @@ export function ArticlesManager() {
 		} catch (error) {
 			throw new Error("there has been an error: " + error);
 		}
-		FetchPosts();
+		fetchArticles(setArticles);
 	}
 
 	return (

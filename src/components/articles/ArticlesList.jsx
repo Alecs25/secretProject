@@ -34,7 +34,7 @@ export function ArticlesList() {
 			{posts &&
 				posts.map((e, i) => {
 					const parsedBody = checkBody(e.body);
-					console.log(e);
+
 					return (
 						<div key={i}>
 							<Link to={`/article/${e.article_id}`} className="no-underline">

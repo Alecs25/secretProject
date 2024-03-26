@@ -24,7 +24,7 @@ export function Navigation() {
 					<Route path="/" element={<Home />} />
 					<Route path="/product" element={<Product />} />
 					<Route path="/login" element={<Login />} />
-					<Route path="/editor" element={<CreateArticle />} />
+					<Route path="/createarticle" element={<CreateArticle />} />
 					<Route path="/articlemanager" element={<ArticlesManager />} />
 					<Route path="/article/:articleId" element={<ViewArticle />} />
 					<Route path="/chiSiamo" element={<ChiSiamo />} />
