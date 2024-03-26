@@ -1,19 +1,28 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Editor } from "primereact/editor";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
+import { fetchArticles } from "../components/articles/Methods";
 
-export function EditorProduct() {
+export function CreateArticle() {
 	const [body, setBody] = useState("");
-	const articles = useContext(ArticlesContext);
 	const [title, setTitle] = useState("");
+	const [articles, setArticles] = useState(null);
+
+	useEffect(() => {
+		fetchArticles(setArticles);
+	}, []);
+
+	useEffect(() => {
+		console.log(articles);
+	}, [articles]);
 
 	async function handleSubmit(e) {
 		e.preventDefault();
 		const article = {
 			articleBody: body,
 			title: title,
-			id: articles[0].length + 1,
+			id: articles.length + 1,
 		};
 		try {
 			console.log(article);
@@ -25,8 +34,8 @@ export function EditorProduct() {
 				},
 				body: JSON.stringify(article),
 			});
-			const result = await response.json();
-			console.log("Success:", result);
+
+			fetchArticles(setArticles);
 		} catch (error) {}
 	}
 

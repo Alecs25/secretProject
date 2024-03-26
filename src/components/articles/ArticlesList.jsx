@@ -34,12 +34,14 @@ export function ArticlesList() {
 			{posts &&
 				posts.map((e, i) => {
 					const parsedBody = checkBody(e.body);
+					console.log(e);
 					return (
 						<div key={i}>
 							<Link to={`/article/${e.article_id}`} className="no-underline">
 								<Card
 									className="cardHomePage md:w-30rem h-full flex flex-column justify-content-center m-auto align-items-center"
 									title={e.title}
+									style={{ backgroundImage: `url(${e.prevw_img})` }}
 								>
 									<p className=" mt-3 overflow-hidden text-overflow-ellipsis text-xl">{parsedBody}</p>
 									<Button

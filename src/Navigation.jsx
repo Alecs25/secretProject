@@ -6,7 +6,7 @@ import "primeicons/primeicons.css";
 import { Header } from "./components/header/Header";
 import { Product } from "./pages/Product";
 import { Footer } from "./components/footer/Footer";
-import { EditorProduct } from "./pages/ProductEditor";
+import { CreateArticle } from "./pages/CreateArticle";
 import { Login } from "./pages/Login";
 import { ViewArticle } from "./pages/Template/ViewArticle";
 import { ArticlesManager } from "./pages/ArticlesManager";
@@ -24,7 +24,7 @@ export function Navigation() {
 					<Route path="/" element={<Home />} />
 					<Route path="/product" element={<Product />} />
 					<Route path="/login" element={<Login />} />
-					<Route path="/editor" element={<EditorProduct />} />
+					<Route path="/editor" element={<CreateArticle />} />
 					<Route path="/articlemanager" element={<ArticlesManager />} />
 					<Route path="/article/:articleId" element={<ViewArticle />} />
 					<Route path="/chiSiamo" element={<ChiSiamo />} />

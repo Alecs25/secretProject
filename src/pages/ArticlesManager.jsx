@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Card } from "primereact/card";
+import { fetchArticles } from "../components/articles/Methods";
 
 export function ArticlesManager() {
 	const [articles, setArticles] = useState([]);
@@ -13,23 +14,8 @@ export function ArticlesManager() {
 		{ field: "delete", body: <i className="pi pi-times m-auto"></i>, header: "Delete" },
 	];
 
-	async function FetchPosts() {
-		try {
-			const response = await fetch("http://localhost:3000/articles");
-			const data = await response.json();
-
-			if (response.ok) {
-				setArticles(data);
-			} else {
-				throw new Error("there has been an error");
-			}
-		} catch (error) {
-			console.error(error.message);
-		}
-	}
-
 	useEffect(() => {
-		FetchPosts();
+		fetchArticles()
 	}, []);
 
 	async function DeletePost(articleId) {

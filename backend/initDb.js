@@ -4,7 +4,7 @@ const articles = require("./data/posts.json");
 
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.cached.Database(":memory:");
-
+const prevw_img = "https://picsum.photos/500/300/?blur";
 // Fine opzioni DB --
 
 // Inizializzazione DB sqlite
@@ -33,10 +33,9 @@ db.serialize(() => {
 
 	// Import articoli da file JSON
 	articles.posts.forEach((article) => {
-		db.all(
-			`INSERT INTO articles VALUES (null, ${JSON.stringify(article.title)}, null,null, ${JSON.stringify(
-				article.body
-			)})`,
+		db.get(
+			"INSERT INTO articles VALUES (?, ?, ?, ?, ?)",
+			[null, article.title, prevw_img, null, article.body],
 			(err, row) => {
 				if (err !== null) console.log(err);
 			}
