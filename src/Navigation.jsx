@@ -11,6 +11,7 @@ import { Login } from "./pages/Login";
 import { ViewArticle } from "./pages/Template/ViewArticle";
 import { ArticlesManager } from "./pages/ArticlesManager";
 import { ChiSiamo } from "./pages/Chi_siamo";
+import { EditArticle } from "./pages/EditArticle";
 
 export function Navigation() {
 	return (
@@ -28,6 +29,7 @@ export function Navigation() {
 					<Route path="/articlemanager" element={<ArticlesManager />} />
 					<Route path="/article/:articleId" element={<ViewArticle />} />
 					<Route path="/chiSiamo" element={<ChiSiamo />} />
+					<Route path="/admin/article/:articleId" element={<EditArticle />}></Route>
 				</Routes>
 				<Footer />
 			</div>

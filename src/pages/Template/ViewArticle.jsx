@@ -17,9 +17,9 @@ export function ViewArticle() {
 
 	return (
 		<main className="card w-11 m-auto bg-primary text-justify flex flex-column align-items-center p-5">
-			{<h1>{article?.title}</h1>}
+			{article && <h1>{article?.title}</h1>}
 
-			<article className="max-w-full">{<h1>{article?.body}</h1>}</article>
+			{article && <article className="max-w-full">{parse(article.body)}</article>}
 		</main>
 	);
 }
