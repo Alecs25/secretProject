@@ -1,5 +1,5 @@
 .cardHomePage {
-	background-image: url("https://picsum.photos/500/300/?blur");
+	/* background-image: url("https://picsum.photos/500/300/?blur"); */
 	background-size: cover;
 	transition: 0.5s ease;
 }
@@ -9,11 +9,6 @@
 .cardBtn {
 	background-color: rgb(181, 103, 254);
 	color: black;
-}
-.cardHomePage-content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 }
 .card-description {
 	position: relative;

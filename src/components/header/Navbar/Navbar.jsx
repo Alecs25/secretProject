@@ -7,15 +7,17 @@ import { useContext, useState } from "react";
 import { PrimeReactContext } from "primereact/api";
 import { Image } from "primereact/image";
 import { Link, useNavigate } from "react-router-dom";
-import { LoginModal } from "../../content/SignUp/loginModal";
-import { LoginForm } from "../../content/SignUp/LoginForm";
+import { LoginModal } from "../../SignUp/loginModal";
+import { LoginForm } from "../../SignUp/LoginForm";
 
 export function Navbar() {
-	const [showModal, setShowModal] = useState(false) // per gestire i forms Accedi e Iscriviti con un Modal
+	const [showModal, setShowModal] = useState(false); // per gestire i forms Accedi e Iscriviti con un Modal
 	const { changeTheme } = useContext(PrimeReactContext);
 	const themes = ["bootstrap4-dark-purple", "bootstrap4-light-purple"];
 	const [currentTheme, setCurrentTheme] = useState(themes[0]);
 	const navigate = useNavigate();
+
+	let indexN = 0;
 
 	function handleThemeChange() {
 		if (currentTheme === "bootstrap4-dark-purple") {
@@ -40,50 +42,58 @@ export function Navbar() {
 		{
 			label: "Home",
 			icon: "pi pi-home",
-			id: 1,
+			id: indexN++,
 			command: () => navigate("/"),
 		},
 		{
-			label: "Novità",
-			icon: "pi pi-star",
-			id: 2,
-			// command: () => navigate("/product"),
-		},
-		{
-			label: "Editor",
+			label: "Pannello Admin",
 			icon: "pi pi-wrench",
-			id: 3,
-			command: () => navigate("/editor"),
+			id: indexN++,
+			items: [
+				{
+					label: "Articoli Admin",
+					icon: "pi pi-wrench",
+					id: indexN++,
+					command: () => navigate("/articlemanager"),
+				},
+				{
+					label: "Nuovo Articolo Admin",
+					icon: "pi pi-wrench",
+					id: indexN++,
+					command: () => navigate("/createarticle"),
+				},
+			],
 		},
+
 		{
 			label: "Piattaforme",
 			icon: "pi pi-search",
-			id: 4,
+			id: indexN++,
 			items: [
 				{
 					label: "Xbox Series X|S",
 					icon: "pi pi-bolt",
-					id: 5,
+					id: indexN++,
 					template: itemRenderer,
-					command: ()=> navigate("/SignUp")
+					command: () => navigate("/SignUp"),
 				},
 				{
 					label: "Playstation 5",
 					icon: "pi pi-server",
-					id: 6,
+					id: indexN++,
 					template: itemRenderer,
-					command: ()=> navigate("/Login")
+					command: () => navigate("/Login"),
 				},
 				{
 					label: "Nintendo Switch",
 					icon: "pi pi-pencil",
-					id: 7,
+					id: indexN++,
 					template: itemRenderer,
 				},
 				{
 					label: "Pc Windows",
 					icon: "pi pi-palette",
-					id: 8,
+					id: indexN++,
 					template: itemRenderer,
 				},
 			],
@@ -92,7 +102,7 @@ export function Navbar() {
 			label: "Contatti",
 			icon: "pi pi-envelope",
 			badge: 3,
-			id: 9,
+			id: indexN++,
 			template: itemRenderer,
 		},
 	];
@@ -113,14 +123,18 @@ export function Navbar() {
 				<i className="pi pi-search" />
 				<InputText placeholder="Search" />
 			</span>
-			<button onClick={() => setShowModal(true)} className="p-button font-regular">Accedi</button>
+			<button onClick={() => setShowModal(true)} className="p-button font-regular">
+				Accedi
+			</button>
 		</div>
 	);
 
 	return (
 		<div className="card">
-		<LoginModal isVisible={showModal} onClose={() => setShowModal(false)}><LoginForm/></LoginModal>
-		<Menubar model={items} start={start} end={end} />
+			<LoginModal isVisible={showModal} onClose={() => setShowModal(false)}>
+				<LoginForm />
+			</LoginModal>
+			<Menubar model={items} start={start} end={end} />
 		</div>
 	);
 }
