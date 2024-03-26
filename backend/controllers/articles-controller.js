@@ -9,6 +9,19 @@ async function createArticle(req, res) {
 			if (err) console.log(err);
 		}
 	);
+	res.send("create ok");
+}
+
+async function deleteArticle(req, res) {
+	console.log("deleted article: ", req.params);
+
+	const deleteArticle = await db.all(`
+
+	 DELETE FROM articles WHERE article_id = ${req.params.id}
+
+	 `);
+
+	res.send("delete ok");
 }
 
 async function getArticles(req, res) {
@@ -17,4 +30,4 @@ async function getArticles(req, res) {
 	});
 }
 
-module.exports = { getArticles, createArticle };
+module.exports = { getArticles, createArticle, deleteArticle };

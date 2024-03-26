@@ -63,7 +63,7 @@ export function PostsLists() {
 					return (
 						<div key={i}>
 							<Link to={"/product"} className="no-underline">
-								<Card className="md:w-30rem h-full flex align-items-center justify-content-center" title={e.title}>
+								<Card className="cardHomePage md:w-30rem h-full flex align-items-center justify-content-center" title={e.title}>
 									<p className=" mt-3 overflow-hidden text-overflow-ellipsis text-xl">{parsedBody}</p>
 									<div className="flex align-items-center ">
 										<Button

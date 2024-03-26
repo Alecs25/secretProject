@@ -1,8 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const { createArticle, getArticles } = require("./controllers/articles-controller.js");
-
+const { createArticle, getArticles, deleteArticle } = require("./controllers/articles-controller.js");
 
 // Opzioni express --
 
@@ -20,11 +19,10 @@ app.use(cors());
 
 // Fine opzioni express --
 
+app.get("/articles", async (res, req) => await getArticles(res, req));
 
-app.get("/articles", (res, req) => getArticles(res, req));
+app.post("/createArticle",async (res, req) => await  createArticle(res, req));
 
-app.post("/createArticle", (res, req) => createArticle(res, req));
+app.delete("/article/:id", async (res, req) => await deleteArticle(res, req));
 
 // db.close();
-
-
