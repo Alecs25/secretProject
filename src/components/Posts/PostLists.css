@@ -10,11 +10,6 @@
 	background-color: rgb(181, 103, 254);
 	color: black;
 }
-.cardHomePage-content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
 .card-description {
 	position: relative;
 	font-size: 20px;

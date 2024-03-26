@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Editor } from "primereact/editor";
 import { Button } from "primereact/button";
-import { ArticlesContext } from "../content/articles/ArticlesLoader";
 import { InputText } from "primereact/inputtext";
 
 export function EditorProduct() {
@@ -10,7 +9,7 @@ export function EditorProduct() {
 	const [title, setTitle] = useState("");
 
 	async function handleSubmit(e) {
-			e.preventDefault();
+		e.preventDefault();
 		const article = {
 			articleBody: body,
 			title: title,

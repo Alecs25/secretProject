@@ -7,8 +7,8 @@ import { useContext, useState } from "react";
 import { PrimeReactContext } from "primereact/api";
 import { Image } from "primereact/image";
 import { Link, useNavigate } from "react-router-dom";
-import { LoginModal } from "../../content/SignUp/loginModal";
-import { LoginForm } from "../../content/SignUp/LoginForm";
+import { LoginModal } from "../../SignUp/loginModal";
+import { LoginForm } from "../../SignUp/LoginForm";
 
 export function Navbar() {
 	const [showModal, setShowModal] = useState(false) // per gestire i forms Accedi e Iscriviti con un Modal

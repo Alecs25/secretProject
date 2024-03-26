@@ -1,11 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { ArticlesContext } from "../../content/articles/ArticlesLoader";
 import parse from "html-react-parser";
 
 export function ArticleTemplate() {
 	const { articleId } = useParams();
-	const articles = useContext(ArticlesContext);
 	const [article, setArticle] = useState(null);
 	const parser = new DOMParser();
 
