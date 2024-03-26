@@ -8,7 +8,7 @@ import { Product } from "./pages/Product";
 import { Footer } from "./components/footer/Footer";
 import { EditorProduct } from "./pages/ProductEditor";
 import { Login } from "./pages/Login";
-import { ArticleTemplate } from "./pages/Template/ArticleTemplate";
+import { ViewArticle } from "./pages/Template/ViewArticle";
 import { ArticlesManager } from "./pages/ArticlesManager";
 import { ChiSiamo } from "./pages/Chi_siamo";
 
@@ -26,7 +26,7 @@ export function Navigation() {
 					<Route path="/login" element={<Login />} />
 					<Route path="/editor" element={<EditorProduct />} />
 					<Route path="/articlemanager" element={<ArticlesManager />} />
-					<Route path="/article/:articleId" element={<ArticleTemplate />} />
+					<Route path="/article/:articleId" element={<ViewArticle />} />
 					<Route path="/chiSiamo" element={<ChiSiamo />} />
 				</Routes>
 				<Footer />

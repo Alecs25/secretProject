@@ -3,10 +3,10 @@ import { Card } from "primereact/card";
 import { Button } from "primereact/button";
 import parse from "html-react-parser";
 import { Link } from "react-router-dom";
-import "./PostLists.css";
-import { fetchPosts } from "../articles/Methods";
+import "./ArticlesList.css";
+import { fetchArticles } from "./Methods";
 
-export function PostsLists() {
+export function ArticlesList() {
 	const [posts, setPosts] = useState(null);
 
 	function checkBody(body) {
@@ -26,8 +26,7 @@ export function PostsLists() {
 	}
 
 	useEffect(() => {
-		const fetchedPosts = fetchPosts();
-		setPosts(fetchedPosts);
+		fetchArticles(setPosts);
 	}, []);
 
 	return (
@@ -37,7 +36,7 @@ export function PostsLists() {
 					const parsedBody = checkBody(e.body);
 					return (
 						<div key={i}>
-							<Link to={"/product"} className="no-underline">
+							<Link to={`/article/${e.article_id}`} className="no-underline">
 								<Card
 									className="cardHomePage md:w-30rem h-full flex flex-column justify-content-center m-auto align-items-center"
 									title={e.title}

@@ -15,7 +15,7 @@ async function createArticle(req, res) {
 async function deleteArticle(req, res) {
 	console.log("deleted article: ", req.params);
 
-	const deleteArticle = await db.all(`
+	const deleteArticle = await db.get(`
 
 	 DELETE FROM articles WHERE article_id = ${req.params.id}
 
@@ -30,4 +30,13 @@ async function getArticles(req, res) {
 	});
 }
 
-module.exports = { getArticles, createArticle, deleteArticle };
+async function getArticle(req, res) {
+	console.log("got article: ", req.params);
+
+	const posts = await db.get(`SELECT * FROM articles WHERE article_id = ${req.params.id}`, (err, row) => {
+		console.log(row);
+		res.send(row);
+	});
+}
+
+module.exports = { getArticles, getArticle, createArticle, deleteArticle };
