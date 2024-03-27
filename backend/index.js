@@ -1,7 +1,13 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const { createArticle, getArticles, deleteArticle, getArticle } = require("./controllers/articles-controller.js");
+const {
+	createArticle,
+	getArticles,
+	deleteArticle,
+	getArticle,
+	editArticle,
+} = require("./controllers/articles-controller.js");
 
 // Opzioni express --
 
@@ -22,6 +28,10 @@ app.use(cors());
 app.get("/articles", async (res, req) => await getArticles(res, req));
 
 app.get("/article/:id", async (res, req) => await getArticle(res, req));
+
+app.get("/admin/article/:id", async (res, req) => await getArticle(res, req));
+
+app.post("/admin/editarticle/:id", async (res, req) => await editArticle(res, req));
 
 app.post("/createArticle", async (res, req) => await createArticle(res, req));
 

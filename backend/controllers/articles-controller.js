@@ -30,10 +30,24 @@ async function getArticles(req, res) {
 async function getArticle(req, res) {
 	console.log("got article: ", req.params);
 
-	const posts = await db.get(" DELETE FROM articles WHERE article_id = ? ", req.params.id, (err, row) => {
+	const posts = await db.get("SELECT * FROM articles WHERE article_id = ? ", req.params.id, (err, row) => {
 		// console.log(row);
 		res.send(row);
 	});
 }
 
-module.exports = { getArticles, getArticle, createArticle, deleteArticle };
+async function editArticle(req, res) {
+	console.log(req.body);
+
+	const editArticle = await db.get(
+		"UPDATE articles SET body = ? WHERE article_id = ?",
+		[req.body.body, req.body.id],
+		(err, row) => {
+			if (err) console.log(err);
+			console.log(row);
+			res.send("edit ok");
+		}
+	);
+}
+
+module.exports = { editArticle, getArticles, getArticle, createArticle, deleteArticle };

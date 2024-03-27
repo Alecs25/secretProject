@@ -24,7 +24,6 @@ db.serialize(() => {
 	db.run(
 		`CREATE TABLE articles(
     article_id INTEGER PRIMARY KEY AUTOINCREMENT ,
-    title VARCHAR,
 	prevw_img VARCHAR,
     description VARCHAR,
     body VARCHAR
@@ -33,13 +32,9 @@ db.serialize(() => {
 
 	// Import articoli da file JSON
 	articles.posts.forEach((article) => {
-		db.get(
-			"INSERT INTO articles VALUES (?, ?, ?, ?, ?)",
-			[null, article.title, prevw_img, null, article.body],
-			(err, row) => {
-				if (err !== null) console.log(err);
-			}
-		);
+		db.get("INSERT INTO articles VALUES (?, ?, ?, ?)", [null, prevw_img, null, article.body], (err, row) => {
+			if (err !== null) console.log(err);
+		});
 	});
 });
 // Fine inizializzazione DB sqlite
