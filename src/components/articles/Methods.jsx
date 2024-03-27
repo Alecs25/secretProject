@@ -45,12 +45,14 @@ export async function FetchArticle(id, callback) {
 }
 
 export function getTitle(articleBody) {
-	const bodyparsed = parser.parseFromString(articleBody, "text/html");
-	//console.log(bodyparsed);
-	const firstH1 = bodyparsed.querySelector("h1");
-	//console.log(firstH1);
+	if (articleBody) {
+		const bodyparsed = parser.parseFromString(articleBody, "text/html");
+		//console.log(bodyparsed);
+		const firstH1 = bodyparsed.querySelector("h1");
+		//console.log(firstH1);
 
-	return firstH1.outerHTML;
+		return firstH1.outerHTML;
+	}
 }
 
 export async function DeletePost(articleId, callback) {
