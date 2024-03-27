@@ -1,11 +1,23 @@
+import parse from "html-react-parser";
+const parser = new DOMParser();
 export async function fetchArticles(callback) {
 	try {
 		const response = await fetch("http://localhost:3000/articles");
 		const data = await response.json();
+		console.log(data);
+		const parsedData = data.map((e) => {
+			const body = parse(e.body);
+			const title = parse(e.title);
+			const parsedData = {
+				body: body,
+				title: title,
+				id: e.article_id,
+			};
+			return parsedData;
+		});
 
-		// console.log(response);
-		// console.log(data);
-		callback(data);
+		console.log(parsedData);
+		callback(parsedData);
 	} catch (error) {
 		console.error(error.message);
 	}
@@ -14,12 +26,20 @@ export async function fetchArticles(callback) {
 export async function FetchArticle(id, callback) {
 	try {
 		const response = await fetch(`http://localhost:3000/article/${id}`);
-				console.log(response);
-
 		const data = await response.json();
 
-		console.log(data);
-		callback(data);
+		const article = parser.parseFromString(data.body, "text/html");
+		const title = parser.parseFromString(data.title, "text/html");
+		const articleHTMLCollection = Array.from(article.body.children);
+		const articleArrayString = articleHTMLCollection.map((e) => e.outerHTML);
+		const parsedData = {
+			body: articleArrayString.toString(),
+			title: title.querySelector("h1"),
+			id: data.article_id,
+		};
+
+		console.log(parsedData);
+		callback(parsedData);
 	} catch (error) {
 		console.error(error.message);
 	}
