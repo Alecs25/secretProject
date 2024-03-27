@@ -39,9 +39,9 @@ async function getArticle(req, res) {
 async function editArticle(req, res) {
 	console.log(req.body);
 
-	const editArticle = await db.run(
-		"UPDATE articles SET title = ?, body = ? WHERE article_id = ?",
-		[req.body.title, req.body.body, req.body.id],
+	const editArticle = await db.get(
+		"UPDATE articles SET body = ? WHERE article_id = ?",
+		[req.body.body, req.body.id],
 		(err, row) => {
 			if (err) console.log(err);
 			console.log(row);

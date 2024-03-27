@@ -4,22 +4,21 @@ export async function fetchArticles(callback) {
 	try {
 		const response = await fetch("http://localhost:3000/articles");
 		const data = await response.json();
-		console.log(data);
+		// console.log(data);
 		const parsedData = data.map((e) => {
-			const body = parse(e.body);
-			const title = parse(e.title);
+			//	console.log(e);
 			const parsedData = {
-				body: body,
-				title: title,
+				body: e.body,
 				id: e.article_id,
+				prevw_img: e.prevw_img,
 			};
 			return parsedData;
 		});
 
-		console.log(parsedData);
+		// console.log(parsedData);
 		callback(parsedData);
 	} catch (error) {
-		console.error(error.message);
+		console.error("there has been an error" + error);
 	}
 }
 
@@ -31,10 +30,10 @@ export async function FetchArticle(id, callback) {
 		const article = parser.parseFromString(data.body, "text/html");
 		const title = parser.parseFromString(data.title, "text/html");
 		const articleHTMLCollection = Array.from(article.body.children);
-		const articleArrayString = articleHTMLCollection.map((e) => e.outerHTML);
+		const articleArrayString = articleHTMLCollection.map((e) => e.outerHTML).join("");
+		console.log(articleArrayString);
 		const parsedData = {
 			body: articleArrayString.toString(),
-			title: title.querySelector("h1"),
 			id: data.article_id,
 		};
 
@@ -43,6 +42,15 @@ export async function FetchArticle(id, callback) {
 	} catch (error) {
 		console.error(error.message);
 	}
+}
+
+export function getTitle(articleBody) {
+	const bodyparsed = parser.parseFromString(articleBody, "text/html");
+	//console.log(bodyparsed);
+	const firstH1 = bodyparsed.querySelector("h1");
+	//console.log(firstH1);
+
+	return firstH1.outerHTML;
 }
 
 export async function DeletePost(articleId, callback) {
