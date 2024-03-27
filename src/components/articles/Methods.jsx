@@ -55,6 +55,13 @@ export function getTitle(articleBody) {
 	}
 }
 
+export function getBody(articleBody) {
+	if (articleBody) {
+		const parsedBody = parse(articleBody).slice(1);
+		return parsedBody[0];
+	}
+}
+
 export async function DeletePost(articleId, callback) {
 	console.log(typeof articleId);
 	try {
