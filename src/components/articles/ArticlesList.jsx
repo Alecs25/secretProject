@@ -35,7 +35,7 @@ export function ArticlesList() {
 	}, []);
 
 	return (
-		<div className="flex flex-wrap gap-8">
+		<div className="flex flex-wrap w-11 m-auto justify-content-between gap-6">
 			{posts &&
 				posts.map((e, i) => {
 					const body = checkBody(e.body);

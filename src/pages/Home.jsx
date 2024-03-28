@@ -4,13 +4,11 @@ import { ArticlesList } from "../components/articles/ArticlesList";
 
 export function Home() {
 	return (
-		<div className="flex justify-content-center">
-			<div className="w-3 h-4rem bg-primary font-bold text-center p-4 border-round">1</div>
-			<div className="text-center p-4 border-round mx-4">
+		<div className="flex m-auto justify-content-center">
+			<div className="m-auto text-center flex flex-column align-content-center p-4 border-round mx-4">
 				<CarouselHome />
 				<ArticlesList />
 			</div>
-			<div className="w-3 h-4rem bg-primary font-bold text-center p-4 border-round">3</div>
 		</div>
 	);
 }
