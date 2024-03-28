@@ -21,7 +21,19 @@ export function ArticlesManager() {
 	];
 
 	useEffect(() => {
-		fetchArticles(setArticles);
+		fetchArticles()
+			.then((data) => {
+				// console.log(data);
+				const parsedData = data.map((e) => {
+					const parsedData = { body: parse(e.body), id: e.id };
+					return parsedData
+				});
+				console.log(parsedData);
+				return parsedData;
+			})
+			.then((parsedData) => {
+				setArticles(parsedData);
+			});
 	}, [tick]);
 
 	// useEffect(() => {
