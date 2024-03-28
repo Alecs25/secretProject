@@ -1,6 +1,7 @@
 import "primeicons/primeicons.css";
 import { Card } from "primereact/card";
 import { Button } from 'primereact/button';
+import { Link } from "react-router-dom";
 
 
 
@@ -13,12 +14,7 @@ export function ChiSiamo() {
     />
     
   );
-  const footer = (
-    <div className="flex gap-1 justify-content-evenly">
-        <Button icon="pi pi-github"  style={{ background:'white', color: 'black' }} rounded/>
-        <Button icon="pi pi-discord"  style={{ background:'white', color: '#5865f2' }}rounded />
-        <Button  icon="pi pi-linkedin"   style={{ background:'white', color: 'blue' }}rounded/>
-    </div>);
+  
 
   return (
     <div className="flex flex-column w-11 bg-bluegray-400 p-3 gap-3 border-round overflow-hidden align-self-center">
@@ -80,7 +76,11 @@ export function ChiSiamo() {
             title="AleDevel"
             subTitle="Junior Full Stack Developer"
             header={header}
-            footer={footer}
+            footer={<div className="flex gap-1 justify-content-evenly">
+           <Link to="https://github.com/Aledevel"><Button icon="pi pi-github"  style={{ background:'white', color: 'black' }} rounded/></Link> 
+           <Link to=""><Button icon="pi pi-discord"  style={{ background:'white', color: '#5865f2' }}rounded /></Link>
+           <Link to="https://www.linkedin.com/in/alessio-di-natale-750095286/"><Button  icon="pi pi-linkedin"   style={{ background:'white', color: 'blue' }}rounded/></Link>
+        </div>}
             className="md:w-25rem"
           ></Card>
         </div>
@@ -90,7 +90,11 @@ export function ChiSiamo() {
             title="JuliusStowe"
             subTitle="Junior Full Stack Developer"
             header={header}
-            footer={footer}
+            footer={<div className="flex gap-1 justify-content-evenly">
+           <Link to="https://github.com/JuliusStowe"><Button icon="pi pi-github"  style={{ background:'white', color: 'black' }} rounded/></Link> 
+           <Link to=""><Button icon="pi pi-discord"  style={{ background:'white', color: '#5865f2' }}rounded /></Link>
+            <Link to="https://www.linkedin.com/in/matteo-durso-095554196/"><Button  icon="pi pi-linkedin"   style={{ background:'white', color: 'blue' }}rounded/></Link> 
+        </div>}
             className="md:w-25rem"
           ></Card>
         </div>
@@ -100,7 +104,11 @@ export function ChiSiamo() {
             title="SilvioSaccà"
             subTitle="Junior Full Stack Developer"
             header={header}
-            footer={footer}
+            footer={<div className="flex gap-1 justify-content-evenly">
+            <Link to="https://github.com/SilvioSacca"> <Button icon="pi pi-github"  style={{ background:'white', color: 'black' }} rounded/></Link>
+            <Link to=""><Button icon="pi pi-discord"  style={{ background:'white', color: '#5865f2' }}rounded /></Link>
+            <Link to="https://www.linkedin.com/in/silvio-sacc%C3%A0-6a489548/"><Button  icon="pi pi-linkedin"   style={{ background:'white', color: 'blue' }}rounded/></Link> 
+        </div>}
             className="md:w-25rem"
           ></Card>
         </div>
@@ -111,7 +119,11 @@ export function ChiSiamo() {
             title="Vitalik"
             subTitle="Junior Full Stack Developer"
             header={header}
-            footer={footer}
+            footer={<div className="flex gap-1 justify-content-evenly">
+             <Link to="https://github.com/vitalikpatapchuk"><Button icon="pi pi-github"  style={{ background:'white', color: 'black' }} rounded/></Link>
+             <Link to=""><Button icon="pi pi-discord"  style={{ background:'white', color: '#5865f2' }}rounded /></Link>
+            <Link to="https://www.linkedin.com/in/vitalik-patapchuk-65aaa12ab/"><Button  icon="pi pi-linkedin"   style={{ background:'white', color: 'blue' }}rounded/></Link>
+        </div>}
             className="md:w-25rem"
           ></Card>
         </div>
@@ -121,7 +133,11 @@ export function ChiSiamo() {
             title="Alecs25"
             subTitle="Junior Full Stack Developer"
             header={header}
-            footer={footer}
+            footer={<div className="flex gap-1 justify-content-evenly">
+             <Link to="https://github.com/Alecs25"><Button icon="pi pi-github"  style={{ background:'white', color: 'black' }} rounded/></Link>
+             <Link to=""><Button icon="pi pi-discord"  style={{ background:'white', color: '#5865f2' }}rounded /></Link>
+            <Link to="https://www.linkedin.com/in/aleeky/"><Button  icon="pi pi-linkedin"   style={{ background:'white', color: 'blue' }}rounded/></Link> 
+        </div>}
             className="md:w-25rem"
           ></Card>
         </div>
