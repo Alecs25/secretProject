@@ -14,9 +14,14 @@ export async function fetchArticles(callback) {
 			};
 			return parsedData;
 		});
-
+		if (callback) {
+			callback(parsedData);
+		} else {
+			return parsedData;
+		}
 		// console.log(parsedData);
-		callback(parsedData);
+		// callback(parsedData);
+		return null;
 	} catch (error) {
 		console.error("there has been an error" + error);
 	}
