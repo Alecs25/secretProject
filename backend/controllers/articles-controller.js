@@ -1,14 +1,20 @@
+const { default: parse } = require("node-html-parser");
 const { db } = require("../initDb");
 
 async function createArticle(req, res) {
+	const parsedArticle = parse(req.body.article);
+	const title = parsedArticle.querySelector("h1");
+	const body = parsedArticle.removeChild(title).childNodes.map((e) => e.outerHTML);
+	console.log(body.join(""));
+	const article = { body: body.join(""), title: title.outerHTML, tags: ["placeholder"] };
 	const createArticle = await db.all(
-		"INSERT INTO articles VALUES (?, ?, ?, ?, ?)",
-		[null, req.body.title, "https://picsum.photos/500/300/?blur", null, req.body.articleBody],
+		"INSERT INTO articles VALUES (?, ?)",
+		[null, JSON.stringify(article)],
 		(err, row) => {
-			if (err) console.log(err);
+			err ? console.log(err) : console.log(req.body, "created article");
 		}
 	);
-	res.send("create ok");
+	res.send({ msg: "create ok" });
 }
 
 async function deleteArticle(req, res) {

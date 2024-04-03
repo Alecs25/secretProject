@@ -3,7 +3,7 @@ import { Editor } from "primereact/editor";
 import { InputText } from "primereact/inputtext";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router";
-import { FetchArticle, getTitle } from "../components/articles/Methods";
+import { FetchArticle } from "../components/articles/Methods";
 import parse from "html-react-parser";
 import { Toast } from "primereact/toast";
 
@@ -21,14 +21,11 @@ export function EditArticle() {
 		FetchArticle(articleId, setArticle);
 	}, []);
 
-	useEffect(() => {
-		if (article) console.log(article.body);
-	}, [article]);
+	
 
 	async function handleSubmit(e) {
 		e.preventDefault();
 
-		const title = getTitle();
 		try {
 			const response = await fetch(`http://localhost:3000/admin/editarticle/${articleId}`, {
 				method: "POST",
@@ -45,7 +42,6 @@ export function EditArticle() {
 		}
 	}
 
-	
 	return (
 		<form onSubmit={handleSubmit} className="card flex gap-3 flex-column align-items-center">
 			<Toast ref={toast} />

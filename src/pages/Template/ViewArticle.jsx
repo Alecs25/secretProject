@@ -16,10 +16,10 @@ export function ViewArticle() {
 	}, [article]);
 
 	return (
-		<main className="card w-11 m-auto bg-primary text-justify flex flex-column align-items-center p-5">
-			{article && <h1>{article?.title}</h1>}
+		<article className="card w-11 m-auto bg-primary text-justify flex flex-column align-items-center p-5">
+			{article && parse(article?.title)}
 
-			{article && <article className="max-w-full">{parse(article.body)}</article>}
-		</main>
+			{article && parse(article?.body)}
+		</article>
 	);
 }

@@ -1,14 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Editor } from "primereact/editor";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 import { fetchArticles } from "../components/articles/Methods";
+import { Toast } from "primereact/toast";
+import parse from "html-react-parser";
 
 export function CreateArticle() {
 	const [body, setBody] = useState("");
 	const [title, setTitle] = useState("");
 	const [articles, setArticles] = useState(null);
+	const toast = useRef(null);
 
+	const showSuccess = () => {
+		toast.current.show({ severity: "success", summary: "Success", detail: "Articolo modificato", life: 3000 });
+	};
 	useEffect(() => {
 		fetchArticles(setArticles);
 	}, []);
@@ -19,31 +25,30 @@ export function CreateArticle() {
 
 	async function handleSubmit(e) {
 		e.preventDefault();
-		const article = {
-			articleBody: body,
-			title: title,
-			id: articles.length + 1,
-		};
+		//console.log(JSON.stringify(body));
 		try {
-			console.log(article);
 			const response = await fetch("http://localhost:3000/createArticle", {
 				method: "POST",
 				mode: "cors",
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify(article),
+				body: JSON.stringify({
+					article: body,
+				}),
 			});
-
+			const data = await response.json();
+			showSuccess();
 			fetchArticles(setArticles);
-		} catch (error) {}
+		} catch (error) {
+			console.error(error);
+		}
 	}
 
 	return (
 		<form onSubmit={handleSubmit} className="card flex gap-3 flex-column align-items-center">
-			<label>Titolo</label>
-			<InputText value={title} onChange={(e) => setTitle(e.target.value)} />
-			<label>Articolo (body)</label>
+			<Toast ref={toast} />
+			<h2>Crea un nuovo articolo</h2>
 			<Editor value={body} onTextChange={(e) => setBody(e.htmlValue)} style={{ height: "320px" }} />
 			<div className="align-items-end">
 				<Button label="Crea articolo"></Button>
