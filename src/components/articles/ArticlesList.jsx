@@ -5,6 +5,7 @@ import parse from "node-html-parser";
 import { Link } from "react-router-dom";
 import "./ArticlesList.css";
 import { fetchArticles } from "./Methods";
+import VoidTag from "node-html-parser/dist/void-tag";
 
 export function ArticlesList() {
 	const [posts, setPosts] = useState(null);
@@ -15,27 +16,31 @@ export function ArticlesList() {
 		console.log();
 	}, []);
 
+	function findFirstP(allP) {
+		const allPText = allP.map((p) => (p.firstChild.rawTagName === "br" ? null : p.firstChild._rawText));
+		// console.log(allPText);
+		const pWithText = allPText.find((e) => e !== null);
+		// console.log(pWithText);
+		return pWithText;
+	}
+
 	function shortDescription(body) {
-		body.childNodes.find((e=> e. ))
+		const allP = body.querySelectorAll("p"); //.firstChild._rawText
+		const firstP = findFirstP(allP);
+
+		console.log(allP);
+		const firstPReduced = firstP.substring(0, 150).substring(0, firstP.substring(0, 140).lastIndexOf(" ")) + "...";
+		return firstPReduced;
 	}
 
 	return (
 		<div className="flex flex-wrap w-11 m-auto justify-content-between gap-6">
 			{posts &&
 				posts.map((e, i) => {
-					{
-						/* console.log(e); */
-					}
-					const bodyParsed = parse(e.article.body);
+					const bodyParsed = parse(e.article.body, { voidTag: true });
 					const titleToH2 = parse(e.article.title);
-					{
-						/* console.log(bodyParsed); */
-					}
 
 					const firstpReduced = shortDescription(bodyParsed);
-					{
-						/* firstP.substring(0, 150).substring(0, firstP.substring(0, 150).lastIndexOf(" ")) + "..."; */
-					}
 
 					return (
 						<div key={i}>

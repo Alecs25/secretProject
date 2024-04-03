@@ -43,14 +43,14 @@ async function getArticle(req, res) {
 }
 
 async function editArticle(req, res) {
-	console.log(req.body);
+	console.log(req.body.article);
 
 	const editArticle = await db.get(
-		"UPDATE articles SET body = ? WHERE article_id = ?",
-		[req.body.body, req.body.id],
+		"UPDATE articles SET article = ? WHERE article_id = ?",
+		[JSON.stringify(req.body.article), req.body.id],
 		(err, row) => {
 			if (err) console.log(err);
-			console.log(row);
+			// console.log(row);
 			res.send("edit ok");
 		}
 	);

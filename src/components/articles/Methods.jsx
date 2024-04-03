@@ -7,7 +7,7 @@ export async function fetchArticles(callback) {
 		const data = await response.json();
 		// console.log(data);
 		const parsedData = data.map((e) => {
-			//	console.log(e);
+			console.log(e);
 
 			const parsedData = {
 				id: e.article_id,
@@ -31,10 +31,12 @@ export async function FetchArticle(id, callback) {
 	try {
 		const response = await fetch(`http://localhost:3000/article/${id}`);
 		const data = await response.json();
+		// console.log(data);
 		const parsedData = {
 			id: data.article_id,
 			article: JSON.parse(data.article),
 		};
+		// console.log(parsedData);
 		if (callback) {
 			callback(parsedData);
 		} else {
