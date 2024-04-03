@@ -65,46 +65,46 @@ export function Navbar() {
 			],
 		},
 
-		{
-			label: "Piattaforme",
-			icon: "pi pi-search",
-			id: indexN++,
-			items: [
-				{
-					label: "Xbox Series X|S",
-					icon: "pi pi-bolt",
-					id: indexN++,
-					template: itemRenderer,
-					command: () => navigate("/SignUp"),
-				},
-				{
-					label: "Playstation 5",
-					icon: "pi pi-server",
-					id: indexN++,
-					template: itemRenderer,
-					command: () => navigate("/Login"),
-				},
-				{
-					label: "Nintendo Switch",
-					icon: "pi pi-pencil",
-					id: indexN++,
-					template: itemRenderer,
-				},
-				{
-					label: "Pc Windows",
-					icon: "pi pi-palette",
-					id: indexN++,
-					template: itemRenderer,
-				},
-			],
-		},
-		{
-			label: "Contatti",
-			icon: "pi pi-envelope",
-			badge: 3,
-			id: indexN++,
-			template: itemRenderer,
-		},
+		// {
+		// 	label: "Piattaforme",
+		// 	icon: "pi pi-search",
+		// 	id: indexN++,
+		// 	items: [
+		// 		{
+		// 			label: "Xbox Series X|S",
+		// 			icon: "pi pi-bolt",
+		// 			id: indexN++,
+		// 			template: itemRenderer,
+		// 			command: () => navigate("/SignUp"),
+		// 		},
+		// 		{
+		// 			label: "Playstation 5",
+		// 			icon: "pi pi-server",
+		// 			id: indexN++,
+		// 			template: itemRenderer,
+		// 			command: () => navigate("/Login"),
+		// 		},
+		// 		{
+		// 			label: "Nintendo Switch",
+		// 			icon: "pi pi-pencil",
+		// 			id: indexN++,
+		// 			template: itemRenderer,
+		// 		},
+		// 		{
+		// 			label: "Pc Windows",
+		// 			icon: "pi pi-palette",
+		// 			id: indexN++,
+		// 			template: itemRenderer,
+		// 		},
+		// 	],
+		// },
+		// {
+		// 	label: "Contatti",
+		// 	icon: "pi pi-envelope",
+		// 	badge: 3,
+		// 	id: indexN++,
+		// 	template: itemRenderer,
+		// },
 	];
 
 	const start = (
@@ -119,10 +119,10 @@ export function Navbar() {
 				className="toggle-icon"
 			/>
 
-			<span className="p-input-icon-left">
+			{/* <span className="p-input-icon-left">
 				<i className="pi pi-search" />
 				<InputText placeholder="Search" />
-			</span>
+			</span> */}
 			<button onClick={() => setShowModal(true)} className="p-button font-regular">
 				Accedi
 			</button>
