@@ -14,7 +14,8 @@ const {
 const port = 3000;
 
 app.listen(port, () => {
-	console.log(`In ascolto su porta ${port}`);
+	console.log(`In ascolto su porta ${port} 
+	\n************** Rigenerare il DB? 1+invio=si, invio=no **************`);
 });
 
 //Lettura JSON
