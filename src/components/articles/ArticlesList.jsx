@@ -12,7 +12,7 @@ export function ArticlesList() {
 	const parser = new DOMParser();
 
 	useEffect(() => {
-		fetchArticles(setPosts);
+		fetchArticles(false, setPosts);
 		console.log();
 	}, []);
 

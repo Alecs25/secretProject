@@ -18,39 +18,42 @@ export function ArticlesManager() {
 		{ field: "edit", body: <i className="pi pi-wrench"></i>, header: "Modifica" },
 	];
 	useEffect(() => {
-		fetchArticles(setArticles);
+		fetchArticles(true, setArticles);
 	}, [tick]);
 
-
-
+	useEffect(() => {
+		console.log(articles);
+	}, [articles]);
 
 	return (
 		<Card className="m-auto w-10 flex flex-column align-items-center">
-			<DataTable
-				cellSelection
-				selectionMode="single"
-				onSelectionChange={(e) => {
-					console.log(e);
-					switch (e.value.field) {
-						case "delete":
-							DeletePost(e.value.rowData.id);
-							setTick(!tick);
-							break;
-						case "edit":
-							navigate(`/admin/article/${e.value.rowData.id}`);
-							break;
-					}
-				}}
-				paginator
-				rows={15}
-				rowsPerPageOptions={[5, 15, 25, 50]}
-				showGridlines
-				value={articles}
-			>
-				{columns.map((col) => (
-					<Column key={col.field} field={col.field} header={col.header} body={col.body} />
-				))}
-			</DataTable>
+			{articles && (
+				<DataTable
+					cellSelection
+					selectionMode="single"
+					onSelectionChange={(e) => {
+						console.log(e);
+						switch (e.value.field) {
+							case "delete":
+								DeletePost(e.value.rowData.id);
+								setTick(!tick);
+								break;
+							case "edit":
+								navigate(`/admin/article/${e.value.rowData.id}`);
+								break;
+						}
+					}}
+					paginator
+					rows={15}
+					rowsPerPageOptions={[5, 15, 25, 50]}
+					showGridlines
+					value={articles}
+				>
+					{columns.map((col) => (
+						<Column key={col.field} field={col.field} header={col.header} body={col.body} />
+					))}
+				</DataTable>
+			)}
 		</Card>
 	);
 }
