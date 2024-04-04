@@ -5,21 +5,21 @@ import { FetchArticle } from "../../components/articles/Methods";
 
 export function ViewArticle() {
 	const { articleId } = useParams();
-	const [article, setArticle] = useState(null);
+	const [data, setData] = useState(null);
 
 	useEffect(() => {
-		FetchArticle(articleId, setArticle);
+		FetchArticle(articleId, setData);
 	}, []);
 
 	useEffect(() => {
-		console.log(article);
-	}, [article]);
+		console.log(data);
+	}, [data]);
 
 	return (
-		<main className="card w-11 m-auto bg-primary text-justify flex flex-column align-items-center p-5">
-			{article && <h1>{article?.title}</h1>}
+		<article className="card w-11 m-auto bg-primary text-justify flex flex-column align-items-center p-5">
+			{data && parse(data.article.title)}
 
-			{article && <article className="max-w-full">{parse(article.body)}</article>}
-		</main>
+			{data && parse(data.article.body)}
+		</article>
 	);
 }

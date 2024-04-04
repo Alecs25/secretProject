@@ -24,15 +24,13 @@ db.serialize(() => {
 	db.run(
 		`CREATE TABLE articles(
     article_id INTEGER PRIMARY KEY AUTOINCREMENT ,
-	prevw_img VARCHAR,
-    description VARCHAR,
-    body VARCHAR
+	article JSON NOT NULL
 	)`
 	);
 
 	// Import articoli da file JSON
 	articles.posts.forEach((article) => {
-		db.get("INSERT INTO articles VALUES (?, ?, ?, ?)", [null, prevw_img, null, article.body], (err, row) => {
+		db.get("INSERT INTO articles VALUES (?, ?)", [null, JSON.stringify(article)], (err) => {
 			if (err !== null) console.log(err);
 		});
 	});

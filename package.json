@@ -14,6 +14,7 @@
     "html-react-parser": "^5.1.8",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
+    "node-html-parser": "^6.1.13",
     "primeflex": "^3.3.1",
     "primeicons": "^6.0.1",
     "primereact": "^10.5.1",
@@ -22,7 +23,8 @@
     "react-dom": "^18.2.0",
     "react-router": "^6.22.2",
     "sort-by": "^0.0.2",
-    "swiper": "^11.0.7"
+    "swiper": "^11.0.7",
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

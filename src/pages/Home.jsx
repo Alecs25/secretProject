@@ -6,7 +6,7 @@ export function Home() {
 	return (
 		<div className="flex m-auto justify-content-center">
 			<div className="m-auto text-center flex flex-column align-content-center p-4 border-round mx-4">
-				<CarouselHome />
+				{/* <CarouselHome /> */}
 				<ArticlesList />
 			</div>
 		</div>

@@ -25,16 +25,15 @@ app.use(cors());
 
 // Fine opzioni express --
 
-app.get("/articles", async (res, req) => await getArticles(res, req));
+app.get("/articles", (res, req) => getArticles(res, req));
 
-app.get("/article/:id", async (res, req) => await getArticle(res, req));
+app.get("/article/:id", (res, req) => getArticle(res, req));
 
-app.get("/admin/article/:id", async (res, req) => await getArticle(res, req));
+app.get("/admin/article/:id", (res, req) => getArticle(res, req));
 
-app.post("/admin/editarticle/:id", async (res, req) => await editArticle(res, req));
+app.post("/admin/editarticle/:id", (res, req) => editArticle(res, req));
 
-app.post("/createArticle", async (res, req) => await createArticle(res, req));
+app.post("/createArticle", (res, req) => createArticle(res, req));
 
-app.delete("/article/:id", async (res, req) => await deleteArticle(res, req));
+app.delete("/article/:id", (res, req) => deleteArticle(res, req));
 
-// db.close();
