@@ -1,22 +1,30 @@
 import parse from "html-react-parser";
 const parser = new DOMParser();
 
-export async function fetchArticles(callback) {
+export async function fetchArticles(isManager, callback) {
 	try {
 		const response = await fetch("http://localhost:3000/articles");
 		const data = await response.json();
 		// console.log(data);
-		const parsedData = data.map((e) => {
-			console.log(e);
+		let parsedData = data.map((e) => {
+			// console.log(e);
 
 			const parsedData = {
 				id: e.article_id,
 				article: JSON.parse(e.article),
 			};
-			//console.log(parsedData);
 			return parsedData;
 		});
-		if (callback) {
+		if (isManager === true && callback) {
+			parsedData.map((e) => {
+				e.article.title = parse(e.article.title);
+				return { e };
+			});
+
+			callback(parsedData);
+
+			console.log(parsedData);
+		} else if (callback) {
 			callback(parsedData);
 		} else {
 			return parsedData;
