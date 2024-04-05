@@ -1,0 +1,13 @@
+.carousel-Title,.carousel-Description{
+    color: #c298d8;
+    width: 50%;
+    text-align: left;
+    margin-left: 25%;
+}
+.carousel-Description{
+    font-weight: 700;
+    font-size: medium;
+}
+.carousel-Link{
+    text-decoration: none;
+}
