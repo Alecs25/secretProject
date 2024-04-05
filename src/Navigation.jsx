@@ -12,14 +12,40 @@ import { ViewArticle } from "./pages/Template/ViewArticle";
 import { ArticlesManager } from "./pages/ArticlesManager";
 import { ChiSiamo } from "./pages/Chi_siamo";
 import { EditArticle } from "./pages/EditArticle";
-
+import backgroundHome from "./assets/images/backgroundHome/background.jpg";
+import { useEffect } from "react";
 export function Navigation() {
+	var styles = {
+		body: {
+			backgroundPosition: "center",
+			backgroundSize: "cover",
+			backgroundImage: `url(${backgroundHome})`,
+		},
+	};
+
+	useEffect(() => {
+		for (let i in styles.body) {
+			document.body.style[i] = styles.body[i];
+		}
+		return () => {
+			for (let i in styles.body) {
+				document.body.style[i] = null;
+			}
+		};
+	});
+
 	return (
 		<PrimeReactProvider>
 			{/* La width  dei componenti (header, body e footer) è gestita qui, w-10 indica una width del 83.33% 
 			il width dei componenti dentro questo div si baserà sul 83.33% della viewport*/}
-			<div style={{ position: "relative" }} className="flex flex-column  m-auto justify-content-center gap-5">
-				{/* ▼ Rendering del header ▼ */}
+			{/* ▼ Rendering del header ▼ */}
+
+			<div
+				style={{
+					position: "relative",
+				}}
+				className="flex flex-column m-auto justify-content-center gap-5"
+			>
 				<Header />
 				<Routes>
 					<Route path="/" element={<Home />} />

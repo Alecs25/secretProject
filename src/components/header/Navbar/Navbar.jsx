@@ -1,12 +1,11 @@
 import { Menubar } from "primereact/menubar";
-import { InputText } from "primereact/inputtext";
 import { Badge } from "primereact/badge";
 import toggle_light from "../assets/day.png";
 import toggle_dark from "../assets/night.png";
 import { useContext, useState } from "react";
 import { PrimeReactContext } from "primereact/api";
 import { Image } from "primereact/image";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { LoginModal } from "../../SignUp/loginModal";
 import { LoginForm } from "../../SignUp/LoginForm";
 
@@ -22,10 +21,10 @@ export function Navbar() {
 	function handleThemeChange() {
 		if (currentTheme === "bootstrap4-dark-purple") {
 			changeTheme(themes[0], themes[1], "app-theme");
-			setCurrentTheme(() => themes[1]);
+			setCurrentTheme(themes[1]);
 		} else {
 			changeTheme(themes[1], themes[0], "app-theme");
-			setCurrentTheme(() => themes[0]);
+			setCurrentTheme(themes[0]);
 		}
 	}
 	const itemRenderer = (item) => (

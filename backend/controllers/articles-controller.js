@@ -7,9 +7,10 @@ async function createArticle(req, res) {
 	const body = parsedArticle.removeChild(title).childNodes.map((e) => e.outerHTML);
 	console.log(body.join(""));
 	const article = { body: body.join(""), title: title.outerHTML, tags: ["placeholder"] };
-	const createArticle = await db.all(
-		"INSERT INTO articles VALUES (?, ?)",
-		[null, JSON.stringify(article)],
+
+	const CreateArticle = await db.all(
+		"INSERT INTO articles (article) VALUES (?)",
+		[JSON.stringify(article)],
 		(err, row) => {
 			err ? console.log(err) : console.log(req.body, "created article");
 		}
