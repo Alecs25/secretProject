@@ -6,7 +6,7 @@ async function createArticle(req, res) {
 	const title = parsedArticle.querySelector("h1");
 	const body = parsedArticle.removeChild(title).childNodes.map((e) => e.outerHTML);
 	console.log(body.join(""));
-	const article = { body: body.join(""), title: title.outerHTML, tags: ["placeholder"] };
+	const article = { body: body.join(""), title: title ? title.outerHTML : "Missing title", tags: ["placeholder"] };
 
 	const CreateArticle = await db.all(
 		"INSERT INTO articles (article) VALUES (?)",
