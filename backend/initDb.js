@@ -37,22 +37,19 @@ function initDB() {
 		});
 		db.run(
 			`CREATE TABLE users(
-    user_id INTEGER PRIMARY KEY AUTOINCREMENT ,
-    username VARCHAR,
-    password VARCHAR,
-    gender BOOLEAN,
-    birth DATE,
-    email VARCHAR,
-    isAdmin BOOLEAN
-	)`
+  			   	user_id INTEGER PRIMARY KEY AUTOINCREMENT ,
+               	username VARCHAR NOT NULL UNIQUE,
+                password VARCHAR NOT NULL,
+				isAdmin BOOLEAN,
+				token TEXT)`
 		);
 
 		db.run(
 			`CREATE TABLE articles(
-    article_id INTEGER PRIMARY KEY AUTOINCREMENT ,
-	article JSON NOT NULL
-	)`
+ 			article_id INTEGER PRIMARY KEY AUTOINCREMENT ,
+			article JSON NOT NULL)`
 		);
+		db.run(`INSERT INTO users VALUES (?, ?, ?, ?)`, [null, "alex", "ciao", 1]);
 
 		// Import articoli da file JSON
 		articles.posts.forEach((article) => {

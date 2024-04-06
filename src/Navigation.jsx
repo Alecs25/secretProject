@@ -14,7 +14,9 @@ import { ChiSiamo } from "./pages/Chi_siamo";
 import { EditArticle } from "./pages/EditArticle";
 import backgroundHome from "./assets/images/backgroundHome/background.jpg";
 import { useEffect } from "react";
+import { Profile } from "./pages/Profile";
 export function Navigation() {
+
 	var styles = {
 		body: {
 			backgroundPosition: "center",
@@ -55,6 +57,7 @@ export function Navigation() {
 					<Route path="/article/:articleId" element={<ViewArticle />} />
 					<Route path="/chiSiamo" element={<ChiSiamo />} />
 					<Route path="/admin/article/:articleId" element={<EditArticle />}></Route>
+					<Route path="/profile" element={<Profile />}></Route>
 				</Routes>
 			</div>
 			<Footer />
