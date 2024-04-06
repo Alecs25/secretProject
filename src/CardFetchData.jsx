@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { CardGrande } from "./CardGrande";
+import { CardPiccola } from "./CardPiccola";
 import classes from "./CardFetchData.module.scss"
 export function CardFetchData(){
 
@@ -9,7 +9,7 @@ export function CardFetchData(){
             {error && <h1>Errore durantre il caricamento {error.message}</h1>}
             <div className={classes.divcardconteiner}>
             {data && data.results.map((item, index) => (
-                <CardGrande key={index} item={item} />
+                <CardPiccola key={index} item={item} />
             ))}
             </div>
         </div>
