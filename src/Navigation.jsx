@@ -41,13 +41,14 @@ export function Navigation() {
 			{/* La width  dei componenti (header, body e footer) è gestita qui, w-10 indica una width del 83.33% 
 			il width dei componenti dentro questo div si baserà sul 83.33% della viewport*/}
 			{/* ▼ Rendering del header ▼ */}
-			<Header />
+
 			<div
 				style={{
 					position: "relative",
 				}}
-				className="flex flex-column  m-auto justify-content-center gap-5"
+				className="flex flex-column m-auto justify-content-center gap-5"
 			>
+				<Header />
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/product" element={<Product />} />
@@ -59,8 +60,8 @@ export function Navigation() {
 					<Route path="/admin/article/:articleId" element={<EditArticle />}></Route>
 					<Route path="/profile" element={<Profile />}></Route>
 				</Routes>
+				<Footer />
 			</div>
-			<Footer />
 		</PrimeReactProvider>
 	);
 }
