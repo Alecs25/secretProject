@@ -1,3 +1,7 @@
+import { sign } from "jsonwebtoken";
+import {logIn,signUp,logOut} from"./controllers/Users.js";
+import authorize from "./controllers/authorize.ts"
+import "./controllers/passport.ts"
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -7,7 +11,7 @@ const {
 	deleteArticle,
 	getArticle,
 	editArticle,
-} = require("./controllers/articles-controller.js");
+} = require("./controllers/articles-controller.ts");
 
 // Opzioni express --
 
@@ -34,6 +38,9 @@ app.post("/createArticle", (res, req) => createArticle(res, req));
 
 app.delete("/article/:id", (res, req) => deleteArticle(res, req));
 
+app.post("/api/users/login",logIn);
+app.post("/api/users/singup",signUp);
+app.get("/api/users/logout",authorize,logOut);
 
 app.listen(port, () => {
 	console.log(`In ascolto su porta ${port} 

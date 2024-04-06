@@ -17,6 +17,7 @@ function askQuestion(query) {
 		output: process.stdout,
 	});
 
+
 	return new Promise((resolve) =>
 		rl.question(query, (ans) => {
 			rl.close();
@@ -37,10 +38,11 @@ function initDB() {
 		});
 		db.run(
 			`CREATE TABLE users(
-    user_id INTEGER PRIMARY KEY AUTOINCREMENT ,
+    user_id 	SERIAL PRIMARY KEY  ,
     username VARCHAR,
     password VARCHAR,
     gender BOOLEAN,
+	token TEXT,
     birth DATE,
     email VARCHAR,
     isAdmin BOOLEAN
@@ -62,6 +64,7 @@ function initDB() {
 		});
 	});
 }
+
 // Fine inizializzazione DB sqlite
 
 module.exports = { db };

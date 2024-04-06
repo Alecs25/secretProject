@@ -1,8 +1,9 @@
 import pgPromise from "pg-promise";
 const db = pgPromise()("postgres");
+
 const User = async () => {
 	await db.none(`CREATE TABLE   users(
-    user_id INTEGER PRIMARY KEY,
+    user_id SERIAL PRIMARY KEY,
     username  varchar(32) NOT NULL,
     password varchar(32) NOT NULL,
     gender TEXT VARCHAR (1) NOT NULL,
@@ -52,3 +53,4 @@ const Console = async () => {
     Release DATE NOT NULL
      )`);
 };
+
