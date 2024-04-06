@@ -17,11 +17,6 @@ app.use(passport.initialize());
 
 const port = 3000;
 
-app.listen(port, () => {
-	console.log(`In ascolto su porta ${port} 
-	\n************** Rigenerare il DB? 1+invio=si, invio=no **************`);
-});
-
 //Lettura JSON
 app.use(express.json());
 
@@ -47,7 +42,6 @@ app.delete("/article/:id", (res, req) => deleteArticle(res, req));
 app.post("/user/login", (req, res) => logIn(req, res));
 
 app.post("/user/signup", (req, res) => signUpAndLogin(req, res));
-
 
 app.listen(port, () => {
 	console.log(`In ascolto su porta ${port} 

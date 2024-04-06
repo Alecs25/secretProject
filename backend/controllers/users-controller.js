@@ -6,11 +6,17 @@ const passport = require("passport");
 const { db } = require("../initDb");
 
 async function logIn(req, res) {
-	console.log(req.body);
+	// console.log(req.body);
 	const { username, password } = req.body;
-	const user = await db.run("SELECT * FROM users WHERE username = ?", username);
 
-	if (username === user.username && password === user.password) {
+	const user = await new Promise((res, rej) => {
+		db.get("SELECT * FROM users WHERE username = ?", [username], (err, row) => {
+			err ? res(false) : res(row);
+		});
+	});
+	//console.log(user);
+
+	if (user) {
 		const payload = {
 			id: user.user_id,
 			user: user.username,
@@ -18,9 +24,9 @@ async function logIn(req, res) {
 
 		const token = jwt.sign(payload, process.env.secret);
 		const authenticateUser = await db.run("UPDATE users SET token = ? WHERE username = ?", [token, username]);
-		res.json({ token });
+		res.json({ token: token, username: user.username, isAdmin: user.isAdmin });
 	} else {
-		res.status(401).send("Invalid credentials");
+		res.status(401).send({msg: "invalid credentials"});
 	}
 }
 

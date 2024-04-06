@@ -49,7 +49,7 @@ function initDB() {
  			article_id INTEGER PRIMARY KEY AUTOINCREMENT ,
 			article JSON NOT NULL)`
 		);
-		db.run(`INSERT INTO users VALUES (?, ?, ?, ?)`, [null, "alex", "ciao", 1]);
+		db.run(`INSERT INTO users VALUES (?, ?, ?, ?, ?)`, [null, "alex", "ciao", 1, null]);
 
 		// Import articoli da file JSON
 		articles.posts.forEach((article) => {
