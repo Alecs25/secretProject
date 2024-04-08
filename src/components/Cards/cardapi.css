@@ -1,12 +1,43 @@
 .card-conteiner123{
-    display: grid;
-    grid-template-columns: repeat(3, 250px);
-    gap: 16px;
+    display: flex;
+    gap: 16px; 
+    height: 100%;
     overflow: auto;
     overflow-x: hidden;
 }
 .card123{
+    position: relative;
     height: 300px;
     width: 250px;
-    background-color: red;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.card-description123 {
+    left: 2%;
+    width: 240px;
+    position: absolute;
+    bottom: 10%;
+    color: #fffc35;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: rgba(41, 38, 38, 0.575);
+    border-radius: 5px;
+  }
+.card-title123{
+    background-color: rgba(196, 196, 196, 0);
+    border-radius: 5px;
+    left: 2%;
+    width: 240px;
+    position: absolute;
 }
