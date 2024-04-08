@@ -32,7 +32,7 @@ export function Profile() {
 
 	async function handleSignup(e) {
 		e.preventDefault();
-		const user = await signUp(usernameInput, passwordInput);
+		const user = await signUp({ username: usernameSignup, password: passwordSignup });
 		console.log(user);
 		user === null ? showError() : "";
 	}
@@ -41,6 +41,7 @@ export function Profile() {
 		<Card>
 			<div className="flex justify-content-evenly">
 				<Toast ref={toast} />
+				{/* PROFILO DA LOGGATO */}
 				{isLoggedIn && userInfo && (
 					<div className="card flex justify-content-center">
 						<Avatar
@@ -59,18 +60,21 @@ export function Profile() {
 					</div>
 				)}
 
+				{/* REGISTRATI */}
 				{!isLoggedIn && (
 					<div className="card flex justify-content-center">
 						<form className="flex flex-column gap-3" onSubmit={handleSignup}>
 							<h3>Registrati</h3>
-							<label htmlFor="username"></label>
+							<label htmlFor="usernameSignup">Username</label>
 							<InputText
+								id="usernameSignup"
 								placeholder="Username"
 								onChange={(e) => setUsernameSignup(e.target.value)}
 								value={usernameSignup}
 							></InputText>
-							<label htmlFor="password"></label>
+							<label htmlFor="passwordSignup">Password</label>
 							<InputText
+								id="passwordSignup"
 								placeholder="Password"
 								onChange={(e) => setPasswordSignup(e.target.value)}
 								value={passwordSignup}
@@ -79,19 +83,19 @@ export function Profile() {
 						</form>
 					</div>
 				)}
-
+				{/* LOGIN */}
 				{!isLoggedIn && (
 					<div className="card flex justify-content-center">
 						<form className="flex flex-column gap-3" onSubmit={handleLogin}>
 							<h3>Login</h3>
 
-							<label htmlFor="username"></label>
+							<label htmlFor="username">Username</label>
 							<InputText
 								placeholder="Username"
 								onChange={(e) => setUsernameInput(e.target.value)}
 								value={usernameInput}
 							></InputText>
-							<label htmlFor="password"></label>
+							<label htmlFor="password">Password</label>
 							<InputText
 								placeholder="Password"
 								onChange={(e) => setPasswordInput(e.target.value)}

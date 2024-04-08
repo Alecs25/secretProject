@@ -21,8 +21,9 @@ export async function logIn(payload) {
 
 
 export async function signUp(payload) {
+	console.log(payload)
 	try {
-		const response = await fetch(`http://localhost:3000/user/signup`, {
+		const response = await fetch("http://localhost:3000/user/signup", {
 			method: "POST",
 			mode: "cors",
 			headers: {
@@ -34,7 +35,7 @@ export async function signUp(payload) {
 			}),
 		});
 		const data = await response.json();
-		// console.log(data);
+		console.log(data);
 		return data;
 	} catch (error) {
 		console.error(error.message);

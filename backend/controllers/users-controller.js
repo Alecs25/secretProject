@@ -35,7 +35,7 @@ async function signUp(req, res) {
 	const { username, password } = req.body;
 	if (username && password) {
 		const isUsernameAvailable = await db.get("SELECT * FROM users WHERE username = ?", [username], async (err, row) => {
-			if (!row) {
+			if (row) {
 				console.log(row);
 				console.log(err);
 				console.log(isUsernameAvailable);
@@ -43,7 +43,7 @@ async function signUp(req, res) {
 				res.status(400).send({ msg: "Utente già esistente" });
 				return;
 			} else {
-				const createUser = await db.get("INSERT INTO users VALUES (?, ?, ?, ?)", [null, username, password, false]);
+				const createUser = await db.get("INSERT INTO users VALUES (?, ?, ?, ?, ?)", [null, username, password, false, null]);
 				const user = await db.get("SELECT * FROM users WHERE username = ?", [username]);
 				const payload = {
 					id: user.user_id,
