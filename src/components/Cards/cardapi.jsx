@@ -7,7 +7,7 @@ function fetcher(url) {
 }
 
 export function Cardgrande() {
-    const { data, error } = useSWR('http://localhost:3000/api/oggetti', fetcher);
+    const { data, error } = useSWR('https://apicard-52c6424e8c80.herokuapp.com/api/oggetti', fetcher);
     const containerRef = useRef(null);
     const [scrollPosition, setScrollPosition] = useState(0);
     const [containerWidth, setContainerWidth] = useState(0);
