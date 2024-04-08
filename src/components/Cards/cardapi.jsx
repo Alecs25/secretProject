@@ -66,8 +66,8 @@ export function Cardgrande() {
                     </a>
                 ))}
             </div>
-            <button className='button123' onClick={() => handleScroll('left')} disabled={scrollPosition === 0}>{"<"}</button>
-            <button className='button1234' onClick={() => handleScroll('right')} disabled={scrollPosition + containerRef.current?.clientWidth >= containerWidth}>{">"}</button>
+            <button className='button123' onClick={() => handleScroll('left')} >{"<"}</button>
+            <button className='button1234' onClick={() => handleScroll('right')} >{">"}</button>
         </div>
     );
 }
