@@ -1,0 +1,12 @@
+.card-conteiner123{
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    gap: 16px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.card123{
+    height: 300px;
+    width: 250px;
+    background-color: red;
+}

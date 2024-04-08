@@ -15,6 +15,7 @@ import { EditArticle } from "./pages/EditArticle";
 import backgroundHome from "./assets/images/backgroundHome/background.jpg";
 import { useEffect } from "react";
 import { Profile } from "./pages/Profile";
+import { Cardgrande } from "./components/Cards/cardapi";
 export function Navigation() {
 
 	var styles = {
@@ -59,6 +60,7 @@ export function Navigation() {
 					<Route path="/chiSiamo" element={<ChiSiamo />} />
 					<Route path="/admin/article/:articleId" element={<EditArticle />}></Route>
 					<Route path="/profile" element={<Profile />}></Route>
+					<Route path="/card" element={<Cardgrande/>}/>
 				</Routes>
 				<Footer />
 			</div>
