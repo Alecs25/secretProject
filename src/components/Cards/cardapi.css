@@ -1,10 +1,19 @@
 .card-conteiner123{
     display: flex;
-    gap: 16px; 
+    flex-direction: row;
+     
     height: 100%;
     overflow: auto;
-    overflow-x: hidden;
+    display: flex;
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch; 
+    scroll-snap-type: x mandatory; 
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
 }
+.card-container123::-webkit-scrollbar {
+    display: none; 
+  }
 .card123{
     position: relative;
     height: 300px;
@@ -16,6 +25,8 @@
     position: relative;
     cursor: pointer;
     transition: transform 0.3s ease;
+    cursor: grab;
+    user-select: none;
 }
 .card-description123 {
     left: 2%;
@@ -40,4 +51,7 @@
     left: 2%;
     width: 240px;
     position: absolute;
+}
+.card-buttons-container{
+    user-select: none;
 }
