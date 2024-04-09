@@ -54,4 +54,11 @@
 }
 .card-buttons-container{
     user-select: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-conteiner1{
+    width: 1300px;
 }

@@ -53,6 +53,7 @@ export function Cardgrande() {
 
     return (
         <div className="card-buttons-container">
+            <div className='card-conteiner1'>
             
             <div className="card-container123 flex gap-3 overflow-scroll" ref={containerRef}>
                 {data.map((oggetto, index) => (
@@ -68,6 +69,7 @@ export function Cardgrande() {
             </div>
             <button className='button123' onClick={() => handleScroll('left')} >{"<"}</button>
             <button className='button1234' onClick={() => handleScroll('right')} >{">"}</button>
+            </div>
         </div>
     );
 }
