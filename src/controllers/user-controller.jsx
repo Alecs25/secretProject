@@ -36,7 +36,8 @@ export async function signUp(payload) {
 		});
 		const data = await response.json();
 		console.log(data);
-		return data;
+	
+		return {data, response};
 	} catch (error) {
 		console.error(error.message);
 	}

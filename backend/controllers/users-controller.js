@@ -31,14 +31,14 @@ async function logIn(req, res) {
 }
 
 async function signUp(req, res) {
-	console.log(req.body);
+	// console.log(req.body);
 	const { username, password } = req.body;
 	if (username && password) {
 		const isUsernameAvailable = await db.get("SELECT * FROM users WHERE username = ?", [username], async (err, row) => {
 			if (row) {
-				console.log(row);
-				console.log(err);
-				console.log(isUsernameAvailable);
+				// console.log(row);
+				// console.log(err);
+				// console.log(isUsernameAvailable);
 
 				res.status(400).send({ msg: "Utente già esistente" });
 				return;

@@ -9,32 +9,38 @@ import { signUp } from "../controllers/user-controller";
 
 export function Profile() {
 	const { userInfo, loginContext, isLoggedIn, logout } = useContext(UserContext);
-	const [usernameInput, setUsernameInput] = useState("");
-	const [passwordInput, setPasswordInput] = useState("");
-	const [usernameSignup, setUsernameSignup] = useState("");
-	const [passwordSignup, setPasswordSignup] = useState("");
+	const [loginInput, setLoginInput] = useState({ username: "", password: "" });
+	const [signUpInput, setSignUpInput] = useState({ username: "", password: "" });
 	const toast = useRef(null);
 
-	const showError = () => {
-		toast.current.show({ severity: "error", summary: "Error", detail: "Credenziali non valida", life: 3000 });
+	const resetStates = () => {
+		setLoginInput({ username: "", password: "" });
+		setSignUpInput({ username: "", password: "" });
 	};
 
-	const showErrorSignUp = (message) => {
+	const showError = (message) => {
 		toast.current.show({ severity: "error", summary: "Error", detail: message, life: 3000 });
 	};
-
+	const showSuccess = (message) => {
+		toast.current.show({ severity: "success", summary: "Success", detail: message, life: 3000 });
+	};
 	async function handleLogin(e) {
 		e.preventDefault();
-		const user = await loginContext(usernameInput, passwordInput);
+		const user = await loginContext(loginInput.username, loginInput.password);
 		console.log(user);
-		user === null ? showErrorSignUp() : "";
+		user === null ? showError("Credenziali non valide") : resetStates();
 	}
 
 	async function handleSignup(e) {
 		e.preventDefault();
-		const user = await signUp({ username: usernameSignup, password: passwordSignup });
-		console.log(user);
-		user === null ? showError() : "";
+		const user = await signUp({ username: signUpInput.username, password: signUpInput.password });
+		console.log(user.response);
+		if (user.response.status === 200) {
+			showSuccess("Registrazione effettuata con successo.");
+			resetStates();
+		} else {
+			showError(user.data.msg);
+		}
 	}
 
 	return (
@@ -69,15 +75,15 @@ export function Profile() {
 							<InputText
 								id="usernameSignup"
 								placeholder="Username"
-								onChange={(e) => setUsernameSignup(e.target.value)}
-								value={usernameSignup}
+								onChange={(e) => setSignUpInput({ username: e.target.value, password: signUpInput.password })}
+								value={signUpInput.username}
 							></InputText>
 							<label htmlFor="passwordSignup">Password</label>
 							<InputText
 								id="passwordSignup"
 								placeholder="Password"
-								onChange={(e) => setPasswordSignup(e.target.value)}
-								value={passwordSignup}
+								onChange={(e) => setSignUpInput({ username: signUpInput.username, password: e.target.value })}
+								value={signUpInput.password}
 							></InputText>
 							<Button className="w-5 align-self-end" label="Registrati"></Button>
 						</form>
@@ -92,14 +98,14 @@ export function Profile() {
 							<label htmlFor="username">Username</label>
 							<InputText
 								placeholder="Username"
-								onChange={(e) => setUsernameInput(e.target.value)}
-								value={usernameInput}
+								onChange={(e) => setLoginInput({ username: e.target.value, password: loginInput.password })}
+								value={loginInput.username}
 							></InputText>
 							<label htmlFor="password">Password</label>
 							<InputText
 								placeholder="Password"
-								onChange={(e) => setPasswordInput(e.target.value)}
-								value={passwordInput}
+								onChange={(e) => setLoginInput({ username: loginInput.username, password: e.target.value })}
+								value={loginInput.password}
 							></InputText>
 							<Button className="w-5 align-self-end" label="Login"></Button>
 						</form>
