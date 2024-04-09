@@ -15,6 +15,7 @@ import { EditArticle } from "./pages/EditArticle";
 import backgroundHome from "./assets/images/backgroundHome/background.jpg";
 import { useEffect } from "react";
 import { Profile } from "./pages/Profile";
+import { XboxPage } from "./pages/Console/Xbox/Xbox";
 export function Navigation() {
 
 	var styles = {
@@ -51,6 +52,7 @@ export function Navigation() {
 				<Header />
 				<Routes>
 					<Route path="/" element={<Home />} />
+					<Route path="/Xbox" element={<XboxPage/>}></Route>
 					<Route path="/product" element={<Product />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/createarticle" element={<CreateArticle />} />

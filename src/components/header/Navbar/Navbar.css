@@ -49,8 +49,17 @@
 .light .p-submenu-icon{
     color: black;
 }
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text{
+    color: white;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-submenu-icon{
+    color: white;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-icon{
+    color: white;
+}
 .p-menubar{
-    background-color:rgba(24,24,24,255) ;
+    background-color: transparent;
     border: none;
     transition: 0.5s;
 }

@@ -2,9 +2,12 @@
 	/* background-image: url("https://picsum.photos/500/300/?blur"); */
 	background-size: cover;
 	transition: 0.5s ease;
+	background-blend-mode:overlay;
 }
 .cardHomePage:hover {
 	transform: scale(1.1);
+	background-blend-mode: normal;
+	transition: 1s;
 }
 .cardBtn {
 	background-color: rgb(181, 103, 254);
@@ -14,6 +17,7 @@
 	position: relative;
 	font-size: 20px;
 	width: 250px;
+	opacity: none;
 }
 .text-concat {
 	position: relative;

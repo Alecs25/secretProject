@@ -18,7 +18,6 @@ export function ViewArticle() {
 	return (
 		<article className="card w-11 m-auto bg-primary text-justify flex flex-column align-items-center p-5 article-body">
 			{data && parse(data.article.title)}
-
 			{data && parse(data.article.body)}
 		</article>
 	);

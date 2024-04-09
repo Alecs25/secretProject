@@ -48,8 +48,7 @@ export function ArticlesList() {
 								<Card
 									className="cardHomePage md:w-30rem h-full flex flex-column justify-content-center m-auto align-items-center"
 									title=<h2>{titleToH2.innerText}</h2>
-									style={{ backgroundImage: `url(${e.prevw_img})` }}
-								>
+									style={{ backgroundImage: `url(${e.article.image})`, backgroundPosition:"center"}}>
 									<p>{firstpReduced}</p>
 									<Button
 										className="m-auto w-4"

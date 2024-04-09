@@ -8,7 +8,8 @@ import { Image } from "primereact/image";
 import { useNavigate } from "react-router-dom";
 import { LoginModal } from "../../SignUp/loginModal";
 import { LoginForm } from "../../SignUp/LoginForm";
-
+import "./Navbar.css"
+import Logo from "../assets/logoIcon.png"
 export function Navbar() {
 	const [showModal, setShowModal] = useState(false); // per gestire i forms Accedi e Iscriviti con un Modal
 	const { changeTheme } = useContext(PrimeReactContext);
@@ -64,50 +65,50 @@ export function Navbar() {
 			],
 		},
 
-		// {
-		// 	label: "Piattaforme",
-		// 	icon: "pi pi-search",
-		// 	id: indexN++,
-		// 	items: [
-		// 		{
-		// 			label: "Xbox Series X|S",
-		// 			icon: "pi pi-bolt",
-		// 			id: indexN++,
-		// 			template: itemRenderer,
-		// 			command: () => navigate("/SignUp"),
-		// 		},
-		// 		{
-		// 			label: "Playstation 5",
-		// 			icon: "pi pi-server",
-		// 			id: indexN++,
-		// 			template: itemRenderer,
-		// 			command: () => navigate("/Login"),
-		// 		},
-		// 		{
-		// 			label: "Nintendo Switch",
-		// 			icon: "pi pi-pencil",
-		// 			id: indexN++,
-		// 			template: itemRenderer,
-		// 		},
-		// 		{
-		// 			label: "Pc Windows",
-		// 			icon: "pi pi-palette",
-		// 			id: indexN++,
-		// 			template: itemRenderer,
-		// 		},
-		// 	],
-		// },
-		// {
-		// 	label: "Contatti",
-		// 	icon: "pi pi-envelope",
-		// 	badge: 3,
-		// 	id: indexN++,
-		// 	template: itemRenderer,
-		// },
+		{
+			label: "Piattaforme",
+			icon: "pi pi-search",
+			id: indexN++,
+			items: [
+				{
+		 			label: "Xbox Series X|S",
+					icon: "pi pi-bolt",
+					id: indexN++,
+					template: itemRenderer,
+					command: () => navigate("/Xbox"),
+				},
+				{
+					label: "Playstation 5",
+					icon: "pi pi-server",
+					id: indexN++,
+					template: itemRenderer,
+					command: () => navigate("/Login"),
+				},
+				{
+					label: "Nintendo Switch",
+					icon: "pi pi-pencil",
+					id: indexN++,
+					template: itemRenderer,
+				},
+				{
+					label: "Pc Windows",
+					icon: "pi pi-palette",
+					id: indexN++,
+					template: itemRenderer,
+				},
+			],
+		},
+		{
+			label: "Contatti",
+			icon: "pi pi-envelope",
+			badge: 3,
+			id: indexN++,
+			template: itemRenderer,
+		},
 	];
 
 	const start = (
-		<img alt="logo" src="https://primefaces.org/cdn/primereact/images/logo.png" height="40" className="mr-2"></img>
+		<img alt="logo" src={Logo} height="40" className="mr-2"></img>
 	);
 	const end = (
 		<div className="flex align-items-center gap-2 ">
