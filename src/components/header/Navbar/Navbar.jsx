@@ -8,25 +8,28 @@ import { Image } from "primereact/image";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginModal } from "../../SignUp/loginModal";
 import { LoginForm } from "../../SignUp/LoginForm";
-import "./Navbar.css"
-import Logo from "../assets/logoIcon.png"
+import "./Navbar.css";
+import Logo from "../assets/logoIcon.png";
+import { UserContext } from "../../../context/UserContext";
+import { Button } from "primereact/button";
+import { Dialog } from "primereact/dialog";
 export function Navbar() {
 	const [showModal, setShowModal] = useState(false); // per gestire i forms Accedi e Iscriviti con un Modal
 	const { changeTheme } = useContext(PrimeReactContext);
 	const themes = ["bootstrap4-dark-purple", "bootstrap4-light-purple"];
 	const [currentTheme, setCurrentTheme] = useState(themes[0]);
 	const navigate = useNavigate();
-	const [loginStatus, setLoginStatus] = useState(false)
-	const [permission, setPermission] = useState("user")
-
+	const [loginStatus, setLoginStatus] = useState(false);
+	const [permission, setPermission] = useState("user");
+	const { userInfo, isLoggedIn, loginContext, logout } = useContext(UserContext);
 	function handleLogin() {
-		setLoginStatus(true)
+		setLoginStatus(true);
 	}
 	function handleLogout() {
-		setLoginStatus(false)
+		setLoginStatus(false);
 	}
 	function handlePermission() {
-		setPermission("admin")
+		setPermission("admin");
 	}
 
 	let indexN = 0;
@@ -83,7 +86,7 @@ export function Navbar() {
 			id: indexN++,
 			items: [
 				{
-		 			label: "Xbox Series X|S",
+					label: "Xbox Series X|S",
 					id: indexN++,
 					template: itemRenderer,
 					command: () => navigate("/Xbox"),
@@ -112,7 +115,7 @@ export function Navbar() {
 
 	const start = (
 		<Link to="/">
-		<img alt="logo" src={Logo} height="40" className="mr-2 navbarLogo"></img>
+			<img alt="logo" src={Logo} height="40" className="mr-2 navbarLogo"></img>
 		</Link>
 	);
 	const end = (
@@ -130,33 +133,51 @@ export function Navbar() {
 			</span> */}
 			<button type="checkbox" onClick={handlePermission}></button>
 			<button type="checkbox" onClick={handleLogin}></button>
-			
-			{!loginStatus && <button onClick={() => setShowModal(true)} className="p-button font-regular">
-				Accedi
-			</button>}
-			{loginStatus && <div className="flex gap-3">
-					<button onClick={handleLogout} className="p-button font-regular">Disconnettiti</button>
-							<Link to="/profilo">
-								<button className="p-button font-regular">Profilo</button>
-							</Link>
-							</div>
-			}
+			{/* <button onClick={() => setShowModal(true)} className="p-button font-regular">
+					Accedi
+				</button> */}
+			{!isLoggedIn && (
+				<div className="card flex justify-content-center">
+					<Button label="Login" icon="pi pi-user" onClick={() => setShowModal(true)} />
+					<Dialog
+						position={"top"}
+						visible={showModal}
+						modal
+						content={<LoginForm />}
+						onHide={() => setShowModal(false)}
+					></Dialog>
+				</div>
+			)}
+			{isLoggedIn && (
+				<div className="flex gap-3">
+					<button onClick={logout} className="p-button font-regular">
+						Disconnettiti
+					</button>
+					<Link to="/profilo">
+						<button className="p-button font-regular">Profilo</button>
+					</Link>
+				</div>
+			)}
 		</div>
 	);
 
 	return (
 		<div className="card">
-			<LoginModal isVisible={showModal} onClose={() => setShowModal(false)}>
+			{/* <LoginModal isVisible={showModal} onClose={() => setShowModal(false)}>
 				<LoginForm />
-			</LoginModal>
-			<Menubar model={items.map(e=>{
-				if(permission === "admin"){
-					return e 
-				}else if (permission === "user" && e.label=== "Pannello Admin"){
-					return e={}
-				}
-				return e
-			})} start={start} end={end} />
+			</LoginModal> */}
+			<Menubar
+				model={items.map((e) => {
+					if (permission === "admin") {
+						return e;
+					} else if (permission === "user" && e.label === "Pannello Admin") {
+						return (e = {});
+					}
+					return e;
+				})}
+				start={start}
+				end={end}
+			/>
 		</div>
 	);
 }

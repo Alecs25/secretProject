@@ -1,31 +1,11 @@
 import { useState } from "react";
 import "./SignForm.css";
 export function SignForm() {
-	const [data, setData] = useState(createData());
+	const [inputSignup, setInputSignup] = useState({ username: "", password: "" });
 	const [privacyAccepted, setPrivacyAccepted] = useState(false);
 	const [passwordConfirmation, setPasswordConfirmation] = useState("");
 	const [passwordError, setPasswordError] = useState(false);
 
-	function createData() {
-		return {
-			username: "",
-			password: "",
-			confirmPassword: "",
-			email: "",
-		};
-	}
-
-	function HandleUsernameChange(event) {
-		setData({ ...data, username: event.target.value });
-	}
-
-	function HandlePasswordChange(event) {
-		setData({ ...data, password: event.target.value });
-	}
-
-	function HandleEmailChange(event) {
-		setData({ ...data, email: event.target.value });
-	}
 
 	function handlePrivacyChange(event) {
 		setPrivacyAccepted(event.target.checked);
@@ -33,13 +13,11 @@ export function SignForm() {
 
 	function handlePasswordConfirmationChange(event) {
 		setPasswordConfirmation(event.target.value);
-		setPasswordError(data.password !== event.target.value);
+		setPasswordError(inputSignup.password !== event.target.value);
 	}
 
 	function HandleSubmit(event) {
-		event.preventDefault(); // ti previene dei comportamenti che ha di base il form(Es. residui)
-		setSubmitted(true);
-		console.log(data);
+	
 	}
 
 	return (
@@ -49,7 +27,7 @@ export function SignForm() {
 				<input
 					className="Username"
 					placeholder="Username"
-					onChange={HandleUsernameChange}
+					onChange={(e) => setInputSignup({ ...inputSignup, username: e.target.value })}
 					name="username"
 					type="text"
 					value={data.username}
@@ -57,7 +35,7 @@ export function SignForm() {
 				<input
 					className="Password"
 					placeholder="Password"
-					onChange={HandlePasswordChange}
+					onChange={(e) => setInputSignup({ ...inputSignup, password: e.target.value })}
 					name="password"
 					type="password"
 					value={data.password}
