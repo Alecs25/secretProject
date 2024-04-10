@@ -16,6 +16,18 @@ export function Navbar() {
 	const themes = ["bootstrap4-dark-purple", "bootstrap4-light-purple"];
 	const [currentTheme, setCurrentTheme] = useState(themes[0]);
 	const navigate = useNavigate();
+	const [loginStatus, setLoginStatus] = useState(false)
+	const [permission, setPermission] = useState("user")
+
+	function handleLogin() {
+		setLoginStatus(true)
+	}
+	function handleLogout() {
+		setLoginStatus(false)
+	}
+	function handlePermission() {
+		setPermission("admin")
+	}
 
 	let indexN = 0;
 
@@ -116,11 +128,14 @@ export function Navbar() {
 				<i className="pi pi-search" />
 				<InputText placeholder="Search" />
 			</span> */}
-			   <button onClick={() => setShowModal(true)} className="p-button font-regular">
+			<button type="checkbox" onClick={handlePermission}></button>
+			<button type="checkbox" onClick={handleLogin}></button>
+			
+			{!loginStatus && <button onClick={() => setShowModal(true)} className="p-button font-regular">
 				Accedi
 			</button>
 			{loginStatus && <div className="flex gap-3">
-					<button className="p-button font-regular">Disconnettiti</button>
+					<button onClick={handleLogout} className="p-button font-regular">Disconnettiti</button>
 							<Link to="/profilo">
 								<button className="p-button font-regular">Profilo</button>
 							</Link>
