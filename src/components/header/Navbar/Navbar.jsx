@@ -116,9 +116,9 @@ export function Navbar() {
 				<i className="pi pi-search" />
 				<InputText placeholder="Search" />
 			</span> */}
-			 {!loginStatus &&  <button onClick={() => setShowModal(true)} className="p-button font-regular">
+			   <button onClick={() => setShowModal(true)} className="p-button font-regular">
 				Accedi
-			</button>}
+			</button>
 			{loginStatus && <div className="flex gap-3">
 					<button className="p-button font-regular">Disconnettiti</button>
 							<Link to="/profilo">
