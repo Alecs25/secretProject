@@ -149,8 +149,7 @@ export function Navbar() {
 				model={items.map((e) => {
 					if (userInfo?.isAdmin) {
 						e.visible=true
-					} else if (permission === "User" && e.label === "Pannello Admin") {
-						console.log(userInfo?.isAdmin);
+					} else if (e.label === "Pannello Admin") {
 						return (e = {});
 					}
 					return e;
