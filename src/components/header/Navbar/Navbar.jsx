@@ -133,7 +133,7 @@ export function Navbar() {
 			
 			{!loginStatus && <button onClick={() => setShowModal(true)} className="p-button font-regular">
 				Accedi
-			</button>
+			</button>}
 			{loginStatus && <div className="flex gap-3">
 					<button onClick={handleLogout} className="p-button font-regular">Disconnettiti</button>
 							<Link to="/profilo">

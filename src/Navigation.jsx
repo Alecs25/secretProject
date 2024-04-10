@@ -61,6 +61,7 @@ export function Navigation() {
 					<Route path="/PCWindows" element={<PCWindowsPage/>}></Route>
 					<Route path="/product" element={<Product />} />
 					<Route path="/login" element={<Login />} />
+					<Route path="/profilo"></Route>
 					<Route path="/createarticle" element={<CreateArticle />} />
 					<Route path="/articlemanager" element={<ArticlesManager />} />
 					<Route path="/article/:articleId" element={<ViewArticle />} />
