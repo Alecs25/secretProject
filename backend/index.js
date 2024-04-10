@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const passport = require("passport");
-const { logIn, signUpAndLogin } = require("./controllers/users-controller.js");
+const { logIn, signUp } = require("./controllers/users-controller.js");
 const {
 	createArticle,
 	getArticles,
@@ -41,7 +41,7 @@ app.delete("/article/:id", (res, req) => deleteArticle(res, req));
 //ROUTES users
 app.post("/user/login", (req, res) => logIn(req, res));
 
-app.post("/user/signup", (req, res) => signUpAndLogin(req, res));
+app.post("/user/signup", (req, res) => signUp(req, res));
 
 app.listen(port, () => {
 	console.log(`In ascolto su porta ${port} 
