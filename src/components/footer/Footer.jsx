@@ -8,7 +8,7 @@ export function Footer() {
 			<div className="flex-1 bg-primary font-bold text-center p-4 border-round ">
 				<Image src={logo} width="150px"></Image>
 				<div className="flex justify-content-center gap-5">
-					<Link to="/chiSiamo">
+					<Link to="/chiSiamo" className="no-underline">
 						<p className=" text-xl text-black-alpha-90 hover:text-cyan-700 ">Chi siamo</p>
 					</Link>
 					<p className="text-xl text-black-alpha-90 hover:text-cyan-700 ">Contatti</p>

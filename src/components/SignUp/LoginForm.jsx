@@ -30,6 +30,7 @@ export function LoginForm({ callback }) {
 					/>
 					<input
 						className="Password"
+            type="password"
 						placeholder="Password"
 						onChange={(e) => setInput({ ...input, password: e.target.value })}
 						value={input.password}

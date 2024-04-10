@@ -13,14 +13,11 @@ export function ArticlesList() {
 
 	useEffect(() => {
 		fetchArticles(false, setPosts);
-		console.log();
 	}, []);
 
 	function findFirstP(allP) {
 		const allPText = allP.map((p) => (p.firstChild.rawTagName === "br" ? null : p.firstChild._rawText));
-		// console.log(allPText);
 		const pWithText = allPText.find((e) => e !== null);
-		// console.log(pWithText);
 		return pWithText;
 	}
 
@@ -28,7 +25,6 @@ export function ArticlesList() {
 		const allP = body.querySelectorAll("p"); //.firstChild._rawText
 		const firstP = findFirstP(allP);
 
-		console.log(allP);
 		const firstPReduced = firstP.substring(0, 150).substring(0, firstP.substring(0, 140).lastIndexOf(" ")) + "...";
 		return firstPReduced;
 	}
@@ -39,7 +35,6 @@ export function ArticlesList() {
 				posts.map((e, i) => {
 					const bodyParsed = parse(e.article.body, { voidTag: true });
 					const titleToH2 = parse(e.article.title);
-
 					const firstpReduced = shortDescription(bodyParsed);
 
 					return (

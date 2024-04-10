@@ -65,6 +65,7 @@ export function Navbar() {
 			label: "Pannello Admin",
 			icon: "pi pi-wrench",
 			id: indexN++,
+			visible: false,
 			items: [
 				{
 					label: "Articoli Admin",
@@ -171,8 +172,8 @@ export function Navbar() {
 			<Menubar
 				model={items.map((e) => {
 					if (userInfo?.isAdmin) {
-						return e;
-					} else if (permission === "user" && e.label === "Pannello Admin") {
+						e.visible=true
+					} else if (permission === "User" && e.label === "Pannello Admin") {
 						console.log(userInfo?.isAdmin);
 						return (e = {});
 					}
