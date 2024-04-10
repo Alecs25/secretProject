@@ -6,7 +6,6 @@ import { useContext, useEffect, useState } from "react";
 import { PrimeReactContext } from "primereact/api";
 import { Image } from "primereact/image";
 import { Link, useNavigate } from "react-router-dom";
-import { LoginModal } from "../../SignUp/loginModal";
 import { LoginForm } from "../../SignUp/LoginForm";
 import "./Navbar.css";
 import Logo from "../assets/logoIcon.png";
@@ -149,7 +148,7 @@ export function Navbar() {
 				model={items.map((e) => {
 					if (userInfo?.isAdmin) {
 						e.visible=true
-					} else if (e.label === "Pannello Admin") {
+					} else if (userInfo?.isAdmin==0 && e.label === "Pannello Admin") {
 						return (e = {});
 					}
 					return e;
