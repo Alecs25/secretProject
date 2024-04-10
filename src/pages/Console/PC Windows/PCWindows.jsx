@@ -2,18 +2,18 @@ import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./ConsoleCard.css"
+import "../Xbox/ConsoleCard.css"
 import { CarouselHome } from "../../../components/Carousel/CarouselHome";
-import Xbox from "./Xbox";
-export function XboxPage(){
+import PCWindows from "./PCWindows.js";
+export function PCWindowsPage(){
     const [post , setPost] =useState(null)
- async function fetchXboxData(){
-    const response = await fetch("https://cardapi3-34a1b0472fc9.herokuapp.com/api/oggetti")
+ async function fetchPcWindowsData(){
+    const response = await fetch("https://cardapi4-8585c1d20363.herokuapp.com/api/oggetti")
     const data = await response.json()
     setPost(data)
  }
  useEffect(()=>{
-	fetchXboxData()
+	fetchPcWindowsData()
  },[])
  	function shortDescription(body) {
 		const firstPReduced = body.substring(0, 150).substring(0, body.substring(0, 140).lastIndexOf(" ")) + "...";
@@ -21,7 +21,7 @@ export function XboxPage(){
 	}
     return (
 		<div className="flex flex-wrap w-11 m-auto justify-content-between gap-6">
-			<CarouselHome Img={Xbox}></CarouselHome>
+            <CarouselHome Img={PCWindows}></CarouselHome>
 			{post &&
 				post.map((e, i) => {
 					const firstpReduced = shortDescription(e.descrizione);

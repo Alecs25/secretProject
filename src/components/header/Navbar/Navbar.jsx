@@ -10,6 +10,7 @@ import { LoginModal } from "../../SignUp/loginModal";
 import { LoginForm } from "../../SignUp/LoginForm";
 import "./Navbar.css"
 import Logo from "../assets/logoIcon.png"
+import PlayS from "../assets/buttons.png"
 export function Navbar() {
 	const [showModal, setShowModal] = useState(false); // per gestire i forms Accedi e Iscriviti con un Modal
 	const { changeTheme } = useContext(PrimeReactContext);
@@ -72,38 +73,29 @@ export function Navbar() {
 			items: [
 				{
 		 			label: "Xbox Series X|S",
-					icon: "pi pi-bolt",
 					id: indexN++,
 					template: itemRenderer,
 					command: () => navigate("/Xbox"),
 				},
 				{
 					label: "Playstation 5",
-					icon: "pi pi-server",
 					id: indexN++,
 					template: itemRenderer,
-					command: () => navigate("/Login"),
+					command: () => navigate("/PlayStation"),
 				},
 				{
 					label: "Nintendo Switch",
-					icon: "pi pi-pencil",
 					id: indexN++,
 					template: itemRenderer,
+					command: () => navigate("/Nintendo"),
 				},
 				{
 					label: "Pc Windows",
-					icon: "pi pi-palette",
 					id: indexN++,
 					template: itemRenderer,
+					command: () => navigate("/PCWindows"),
 				},
 			],
-		},
-		{
-			label: "Contatti",
-			icon: "pi pi-envelope",
-			badge: 3,
-			id: indexN++,
-			template: itemRenderer,
 		},
 	];
 

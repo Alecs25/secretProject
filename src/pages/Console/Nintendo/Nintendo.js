@@ -1,0 +1,7 @@
+const Nintendo = [
+    { id: 1, src: "https://media-assets.wired.it/photos/6606ffa83316c465462a2c60/16:9/w_1920,c_limit/868750730", href:"https://www.wired.it/article/nintendo-switch-2-lancio-quando/", title: "Quanto dovremo aspettare ancora la Nintendo Switch 2?", description:"e voci sulla prossima piattaforma portatile di Nintendo circolano ormai da tempo, ma è probabile che ci sarà da pazientare ancora un po'"},
+    { id: 2, src: "https://www.pokemonmillennium.net/wp-content/uploads/2021/07/Nintendo-Switch-OLED.jpg", href:"https://www.everyeye.it/notizie/nintendo-switch-oled-8gb-ram-modder-riesce-eseguire-zelda-totk-4k-710268.html", title: "NINTENDO SWITCH OLED CON 8GB DI RAM: MODDER RIESCE A ESEGUIRE ZELDA TOTK IN 4K!", description:"Mentre in rete continuano a rimbalzare i rumor su Nintendo Switch 2, un creatore di contenuti con la passione per il modding ha provato a spingere l'architettura hardware di Nintendo Switch al massimo delle sue potenzialità grafiche e prestazionali integrando 8GB di RAM a un modello OLED della console ibrida." },
+    { id: 3, src: "https://cdn.spaziogames.it/storage/media/2024/04/12994/Distruggi-tutti-gli-umani.png?width=898", href:"https://www.spaziogames.it/articoli/destroy-all-humans-per-nintendo-switch-ora-a-soli-33eur-os6" , title: "Destroy All Humans! per Nintendo Switch ora a SOLI 33€!", description:"Destroy All Humans! vi catapulta nel ruolo dell'alieno Crypto-137, con lo scopo di terrorizzare l'umanità degli anni '50. Divertentissimo!"},
+];
+
+export default Nintendo

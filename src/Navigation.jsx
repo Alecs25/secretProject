@@ -15,7 +15,10 @@ import { EditArticle } from "./pages/EditArticle";
 import backgroundHome from "./assets/images/backgroundHome/background.jpg";
 import { useEffect } from "react";
 import { Profile } from "./pages/Profile";
-import { XboxPage } from "./pages/Console/Xbox/Xbox";
+import { XboxPage } from "./pages/Console/Xbox/Xbox.jsx";
+import { PlayStationPage } from "./pages/Console/PlayStation/Playstation.jsx";
+import { NintendoPage } from "./pages/Console/Nintendo/Nintendo.jsx";
+import { PCWindowsPage } from "./pages/Console/PC Windows/PCWindows.jsx";
 export function Navigation() {
 
 	var styles = {
@@ -53,6 +56,9 @@ export function Navigation() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/Xbox" element={<XboxPage/>}></Route>
+					<Route path="/PlayStation" element={<PlayStationPage/>}></Route>
+					<Route path="/Nintendo" element={<NintendoPage/>}></Route>
+					<Route path="/PCWindows" element={<PCWindowsPage/>}></Route>
 					<Route path="/product" element={<Product />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/createarticle" element={<CreateArticle />} />
