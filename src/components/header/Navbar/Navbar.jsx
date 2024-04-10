@@ -35,15 +35,15 @@ export function Navbar() {
 
 
 
-	function handleThemeChange() {
-		if (currentTheme === "bootstrap4-dark-purple") {
-			changeTheme(themes[0], themes[1], "app-theme");
-			setCurrentTheme(themes[1]);
-		} else {
-			changeTheme(themes[1], themes[0], "app-theme");
-			setCurrentTheme(themes[0]);
-		}
-	}
+	// function handleThemeChange() {
+	// 	if (currentTheme === "bootstrap4-dark-purple") {
+	// 		changeTheme(themes[0], themes[1], "app-theme");
+	// 		setCurrentTheme(themes[1]);
+	// 	} else {
+	// 		changeTheme(themes[1], themes[0], "app-theme");
+	// 		setCurrentTheme(themes[0]);
+	// 	}
+	// }
 	const itemRenderer = (item) => (
 		<a className="flex align-items-center p-menuitem-link">
 			<span className={item.icon} />
@@ -121,12 +121,12 @@ export function Navbar() {
 	);
 	const end = (
 		<div className="flex align-items-center gap-2 ">
-			<Image
+			{/* <Image
 				onClick={handleThemeChange}
 				width="32px"
 				src={currentTheme === themes[0] ? toggle_light : toggle_dark}
 				className="toggle-icon navbarLogo"
-			/>
+			/> */}
 
 			{/* <span className="p-input-icon-left">
 				<i className="pi pi-search" />
