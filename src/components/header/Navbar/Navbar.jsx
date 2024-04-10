@@ -2,7 +2,7 @@ import { Menubar } from "primereact/menubar";
 import { Badge } from "primereact/badge";
 import toggle_light from "../assets/day.png";
 import toggle_dark from "../assets/night.png";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { PrimeReactContext } from "primereact/api";
 import { Image } from "primereact/image";
 import { Link, useNavigate } from "react-router-dom";
@@ -31,8 +31,9 @@ export function Navbar() {
 	function handlePermission() {
 		setPermission("admin");
 	}
-
 	let indexN = 0;
+
+
 
 	function handleThemeChange() {
 		if (currentTheme === "bootstrap4-dark-purple") {
@@ -53,7 +54,7 @@ export function Navbar() {
 			)}
 		</a>
 	);
-	const items = [
+	let items = [
 		{
 			label: "Home",
 			icon: "pi pi-home",
@@ -131,8 +132,8 @@ export function Navbar() {
 				<i className="pi pi-search" />
 				<InputText placeholder="Search" />
 			</span> */}
-			<button type="checkbox" onClick={handlePermission}></button>
-			<button type="checkbox" onClick={handleLogin}></button>
+			{/* <button type="checkbox" onClick={handlePermission}></button>
+			<button type="checkbox" onClick={handleLogin}></button> */}
 			{/* <button onClick={() => setShowModal(true)} className="p-button font-regular">
 					Accedi
 				</button> */}
@@ -143,7 +144,8 @@ export function Navbar() {
 						position={"top"}
 						visible={showModal}
 						modal
-						content={<LoginForm />}
+						dismissableMask={true}
+						content={<LoginForm callback={setShowModal} />}
 						onHide={() => setShowModal(false)}
 					></Dialog>
 				</div>
@@ -153,7 +155,7 @@ export function Navbar() {
 					<button onClick={logout} className="p-button font-regular">
 						Disconnettiti
 					</button>
-					<Link to="/profilo">
+					<Link to="/profile">
 						<button className="p-button font-regular">Profilo</button>
 					</Link>
 				</div>
@@ -168,9 +170,10 @@ export function Navbar() {
 			</LoginModal> */}
 			<Menubar
 				model={items.map((e) => {
-					if (permission === "admin") {
+					if (userInfo?.isAdmin) {
 						return e;
 					} else if (permission === "user" && e.label === "Pannello Admin") {
+						console.log(userInfo?.isAdmin);
 						return (e = {});
 					}
 					return e;

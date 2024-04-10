@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./SignForm.css";
-export function SignForm() {
+import { signUp } from "../../controllers/user-controller";
+import { UserContext } from "../../context/UserContext";
+export function SignForm({ callback }) {
 	const [inputSignup, setInputSignup] = useState({ username: "", password: "" });
 	const [privacyAccepted, setPrivacyAccepted] = useState(false);
 	const [passwordConfirmation, setPasswordConfirmation] = useState("");
 	const [passwordError, setPasswordError] = useState(false);
-
-
+	const { showSuccess, showError } = useContext(UserContext);
 	function handlePrivacyChange(event) {
 		setPrivacyAccepted(event.target.checked);
 	}
@@ -16,8 +17,16 @@ export function SignForm() {
 		setPasswordError(inputSignup.password !== event.target.value);
 	}
 
-	function HandleSubmit(event) {
-	
+	async function HandleSubmit(e) {
+		e.preventDefault();
+		const signResponse = await signUp({ username: inputSignup.username, password: inputSignup.password });
+		const signData = signResponse.data;
+		if (signData.token) {
+			showSuccess("Registrazione effettuata con successo");
+			setTimeout(callback(false), 1500);
+		} else {
+			showError("Utente già esistente");
+		}
 	}
 
 	return (
@@ -30,7 +39,7 @@ export function SignForm() {
 					onChange={(e) => setInputSignup({ ...inputSignup, username: e.target.value })}
 					name="username"
 					type="text"
-					value={data.username}
+					value={inputSignup.username}
 				/>
 				<input
 					className="Password"
@@ -38,7 +47,7 @@ export function SignForm() {
 					onChange={(e) => setInputSignup({ ...inputSignup, password: e.target.value })}
 					name="password"
 					type="password"
-					value={data.password}
+					value={inputSignup.password}
 				/>
 				<input
 					placeholder="Conferma password"
@@ -47,29 +56,21 @@ export function SignForm() {
 					value={passwordConfirmation}
 				/>
 				{passwordError && <div className="textPassword">Le password non corrispondono</div>}
-				<input
-					className="Email"
-					placeholder="Email"
-					onChange={HandleEmailChange}
-					name="email"
-					type="email"
-					value={data.email}
-				/>
-				<label className="privacy">
+				{/* <label className="privacy">
 					Cliccando su conferma accetti<a>la nostra Informativa</a>sulla privacy.
-				</label>
-				<div className="privacyDisplay">
+				</label> */}
+				{/* <div className="privacyDisplay">
 					<input className="checkbox" type="checkbox" onChange={handlePrivacyChange} />
-				</div>
-				{privacyAccepted && (
+				</div> */}
+				{/* {privacyAccepted && (
 					<div className="button-container">
 						<button className="privacyButton" type="button">
 							Conferma
 						</button>
 					</div>
-				)}
+				)} */}
 				<div className="button-container">
-					<button className="loginButton" type="submit" disabled={!data.username || !data.password || !data.email}>
+					<button className="loginButton" type="submit" disabled={!inputSignup.username || !inputSignup.password}>
 						Iscriviti
 					</button>
 				</div>

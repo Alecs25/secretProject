@@ -13,13 +13,16 @@ import { ArticlesManager } from "./pages/ArticlesManager";
 import { ChiSiamo } from "./pages/Chi_siamo";
 import { EditArticle } from "./pages/EditArticle";
 import backgroundHome from "./assets/images/backgroundHome/background.jpg";
-import { useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Profile } from "./pages/Profile";
 import { XboxPage } from "./pages/Console/Xbox/Xbox.jsx";
 import { PlayStationPage } from "./pages/Console/PlayStation/Playstation.jsx";
 import { NintendoPage } from "./pages/Console/Nintendo/Nintendo.jsx";
 import { PCWindowsPage } from "./pages/Console/PC Windows/PCWindows.jsx";
+import { Toast } from "primereact/toast";
+import { UserContext } from "./context/UserContext.jsx";
 export function Navigation() {
+	const { toast } = useContext(UserContext);
 
 	var styles = {
 		body: {
@@ -52,16 +55,17 @@ export function Navigation() {
 				}}
 				className="flex flex-column m-auto justify-content-center gap-5"
 			>
+				<Toast ref={toast} />
+
 				<Header />
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/Xbox" element={<XboxPage/>}></Route>
-					<Route path="/PlayStation" element={<PlayStationPage/>}></Route>
-					<Route path="/Nintendo" element={<NintendoPage/>}></Route>
-					<Route path="/PCWindows" element={<PCWindowsPage/>}></Route>
+					<Route path="/Xbox" element={<XboxPage />}></Route>
+					<Route path="/PlayStation" element={<PlayStationPage />}></Route>
+					<Route path="/Nintendo" element={<NintendoPage />}></Route>
+					<Route path="/PCWindows" element={<PCWindowsPage />}></Route>
 					<Route path="/product" element={<Product />} />
 					<Route path="/login" element={<Login />} />
-					<Route path="/profilo"></Route>
 					<Route path="/createarticle" element={<CreateArticle />} />
 					<Route path="/articlemanager" element={<ArticlesManager />} />
 					<Route path="/article/:articleId" element={<ViewArticle />} />

@@ -12,23 +12,22 @@ export function Profile() {
 	const [loginInput, setLoginInput] = useState({ username: "", password: "" });
 	const [signUpInput, setSignUpInput] = useState({ username: "", password: "" });
 	const toast = useRef(null);
-
+	const showError = (toast, message) => {
+		toast.current.show({ severity: "error", summary: "Error", detail: message, life: 3000 });
+	};
+	const showSuccess = (toast, message) => {
+		toast.current.show({ severity: "success", summary: "Success", detail: message, life: 3000 });
+	};
 	const resetStates = () => {
 		setLoginInput({ username: "", password: "" });
 		setSignUpInput({ username: "", password: "" });
 	};
 
-	const showError = (message) => {
-		toast.current.show({ severity: "error", summary: "Error", detail: message, life: 3000 });
-	};
-	const showSuccess = (message) => {
-		toast.current.show({ severity: "success", summary: "Success", detail: message, life: 3000 });
-	};
 	async function handleLogin(e) {
 		e.preventDefault();
 		const user = await loginContext(loginInput.username, loginInput.password);
 		console.log(user);
-		user === null ? showError("Credenziali non valide") : resetStates();
+		user === null ? showError(toast, "Credenziali non valide") : resetStates();
 	}
 
 	async function handleSignup(e) {
@@ -36,7 +35,7 @@ export function Profile() {
 		const user = await signUp({ username: signUpInput.username, password: signUpInput.password });
 		console.log(user.response);
 		if (user.response.status === 200) {
-			showSuccess("Registrazione effettuata con successo.");
+			showSuccess(toast, "Registrazione effettuata con successo.");
 			resetStates();
 		} else {
 			showError(user.data.msg);

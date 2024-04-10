@@ -6,19 +6,20 @@ import { UserContext } from "../../context/UserContext";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 
-export function LoginForm() {
+export function LoginForm({ callback }) {
 	const [input, setInput] = useState({ username: "", password: "" });
 	const [SignUpButton, setSignUpButton] = useState(false);
-	const { userInfo, isLoggedIn, loginContext, logout } = useContext(UserContext);
+	const { userInfo, isLoggedIn, loginContext, logout} = useContext(UserContext);
 
 	function HandleSubmit(e) {
 		e.preventDefault(); // ti previene dei comportamenti che ha di base il form(Es. residui)
 		loginContext(input.username, input.password);
+    
 	}
 
 	return (
 		<div className="Container">
-			<div className="cardLogin">
+			<div className="cardLogin" style={{ display: SignUpButton ? "none" : "flex" }}>
 				<h2 style={{ color: "#565efa" }}>Accedi</h2>
 				<form onSubmit={HandleSubmit} className="form-control">
 					<input
@@ -56,8 +57,11 @@ export function LoginForm() {
 							position={"top"}
 							visible={SignUpButton}
 							modal
-							content={<SignForm />}
-							onHide={() => setSignUpButton(false)}
+              dismissableMask={true}
+							content={<SignForm callback={setSignUpButton} />}
+							onHide={() => {
+								setSignUpButton(false);
+							}}
 						></Dialog>
 					</div>
 				</div>
