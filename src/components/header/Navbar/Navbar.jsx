@@ -19,18 +19,7 @@ export function Navbar() {
 	const themes = ["bootstrap4-dark-purple", "bootstrap4-light-purple"];
 	const [currentTheme, setCurrentTheme] = useState(themes[0]);
 	const navigate = useNavigate();
-	const [loginStatus, setLoginStatus] = useState(false);
-	const [permission, setPermission] = useState("user");
 	const { userInfo, isLoggedIn, loginContext, logout } = useContext(UserContext);
-	function handleLogin() {
-		setLoginStatus(true);
-	}
-	function handleLogout() {
-		setLoginStatus(false);
-	}
-	function handlePermission() {
-		setPermission("admin");
-	}
 	let indexN = 0;
 
 
@@ -128,16 +117,6 @@ export function Navbar() {
 				src={currentTheme === themes[0] ? toggle_light : toggle_dark}
 				className="toggle-icon navbarLogo"
 			/> */}
-
-			{/* <span className="p-input-icon-left">
-				<i className="pi pi-search" />
-				<InputText placeholder="Search" />
-			</span> */}
-			{/* <button type="checkbox" onClick={handlePermission}></button>
-			<button type="checkbox" onClick={handleLogin}></button> */}
-			{/* <button onClick={() => setShowModal(true)} className="p-button font-regular">
-					Accedi
-				</button> */}
 			{!isLoggedIn && (
 				<div className="card flex justify-content-center">
 					<Button label="Login" icon="pi pi-user" onClick={() => setShowModal(true)} />
@@ -166,9 +145,6 @@ export function Navbar() {
 
 	return (
 		<div className="card">
-			{/* <LoginModal isVisible={showModal} onClose={() => setShowModal(false)}>
-				<LoginForm />
-			</LoginModal> */}
 			<Menubar
 				model={items.map((e) => {
 					if (userInfo?.isAdmin) {
