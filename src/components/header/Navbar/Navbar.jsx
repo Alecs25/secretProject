@@ -5,12 +5,11 @@ import toggle_dark from "../assets/night.png";
 import { useContext, useState } from "react";
 import { PrimeReactContext } from "primereact/api";
 import { Image } from "primereact/image";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LoginModal } from "../../SignUp/loginModal";
 import { LoginForm } from "../../SignUp/LoginForm";
 import "./Navbar.css"
 import Logo from "../assets/logoIcon.png"
-import PlayS from "../assets/buttons.png"
 export function Navbar() {
 	const [showModal, setShowModal] = useState(false); // per gestire i forms Accedi e Iscriviti con un Modal
 	const { changeTheme } = useContext(PrimeReactContext);
@@ -100,7 +99,9 @@ export function Navbar() {
 	];
 
 	const start = (
-		<img alt="logo" src={Logo} height="40" className="mr-2"></img>
+		<Link to="/">
+		<img alt="logo" src={Logo} height="40" className="mr-2 navbarLogo"></img>
+		</Link>
 	);
 	const end = (
 		<div className="flex align-items-center gap-2 ">
@@ -108,16 +109,23 @@ export function Navbar() {
 				onClick={handleThemeChange}
 				width="32px"
 				src={currentTheme === themes[0] ? toggle_light : toggle_dark}
-				className="toggle-icon"
+				className="toggle-icon navbarLogo"
 			/>
 
 			{/* <span className="p-input-icon-left">
 				<i className="pi pi-search" />
 				<InputText placeholder="Search" />
 			</span> */}
-			<button onClick={() => setShowModal(true)} className="p-button font-regular">
+			 {!loginStatus &&  <button onClick={() => setShowModal(true)} className="p-button font-regular">
 				Accedi
-			</button>
+			</button>}
+			{loginStatus && <div className="flex gap-3">
+					<button className="p-button font-regular">Disconnettiti</button>
+							<Link to="/profilo">
+								<button className="p-button font-regular">Profilo</button>
+							</Link>
+							</div>
+			}
 		</div>
 	);
 
@@ -126,7 +134,14 @@ export function Navbar() {
 			<LoginModal isVisible={showModal} onClose={() => setShowModal(false)}>
 				<LoginForm />
 			</LoginModal>
-			<Menubar model={items} start={start} end={end} />
+			<Menubar model={items.map(e=>{
+				if(permission === "admin"){
+					return e 
+				}else if (permission === "user" && e.label=== "Pannello Admin"){
+					return e={}
+				}
+				return e
+			})} start={start} end={end} />
 		</div>
 	);
 }

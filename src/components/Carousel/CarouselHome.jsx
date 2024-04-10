@@ -2,7 +2,6 @@ import { Carousel } from "primereact/carousel";
 import "../Carousel/CarouselHome.css"
 export function CarouselHome(Img) {
 		const productTemplate = (image) => {
-		console.log(image)
 		return (
 			<div className="m-2 text-center py-5 px-3">
 				<div className="mb-3">

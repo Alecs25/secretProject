@@ -67,3 +67,6 @@
     color: black;
     border-color:black ;
 }
+.navbarLogo{
+    user-select: none;
+}
