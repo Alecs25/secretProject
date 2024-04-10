@@ -7,8 +7,9 @@ import { useContext, useState } from "react";
 import { PrimeReactContext } from "primereact/api";
 import { Image } from "primereact/image";
 import { Link, useNavigate } from "react-router-dom";
-import { LoginModal } from "../../content/SignUp/loginModal";
+import NestedModal from "../../content/SignUp/loginModal";
 import { LoginForm } from "../../content/SignUp/LoginForm";
+
 
 export function Navbar() {
 	const [showModal, setShowModal] = useState(false) // per gestire i forms Accedi e Iscriviti con un Modal
@@ -119,7 +120,7 @@ export function Navbar() {
 
 	return (
 		<div className="card">
-		<LoginModal isVisible={showModal} onClose={() => setShowModal(false)}><LoginForm/></LoginModal>
+		<NestedModal><LoginForm/></NestedModal>
 		<Menubar model={items} start={start} end={end} />
 		</div>
 	);

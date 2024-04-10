@@ -6,7 +6,6 @@ import { Chip } from "primereact/chip";
 import { ArticlesContext } from "../articles/ArticlesLoader";
 import parse from "html-react-parser";
 import { Link } from "react-router-dom";
-import { SassColor } from "sass";
 import arrowBtn from "../../assets/angle-small-right.png"
 import "./PostLists.css"
 

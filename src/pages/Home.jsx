@@ -1,6 +1,6 @@
 import { CarouselHome } from "../content/Carousel/CarouselHome";
 import { PostsLists } from "../content/Posts/PostsLists";
-import { LoginModal } from "../content/SignUp/loginModal";
+
 
 export function Home() {
 	return (

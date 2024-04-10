@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./LoginForm.css"
 import { SignForm } from "./SignForm"
-import { LoginModal } from "./loginModal"
+
 
 export function LoginForm() {
 
@@ -27,7 +27,7 @@ export function LoginForm() {
       }
 
     function HandleSubmit(event) {
-        event.preventDefault() // ti previene dei comportamenti che ha di base il form(Es. residui)
+        event.preventDefault() 
         setSubmitted(true)
         console.log(data)
     }
@@ -61,13 +61,9 @@ export function LoginForm() {
               Accedi
               </button>
             </div>            
-            <div className="button-container">
-              <button onClick={()=>setSignUpButton(true)} type="button" style={{textDecoration: "none"}}>Non hai un'account? Iscriviti</button>
-            </div>
+
              </form>
-            <div className="card-signup">
-            <LoginModal isVisible={SignUpButton} onClose={()=> setSignUpButton(false)} children={<SignForm/>}></LoginModal>
-            </div>
+
         </div>
         </div>
       );
