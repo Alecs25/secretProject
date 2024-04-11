@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import parse from "html-react-parser";
 import { FetchArticle } from "../../components/articles/Methods";
@@ -6,9 +6,11 @@ import "./ViewArticle.css";
 import { CommentsList } from "../../components/comments/CommentsList";
 import { Card } from "primereact/card";
 import { AddComment } from "../../components/comments/AddComment";
+import { UserContext } from "../../context/UserContext";
 export function ViewArticle() {
 	const { articleId } = useParams();
 	const [data, setData] = useState(null);
+const {userInfo, isLoggedIn} = useContext(UserContext)
 
 	useEffect(() => {
 		FetchArticle(articleId, setData);
@@ -24,7 +26,7 @@ export function ViewArticle() {
 				{data && parse(data.article.title)}
 				{data && parse(data.article.body)}
 			</article>
-			<AddComment />
+			{isLoggedIn && <AddComment userInfo={userInfo} />}
 			<CommentsList />
 		</div>
 	);

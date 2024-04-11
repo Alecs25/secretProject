@@ -34,6 +34,7 @@ function initDB() {
 		db.serialize(() => {
 			db.run("DROP TABLE IF EXISTS users");
 			db.run("DROP TABLE IF EXISTS articles");
+			db.run("DROP TABLE IF EXISTS comments");
 		});
 		db.run(
 			`CREATE TABLE users(
@@ -49,6 +50,19 @@ function initDB() {
  			article_id INTEGER PRIMARY KEY AUTOINCREMENT ,
 			article JSON NOT NULL)`
 		);
+		//parent id: null se nuovo commento, altrimenti id del commento a cui è figlio
+		//Il json contiene username, corpo messaggio, data e ora
+		db.run(
+			`CREATE TABLE comments(
+ 			comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
+			parent_id INTEGER, 
+			article_id,
+			user_id INTEGER NOT NULL,
+			comment JSON NOT NULL,
+			FOREIGN KEY(user_id) REFERENCES users(user_id),
+			FOREIGN KEY(article_id) REFERENCES articles(article_id))`
+		);
+
 		db.run(`INSERT INTO users VALUES (?, ?, ?, ?, ?)`, [null, "alex", "ciao", true, null]);
 
 		// Import articoli da file JSON

@@ -10,6 +10,7 @@ const {
 	getArticle,
 	editArticle,
 } = require("./controllers/articles-controller.js");
+const { createComment, getComments } = require("./controllers/comments-controller.js");
 
 // Opzioni express --
 //passport
@@ -42,6 +43,12 @@ app.delete("/article/:id", (res, req) => deleteArticle(res, req));
 app.post("/user/login", (req, res) => logIn(req, res));
 
 app.post("/user/signup", (req, res) => signUp(req, res));
+
+//ROUTES comments
+app.post("articles/:id/comments/create", (req, res) => createComment(req, res));
+
+app.get("/article/comments/:id", (req, res) => getComments(req, res));
+
 
 app.listen(port, () => {
 	console.log(`In ascolto su porta ${port} 
