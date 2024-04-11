@@ -1,4 +1,4 @@
-import "./product.css";
+
 import {useState} from "react"
 import  Comment  from "../comment Section/components/comment";
 import "../comment Section/CommentStyle.css" 

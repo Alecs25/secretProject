@@ -1,14 +1,16 @@
 import { useState, useRef, useEffect } from "react";
-import { ReactComponent as DownArrow } from "../assets/down-arrow.svg";
-import { ReactComponent as UpArrow } from "../assets/up-arrow.svg";
+import DownArrow from "../assets";
+import UpArrow from "../assets";
 import { Action } from "./Action";
+import useNode from "../hooks/useNode";
 
 export function Comment({
   Comment,
   handleInsertNode,
   handleEditNode,
   handleDeleteNode,
-}) {
+})
+ {
   const [input, setInput] = useState("");
   const [edit, setEdit] = useState(false);
   const [showInput, setShowInput] = useState(false);

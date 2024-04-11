@@ -4,7 +4,7 @@ import { PrimeReactProvider } from "primereact/api";
 import "/node_modules/primeflex/primeflex.css";
 import "primeicons/primeicons.css";
 import { Header } from "./components/header/Header";
-import { Product } from "./pages/Product";
+import { Product } from "./components/product/Product";
 import { Footer } from "./components/footer/Footer";
 import { CreateArticle } from "./pages/CreateArticle";
 import { Login } from "./pages/Login";

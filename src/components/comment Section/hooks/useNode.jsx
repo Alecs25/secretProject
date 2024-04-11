@@ -2,17 +2,17 @@
 const useNode = ()=>{
 
     const insertNode = function (tree,commentId,item){
-        if(tree.id === commentId){
+       
+        if(tree.id === commentId) {
             tree.items.push({
-                tree.items.push({
-                    id:new Date().getTime(),
+               
+                    id: new Date().getTime(),
                     name:item,
-                    items:[]
-                })
-                
+                    items:[]    
             })
             return tree
         }
+
         let latestNode = [];
         tree.items.map((ob)=>{
             return insertNode(ob,commentId,item);
