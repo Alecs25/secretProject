@@ -12,7 +12,7 @@ import Logo from "../assets/logoIcon.png";
 import { UserContext } from "../../../context/UserContext";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
-import { Avatar } from "@mui/material";
+import { Avatar } from "primereact/avatar";
 export function Navbar() {
 	const [showModal, setShowModal] = useState(false); // per gestire i forms Accedi e Iscriviti con un Modal
 	const { changeTheme } = useContext(PrimeReactContext);
@@ -140,7 +140,7 @@ export function Navbar() {
 					<Link to="/profile">
 					<Avatar
 							label={userInfo.username.substring(0, 1).toUpperCase()}
-							className="mr-2 w-3rem h-3rem text-6xl p-avatar"
+							className="mr-2 w-3rem h-3rem text-3xl p-avatar"
 							shape="circle"
 						/>
 					</Link>

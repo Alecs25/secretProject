@@ -3,7 +3,7 @@
 }
 
 .cardSign {
-  background-color: #bababa;
+  background-color: #c298d8;
   border-radius: 8px;
   box-shadow: 0 4px 40px rgba(24, 24, 24, 0.1);
   padding: 20px;
@@ -87,4 +87,8 @@
   background-color: #ccc;
   cursor: not-allowed;
   padding: 10px;
+}
+
+.cardLogin h2 {
+  color:black;
 }
