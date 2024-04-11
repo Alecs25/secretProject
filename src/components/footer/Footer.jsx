@@ -1,6 +1,6 @@
 import { Image } from "primereact/image";
 import { Link } from "react-router-dom";
-import logo from "../../assets/LogoTextPixel.png"
+import logo from "../../assets/logo.png"
 import "./Footer.css"
 export function Footer() {
 	return (

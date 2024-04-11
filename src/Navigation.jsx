@@ -21,6 +21,7 @@ import { NintendoPage } from "./pages/Console/Nintendo/Nintendo.jsx";
 import { PCWindowsPage } from "./pages/Console/PC Windows/PCWindows.jsx";
 import { Toast } from "primereact/toast";
 import { UserContext } from "./context/UserContext.jsx";
+import UserProfile from "./pages/UserProfile/UserProfile.jsx";
 export function Navigation() {
 	const { toast } = useContext(UserContext);
 
