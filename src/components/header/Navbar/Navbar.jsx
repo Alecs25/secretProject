@@ -12,6 +12,7 @@ import Logo from "../assets/logoIcon.png";
 import { UserContext } from "../../../context/UserContext";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
+import { Avatar } from "@mui/material";
 export function Navbar() {
 	const [showModal, setShowModal] = useState(false); // per gestire i forms Accedi e Iscriviti con un Modal
 	const { changeTheme } = useContext(PrimeReactContext);
@@ -130,12 +131,18 @@ export function Navbar() {
 				</div>
 			)}
 			{isLoggedIn && (
-				<div className="flex gap-3">
+				<div className="flex gap-3 align-items-center">
+					<Link to="/"> 
 					<button onClick={logout} className="p-button font-regular">
 						Disconnettiti
 					</button>
+					</Link>
 					<Link to="/profile">
-						<button className="p-button font-regular">Profilo</button>
+					<Avatar
+							label={userInfo.username.substring(0, 1).toUpperCase()}
+							className="mr-2 w-3rem h-3rem text-6xl p-avatar"
+							shape="circle"
+						/>
 					</Link>
 				</div>
 			)}
@@ -148,9 +155,7 @@ export function Navbar() {
 				model={items.map((e) => {
 					if (userInfo?.isAdmin) {
 						e.visible=true
-					} else if (userInfo?.isAdmin==0 && e.label === "Pannello Admin") {
-						return (e = {});
-					}
+					} 
 					return e;
 				})}
 				start={start}
