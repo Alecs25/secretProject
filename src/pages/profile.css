@@ -1,0 +1,17 @@
+.p-avatar {
+    background-color: #c298d8;
+    color: black;
+}
+
+.backgroundProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c298d8;
+    width: 98vw;
+}
+
+hr {
+    width: 70vw;
+    border: 1px solid black;
+}

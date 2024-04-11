@@ -6,6 +6,8 @@ import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
 import { Avatar } from "primereact/avatar";
 import { signUp } from "../controllers/user-controller";
+import "../pages/profile.css" 
+
 
 export function Profile() {
 	const { userInfo, loginContext, isLoggedIn, logout } = useContext(UserContext);
@@ -22,6 +24,8 @@ export function Profile() {
 		setLoginInput({ username: "", password: "" });
 		setSignUpInput({ username: "", password: "" });
 	};
+
+	console.log(userInfo)
 
 	async function handleLogin(e) {
 		e.preventDefault();
@@ -43,29 +47,40 @@ export function Profile() {
 	}
 
 	return (
-		<Card>
+		<Card className="bg-primary">
 			<div className="flex justify-content-evenly">
 				<Toast ref={toast} />
 				{/* PROFILO DA LOGGATO */}
 				{isLoggedIn && userInfo && (
-					<div className="card flex justify-content-center">
+					<div className="card flex flex-column justify-content-center align-items-center gap-8">
 						<Avatar
 							label={userInfo.username.substring(0, 1).toUpperCase()}
-							className="mr-2"
-							size="xlarge"
+							className="mr-2 w-8rem h-8rem text-6xl p-avatar"
 							shape="circle"
 						/>
-						<div className="flex flex-column gap-2">
+						<h1 style={{fontFamily:"sans-serif", fontSize:"45px"}}>{`👾Ciao ${userInfo.username}, Bentornato!👾`}</h1> 
+						<hr />
+						<h2> ❤️️ Articoli Letti</h2>
+						<div className="backgroundProfile">
+							<p>Ancora nessun articolo</p>
+						</div>
+						<hr />
+						<h2> ⌨ Commenti</h2>
+						<div className="backgroundProfile">
+							<p>Ancora nessun commento</p>
+						</div>
+						<hr />
+						{/* <div className="flex flex-column gap-2">
 							<label htmlFor="username">Username</label>
 							<InputText disabled={true} id="username" value={userInfo.username} />
 							<label htmlFor="isAdmin">Tipo utente</label>
 							<InputText disabled={true} id="isAdmin" value={userInfo.isAdmin === 1 ? "Admin" : "User"} />
 							<Button onClick={logout}>Logout</Button>
-						</div>
+						</div> */}
 					</div>
 				)}
 
-				{/* REGISTRATI */}
+				{/* REGISTRATI
 				{!isLoggedIn && (
 					<div className="card flex justify-content-center">
 						<form className="flex flex-column gap-3" onSubmit={handleSignup}>
@@ -88,28 +103,28 @@ export function Profile() {
 						</form>
 					</div>
 				)}
-				{/* LOGIN */}
-				{!isLoggedIn && (
-					<div className="card flex justify-content-center">
-						<form className="flex flex-column gap-3" onSubmit={handleLogin}>
-							<h3>Login</h3>
+				// {/* LOGIN */}
+				{/* // {!isLoggedIn && (
+				// 	<div className="card flex justify-content-center">
+				// 		<form className="flex flex-column gap-3" onSubmit={handleLogin}>
+				// 			<h3>Login</h3>
 
-							<label htmlFor="username">Username</label>
-							<InputText
-								placeholder="Username"
-								onChange={(e) => setLoginInput({ username: e.target.value, password: loginInput.password })}
-								value={loginInput.username}
-							></InputText>
-							<label htmlFor="password">Password</label>
-							<InputText
-								placeholder="Password"
-								onChange={(e) => setLoginInput({ username: loginInput.username, password: e.target.value })}
-								value={loginInput.password}
-							></InputText>
-							<Button className="w-5 align-self-end" label="Login"></Button>
-						</form>
-					</div>
-				)}
+				// 			<label htmlFor="username">Username</label>
+				// 			<InputText
+				// 				placeholder="Username"
+				// 				onChange={(e) => setLoginInput({ username: e.target.value, password: loginInput.password })}
+				// 				value={loginInput.username}
+				// 			></InputText>
+				// 			<label htmlFor="password">Password</label>
+				// 			<InputText
+				// 				placeholder="Password"
+				// 				onChange={(e) => setLoginInput({ username: loginInput.username, password: e.target.value })}
+				// 				value={loginInput.password}
+				// 			></InputText>
+				// 			<Button className="w-5 align-self-end" label="Login"></Button>
+				// 		</form>
+				// 	</div>
+				// )} */}
 			</div>
 		</Card>
 	);

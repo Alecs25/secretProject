@@ -12,7 +12,7 @@
   .cardLogin {
     display: flex;
     flex-direction: column;
-    background-color: #212121;
+    background-color: #c298d8;
     border-radius: 8px;
     box-shadow: 0 4px 40px rgba(24, 24, 24, 0.1);
     padding: 20px;
@@ -77,7 +77,7 @@
   }
   
   .button-container button {
-    background-color: #212121;
+    background-color: #c298d8;
     color: #565ee6;
     border: none;
     border-radius: 6px;
