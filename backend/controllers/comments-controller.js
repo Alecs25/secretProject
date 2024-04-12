@@ -8,24 +8,42 @@ const { db } = require("../initDb");
 // 			comment JSON NOT NULL)`
 
 async function createComment(req, res) {
-	console.log(req.body);
-	const { article_id } = req.params();
+	// console.log(req.body);
+	const article_id = Number(req.params.id);
+	// console.log(article_id);
 
-	// const CreateComment = await db.all(
-	// 	"INSERT INTO comments (parent_id, user_id, article_id, comment) VALUES (?,?,?,?)",
-	// 	[req.body.parent_id, req.body.user_id, article_id, JSON.stringify(req.body.)],
-	// 	(err, row) => {
-	// 		err ? console.log(err) : console.log(req.body, "created comment");
-	// 	}
-	// );
-	res.send({ msg: "create ok" });
+	const getUserid = await db.get(
+		`SELECT user_id FROM users WHERE username = ? `,
+		[req.body.username],
+		async (err, row) => {
+			const CreateComment = await db.get(
+				"INSERT INTO comments (parent_id, user_id, article_id, comment) VALUES (?,?,?,?)",
+				[
+					req.body.parent_id,
+					row.user_id,
+					article_id,
+					JSON.stringify({
+						username: req.body.username,
+						date: req.body.date,
+						message: req.body.message
+					}),
+				],
+				(err, row) => {
+					err ? console.log(err) : null;
+				}
+			);
+
+			res.send({ msg: "create ok" });
+		}
+	);
 }
 
 async function getComments(req, res) {
-	const { article_id } = req.params();
-
-	const posts = await db.all(`SELECT * FROM comments WHERE article_id = ${article_id}`, (err, row) => {
-		res.send(row);
+	const article_id = Number(req.params.id);
+	console.log(typeof article_id);
+	const posts = await db.all(`SELECT * FROM comments WHERE article_id = ?`, [article_id], (err, rows) => {
+		console.log(err, rows);
+		res.send(rows);
 	});
 }
 

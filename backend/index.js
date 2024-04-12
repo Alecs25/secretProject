@@ -45,9 +45,9 @@ app.post("/user/login", (req, res) => logIn(req, res));
 app.post("/user/signup", (req, res) => signUp(req, res));
 
 //ROUTES comments
-app.post("articles/:id/comments/create", (req, res) => createComment(req, res));
+app.post("/articles/:id/comments/create", (req, res) => createComment(req, res));
 
-app.get("/article/comments/:id", (req, res) => getComments(req, res));
+app.get("/articles/:id/comments/", (req, res) => getComments(req, res));
 
 
 app.listen(port, () => {

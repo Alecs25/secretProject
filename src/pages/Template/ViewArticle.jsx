@@ -10,15 +10,15 @@ import { UserContext } from "../../context/UserContext";
 export function ViewArticle() {
 	const { articleId } = useParams();
 	const [data, setData] = useState(null);
-const {userInfo, isLoggedIn} = useContext(UserContext)
+	const { userInfo, isLoggedIn } = useContext(UserContext);
 
 	useEffect(() => {
 		FetchArticle(articleId, setData);
 	}, []);
 
-	useEffect(() => {
-		console.log(data);
-	}, [data]);
+	// useEffect(() => {
+	// 	console.log(data);
+	// }, [data]);
 
 	return (
 		<div className="flex flex-column gap-5">
@@ -26,8 +26,8 @@ const {userInfo, isLoggedIn} = useContext(UserContext)
 				{data && parse(data.article.title)}
 				{data && parse(data.article.body)}
 			</article>
-			{isLoggedIn && <AddComment userInfo={userInfo} />}
-			<CommentsList />
+			{isLoggedIn && <AddComment article_id={articleId} userInfo={userInfo} />}
+			<CommentsList article_id={articleId} />
 		</div>
 	);
 }

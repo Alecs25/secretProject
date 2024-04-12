@@ -60,7 +60,8 @@ function initDB() {
 			user_id INTEGER NOT NULL,
 			comment JSON NOT NULL,
 			FOREIGN KEY(user_id) REFERENCES users(user_id),
-			FOREIGN KEY(article_id) REFERENCES articles(article_id))`
+			FOREIGN KEY(article_id) REFERENCES articles(article_id)
+		)`
 		);
 
 		db.run(`INSERT INTO users VALUES (?, ?, ?, ?, ?)`, [null, "alex", "ciao", true, null]);

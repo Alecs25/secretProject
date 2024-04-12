@@ -4,14 +4,20 @@ import { Button } from "primereact/button";
 import { useState } from "react";
 
 import { postComment } from "../../controllers/comment-controller";
-export function AddComment({ userInfo }) {
+export function AddComment({ userInfo, article_id }) {
 	const [commentInput, setCommentInput] = useState("");
 
 	async function handleCreateComment(e) {
 		e.preventDefault();
 		const date = new Date();
-
-		const response = await postComment({ username: userInfo.username, message: commentInput, date: date.toLocaleString() });
+		console.log(article_id);
+		const response = await postComment({
+			username: userInfo.username,
+			message: commentInput,
+			date: date.toLocaleString(),
+			article_id: article_id,
+			parent_id: null
+		});
 		console.log(response);
 	}
 
