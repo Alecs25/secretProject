@@ -1,12 +1,16 @@
 import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from "primereact/button";
-
-import { useState } from "react";
-
+import { useRef, useState } from "react";
 import { postComment } from "../../controllers/comment-controller";
-export function AddComment({ userInfo, article_id }) {
-	const [commentInput, setCommentInput] = useState("");
+import { Toast } from "primereact/toast";
 
+export function AddComment({ userInfo, article_id, callback, newComment }) {
+	const [commentInput, setCommentInput] = useState("");
+		const toast = useRef(null);
+
+const showSuccess = () => {
+	toast.current.show({ severity: "success", summary: "Operazione effettuata", detail: "Commento creato.", life: 3000 });
+};
 	async function handleCreateComment(e) {
 		e.preventDefault();
 		const date = new Date();
@@ -18,6 +22,9 @@ export function AddComment({ userInfo, article_id }) {
 			article_id: article_id,
 			parent_id: null
 		});
+		showSuccess()
+		setCommentInput("")
+		callback(!newComment)
 		console.log(response);
 	}
 
@@ -27,6 +34,8 @@ export function AddComment({ userInfo, article_id }) {
 			style={{ backgroundColor: "transparent" }}
 			className="flex m-auto flex-column bg-black-alpha-80 border-round p-2 gap-2 justify-content-start w-7"
 		>
+			<Toast ref={toast} />
+
 			<InputTextarea
 				autoResize={true}
 				onChange={(e) => setCommentInput(e.target.value)}

@@ -26,7 +26,7 @@ export function ViewArticle() {
 				{data && parse(data.article.title)}
 				{data && parse(data.article.body)}
 			</article>
-			{isLoggedIn && <AddComment article_id={articleId} userInfo={userInfo} />}
+			
 			<CommentsList article_id={articleId} />
 		</div>
 	);

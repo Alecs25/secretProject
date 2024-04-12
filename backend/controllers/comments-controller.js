@@ -25,7 +25,7 @@ async function createComment(req, res) {
 					JSON.stringify({
 						username: req.body.username,
 						date: req.body.date,
-						message: req.body.message
+						message: req.body.message,
 					}),
 				],
 				(err, row) => {
@@ -42,8 +42,8 @@ async function getComments(req, res) {
 	const article_id = Number(req.params.id);
 	console.log(typeof article_id);
 	const posts = await db.all(`SELECT * FROM comments WHERE article_id = ?`, [article_id], (err, rows) => {
-		console.log(err, rows);
-		res.send(rows);
+		err ? console.log(err) : null;
+		res.send(rows.toReversed());
 	});
 }
 
