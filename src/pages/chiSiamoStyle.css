@@ -1,0 +1,9 @@
+.chiSiamoStyle {
+    width: 850px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

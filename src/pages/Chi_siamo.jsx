@@ -2,6 +2,7 @@ import "primeicons/primeicons.css";
 import { Card } from "primereact/card";
 import { Button } from "primereact/button";
 import { Link } from "react-router-dom";
+import "../pages/chiSiamoStyle.css" 
 
 export function ChiSiamo() {
   const header = (
@@ -12,24 +13,25 @@ export function ChiSiamo() {
   );
 
   return (
-    <div className="flex flex-column w-11 bg-bluegray-400 p-3 gap-3 border-round overflow-hidden align-self-center">
+    <div className="flex flex-column w-11 bg-pink-400 p-3 gap-3 border-round overflow-hidden align-self-center">
       <section className="flex flex-row flex-wrap ">
-        <div className=" flex flex-row w-6 p-3  gap-3 bg-purple-400 shadow-8 ">
+        <div className=" flex flex-row w-6 p-3  gap-3 bg-blue-400 shadow-8 ">
           <p className="text-center font-medium text-xl">
             <h1> Hello world! </h1>
             <h2>Chi siamo ?</h2>
-            siamo 5 amici conosciutisi in un corso di programmazione, ovvero{" "}
-            <strong>Develhope</strong>. ciò che ci ha fatto intraprendere
-            quest'esperienza è una gran voglia di conoscenza. Siamo 5 ragazzi
-            con il cuore nel coding e la testa nel cloud, non potevamo non
-            diventare amici. Il percorso con Develhope ci ha aiutato tanto e ci
-            ha fatto scoprire molte potezialità, in ognuno di noi. Ovviamente
-            non è stato facile ma ce l' abbiamo fatta!
+            Siamo 5 amici che si sono conosciuti in un corso di programmazione, ovvero{" "}
+            <strong>Develhope</strong>. 
+            Ciò che ci ha fatto intraprendere quest'esperienza è una gran voglia di conoscenza. 
+            Abbiamo il cuore nel coding e la testa nel cloud, non potevamo non
+            diventare amici. 
+            Il percorso con Develhope ci ha aiutato tanto e ci
+            ha fatto scoprire molte potenzialità in ogniuno di noi,
+            fino a cimentarci nel realizzare quest'applicazione web.
           </p>
         </div>
         <div className="h-6 w-6 ">
           <img
-            src="https://img.freepik.com/free-photo/friends-having-fun-their-reunion_23-2149215801.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1703721600&semt=ais"
+            src="https://st2.depositphotos.com/1594308/11853/i/450/depositphotos_118532846-stock-photo-business-partnership-concept.jpg"
             alt="fotocollage"
             className="h-full w-full "
           />
@@ -40,19 +42,19 @@ export function ChiSiamo() {
 
       <section className="flex flex-row flex-wrap">
         <div className=" flex flex-row w-6 p-3  gap-3 ">
-          <p className="text-center font-medium text-xl">
+          <p className="text-center font-medium text-xl chiSiamoStyle">
             <h1>La Nostra "Mission"</h1>
-            <h2>Un Bisogno comune</h2>
             Per creare questo sito ci siamo confrontati un interminabile tempo
-            di 10 minuti. Dato che siamo tutti e 5 dei nerd la scelta del
+            di 10 minuti. Siamo tutti e 5 dei nerd quindi la scelta del
             settore sul quale sviluppare il progetto è stata abbastanza
             facile...
-            <strong>I Videogames</strong>, un mondo fantastico in cui perdersi.
+            <strong>I Videogames</strong>
+            <br />
             E cosa accomuna tutti i videogiocatori ?
-            <strong>La Curiosità</strong> verso le nuove uscite. Dato che però
-            di recente hanno eliminato L' <strong>E3</strong> abbiamo deciso di
-            creare un Giornale. Un giornale che riporti tutte le news sui giochi
-            più attesi, e console più innovative !<h3>ENJOY!</h3>
+            La Curiosità verso le nuove uscite. <br /> Di recente E3 ha chiuso  i battenti 
+            quindi abbiamo deciso di creare un HUB informativo sui videogames, che riporti tutte le news
+            sui giochi più attesi e le console più innovative!
+            <h3>ENJOY!</h3>
           </p>
         </div>
         <div className="h-6 w-6 surface-200">

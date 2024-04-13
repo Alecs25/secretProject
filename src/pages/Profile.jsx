@@ -59,12 +59,12 @@ export function Profile() {
 							shape="circle"
 						/>
 						<h1 style={{fontFamily:"sans-serif", fontSize:"45px"}}>{`👾Ciao ${userInfo.username}, Bentornato!👾`}</h1> 
-						<h2> ❤️️ Articoli Letti</h2>
+						<h2>♡ Articoli Letti</h2>
 						<div className="backgroundProfile">
 							<p>Ancora nessun articolo</p>
 						</div>
 						<hr />
-						<h2> ⌨ Commenti</h2>
+						<h2> ✎ Commenti</h2>
 						<div className="backgroundProfile">
 							<p>Ancora nessun commento</p>
 						</div>
