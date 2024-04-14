@@ -28,8 +28,47 @@ export async function getComments(article_id) {
 	try {
 		const response = await fetch(`http://localhost:3000/articles/${article_id}/comments`);
 		const data = await response.json();
-		return data ;
+		return data;
 	} catch (error) {
 		console.error("there has been an error" + error);
+	}
+}
+
+export async function getReplies(article_id, parent_id) {
+	// console.log(article_id);
+	try {
+		const response = await fetch(`http://localhost:3000/articles/${article_id}/comments/${parent_id}/replies`);
+		const data = await response.json();
+		console.log(data);
+		return data;
+	} catch (error) {
+		console.error("there has been an error" + error);
+	}
+}
+
+export async function postReply(payload) {
+	// console.log(payload);
+	try {
+		const response = await fetch(
+			`http://localhost:3000/articles/${payload.article_id}/comments/${payload.parent_id}/reply/add`,
+			{
+				method: "POST",
+				mode: "cors",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					username: payload.username,
+					date: payload.date,
+					message: payload.message,
+					user_id: payload.user_id,
+				}),
+			}
+		);
+		const data = await response.json();
+		// console.log(data);
+		return data;
+	} catch (error) {
+		console.error(error.message);
 	}
 }

@@ -10,7 +10,7 @@ const {
 	getArticle,
 	editArticle,
 } = require("./controllers/articles-controller.js");
-const { createComment, getComments } = require("./controllers/comments-controller.js");
+const { createComment, getComments, getReplies, createReply } = require("./controllers/comments-controller.js");
 
 // Opzioni express --
 //passport
@@ -49,6 +49,9 @@ app.post("/articles/:id/comments/create", (req, res) => createComment(req, res))
 
 app.get("/articles/:id/comments/", (req, res) => getComments(req, res));
 
+app.get("/articles/:id/comments/:comment_id/replies", (req, res) => getReplies(req, res));
+
+app.post("/articles/:id/comments/:comment_id/reply/add", (req, res) => createReply(req, res));
 
 app.listen(port, () => {
 	console.log(`In ascolto su porta ${port} 

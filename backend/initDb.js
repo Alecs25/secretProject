@@ -56,7 +56,7 @@ function initDB() {
 			`CREATE TABLE comments(
  			comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
 			parent_id INTEGER, 
-			article_id,
+			article_id INTEGER,
 			user_id INTEGER NOT NULL,
 			comment JSON NOT NULL,
 			FOREIGN KEY(user_id) REFERENCES users(user_id),

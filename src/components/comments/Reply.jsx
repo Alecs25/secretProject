@@ -1,27 +1,20 @@
-import { Avatar } from "primereact/avatar";
-import { Card } from "primereact/card";
+import { RepliesList } from "./RepliesList";
 import { UserComment } from "./UserComment";
 import { useEffect, useState } from "react";
-import { AddReply } from "./AddReply";
-import { Reply } from "./Reply";
-import { RepliesList } from "./RepliesList";
 
-export function Comment({ data }) {
+export function Reply({ data }) {
 	const [parsedData, setParsedData] = useState(null);
 
 	useEffect(() => {
+		console.log(data);
 		setParsedData(JSON.parse(data.comment));
-		// console.log(data)
 	}, []);
-
-
-
 
 	return (
 		parsedData && (
 			<div
 				style={{ backgroundColor: "transparent" }}
-				className="flex flex-column bg-black-alpha-80 border-round p-2 gap-2 justify-content-start w-7"
+				className="flex flex-column bg-black-alpha-80 border-round p-2 gap-2 justify-content-start w-11"
 			>
 				<div>
 					<UserComment data={data} />

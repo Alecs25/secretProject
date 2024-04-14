@@ -12,13 +12,13 @@ export function UserComment({ data }) {
 		parsedData && (
 			<div className="flex p-2 align-items-center text-white align-content-center gap-1">
 				<Avatar
-					label={parsedData.username.substring(0, 1).toUpperCase()}
+					label={parsedData?.username?.substring(0, 1).toUpperCase()}
 					className="mr-2"
 					size="large"
 					shape="circle"
 				/>
 
-				<p className="font-light">{parsedData.username + " in data  " + parsedData.date}</p>
+				<p className="font-light">{parsedData.username + " in data " + parsedData.date}</p>
 			</div>
 		)
 	);
