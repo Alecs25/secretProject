@@ -14,7 +14,7 @@ export function Reply({ data }) {
 		parsedData && (
 			<div
 				style={{ backgroundColor: "transparent" }}
-				className="flex flex-column bg-black-alpha-80 border-round p-2 gap-2 justify-content-start w-11"
+				className="flex flex-column bg-black-alpha-30 border-round p-2 gap-2 justify-content-start w-11"
 			>
 				<div>
 					<UserComment data={data} />

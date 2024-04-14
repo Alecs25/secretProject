@@ -37,7 +37,7 @@ export function AddReply({ data, userInfo, callback, newReply }) {
 		<form
 			onSubmit={handleCreateReply}
 			style={{ backgroundColor: "transparent" }}
-			className="flex m-auto flex-column bg-black-alpha-80 border-round p-2 gap-2 justify-content-start w-7"
+			className="flex m-auto flex-column bg-black-alpha-50 border-round p-2 gap-2 justify-content-start w-7"
 		>
 			<Toast ref={toast} />
 

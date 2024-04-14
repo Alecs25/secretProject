@@ -21,10 +21,9 @@ export function RepliesList({ data }) {
 	}
 
 	useEffect(() => {
-		setNewReply(null);
 		console.log(data);
 		fetchReplies();
-	}, []);
+	}, [newReply]);
 
 	useEffect(() => {
 		// console.log(typeof comments);
