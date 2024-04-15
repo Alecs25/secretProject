@@ -5,13 +5,13 @@ import { Toast } from "primereact/toast";
 import { Avatar } from "primereact/avatar";
 import { signUp } from "../controllers/user-controller";
 import "../pages/profile.css" 
-import { CommentsList } from "../components/comments/CommentsList";
 
 
 export function Profile() {
 	const { userInfo, loginContext, isLoggedIn, logout } = useContext(UserContext);
 	const [loginInput, setLoginInput] = useState({ username: "", password: "" });
 	const [signUpInput, setSignUpInput] = useState({ username: "", password: "" });
+	const [parseData, setParsedData] = useState(null)
 	const toast = useRef(null);
 	const showError = (toast, message) => {
 		toast.current.show({ severity: "error", summary: "Error", detail: message, life: 3000 });
@@ -23,8 +23,9 @@ export function Profile() {
 		setLoginInput({ username: "", password: "" });
 		setSignUpInput({ username: "", password: "" });
 	};
-
-	console.log(userInfo)
+	useEffect(() => {
+		setParsedData(JSON.parse(data.comment));
+	}, []);
 
 	async function handleLogin(e) {
 		e.preventDefault();
@@ -67,7 +68,7 @@ export function Profile() {
 						<hr />
 						<h2> ✎ Commenti</h2>
 						<div className="backgroundProfile">
-						
+
 						</div>
 						<hr />
 					</div>

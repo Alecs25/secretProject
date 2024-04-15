@@ -8,10 +8,10 @@
 
 .backgroundProfile {
     display: flex;
-    justify-content: center;
     align-items: center;
     background-color: #c298d8;
     width: 80vw;
+
 }
 
 

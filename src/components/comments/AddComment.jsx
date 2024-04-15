@@ -14,7 +14,6 @@ const showSuccess = () => {
 	async function handleCreateComment(e) {
 		e.preventDefault();
 		const date = new Date();
-		console.log(article_id);
 		const response = await postComment({
 			username: userInfo.username,
 			message: commentInput,
@@ -25,7 +24,6 @@ const showSuccess = () => {
 		showSuccess()
 		setCommentInput("")
 		callback(!newComment)
-		console.log(response);
 	}
 
 	return (

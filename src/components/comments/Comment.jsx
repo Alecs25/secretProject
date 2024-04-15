@@ -5,13 +5,14 @@ import { useEffect, useState } from "react";
 import { AddReply } from "./AddReply";
 import { Reply } from "./Reply";
 import { RepliesList } from "./RepliesList";
+import { Profile } from "../../pages/Profile";
 
 export function Comment({ data }) {
 	const [parsedData, setParsedData] = useState(null);
 
 	useEffect(() => {
 		setParsedData(JSON.parse(data.comment));
-	}, []);
+	}, [])
 	return (
 		parsedData && (
 			<div
