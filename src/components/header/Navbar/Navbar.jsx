@@ -103,10 +103,9 @@ export function Navbar() {
 			],
 		},
 	];
-
 	const start = (
 		<Link to="/">
-			<img alt="logo" src={Logo} height="40" className="mr-2 navbarLogo"></img>
+			<img alt="logo" src={Logo} height="50" className="mr-8 navbarLogo"></img>
 		</Link>
 	);
 	const end = (
