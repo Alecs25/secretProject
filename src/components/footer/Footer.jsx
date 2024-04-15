@@ -1,7 +1,7 @@
 import { Image } from "primereact/image";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png"
-import "../footer/footer.css"
+import "../footer/Footer.css"
 
 export function Footer() {
 	return (

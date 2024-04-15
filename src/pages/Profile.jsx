@@ -52,12 +52,14 @@ export function Profile() {
 				{/* PROFILO DA LOGGATO */}
 				{isLoggedIn && userInfo && (
 					<div className="card flex flex-column gap-8">
+						<div className="flex flex-column justify-content-center align-items-center">
 						<Avatar
 							label={userInfo.username.substring(0, 1).toUpperCase()}
-							className="mr-2 w-8rem h-8rem text-6xl p-avatar"
+							className="mr-2 w-7rem h-7rem text-5xl p-avatar"
 							shape="circle"
 						/>
-						<h1 style={{fontFamily:"sans-serif", fontSize:"45px"}}>{`👾Ciao ${userInfo.username}, Bentornato!👾`}</h1> 
+						<h2 style={{fontFamily:"sans-serif", fontSize:"40px"}}>{`👾Ciao ${userInfo.username}, Bentornato!👾`}</h2> 
+						</div>
 						<h2>♡ Articoli Letti</h2>
 						<div className="backgroundProfile">
 							<p>Ancora nessun articolo</p>

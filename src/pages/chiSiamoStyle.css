@@ -9,5 +9,4 @@
 
 .bg-primary {
     color: var(--primary-color-text) !important;
-    background: linear-gradient(#55adfa,#c298d8);
 }
