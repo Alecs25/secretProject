@@ -106,4 +106,17 @@ async function getComments(req, res) {
 	);
 }
 
-module.exports = { createComment, getComments, getReplies, createReply };
+async function getAllCommentsFromUser(req, res) {
+	const user_id = Number(req.params.id);
+
+	// console.log(typeof article_id);
+	const posts = await db.all(`SELECT * FROM comments WHERE user_id = ?`, [user_id], (err, rows) => {
+		if (err) {
+			console.log(err);
+		} else {
+			// console.log(rows);
+			res.send(rows.toReversed());
+		}
+	});
+}
+module.exports = { createComment, getComments, getReplies, createReply, getAllCommentsFromUser };
