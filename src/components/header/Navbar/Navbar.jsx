@@ -136,7 +136,7 @@ export function Navbar() {
 						Disconnettiti
 					</button>
 					</Link>
-					<Link to="/profile">
+					<Link to="/profile" className="avatar-Text">
 					<Avatar
 							label={userInfo.username.substring(0, 1).toUpperCase()}
 							className="mr-2 w-3rem h-3rem text-3xl p-avatar"
