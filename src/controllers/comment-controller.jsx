@@ -24,7 +24,6 @@ export async function postComment(payload) {
 }
 
 export async function getComments(article_id) {
-	console.log(article_id);
 	try {
 		const response = await fetch(`http://localhost:3000/articles/${article_id}/comments`);
 		const data = await response.json();
@@ -49,8 +48,7 @@ export async function getReplies(article_id, parent_id) {
 	// console.log(article_id);
 	try {
 		const response = await fetch(`http://localhost:3000/articles/${article_id}/comments/${parent_id}/replies`);
-		const data = await response.json();
-		console.log(data);
+		const data = await response.json()
 		return data;
 	} catch (error) {
 		console.error("there has been an error" + error);

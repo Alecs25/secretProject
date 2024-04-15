@@ -24,7 +24,7 @@ async function logIn(req, res) {
 
 		const token = jwt.sign(payload, process.env.secret);
 		const authenticateUser = await db.run("UPDATE users SET token = ? WHERE username = ?", [token, username]);
-		res.json({ token: token, username: user.username, isAdmin: user.isAdmin });
+		res.json({ token: token, username: user.username, isAdmin: user.isAdmin, user_id: payload.id });
 	} else {
 		res.status(401).send({ msg: "invalid credentials" });
 	}

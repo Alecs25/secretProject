@@ -17,7 +17,7 @@ export const UserProvider = ({ children }) => {
 	};
 	useEffect(() => {
 		const userStorage = JSON.parse(localStorage.getItem("userinfo"));
-		console.log(userStorage);
+		// console.log(userStorage);
 		if (userStorage?.token) {
 			setUserInfo(userStorage);
 			setIsLoggedIn(true);

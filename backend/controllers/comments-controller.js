@@ -107,13 +107,11 @@ async function getComments(req, res) {
 
 async function getAllCommentsFromUser(req, res) {
 	const user_id = Number(req.params.id);
-
 	// console.log(typeof article_id);
 	const posts = await db.all(`SELECT * FROM comments WHERE user_id = ?`, [user_id], (err, rows) => {
 		if (err) {
 			console.log(err);
 		} else {
-			// console.log(rows);
 			res.send(rows.toReversed());
 		}
 	});

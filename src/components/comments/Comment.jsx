@@ -11,6 +11,7 @@ export function Comment({ data }) {
 	const [parsedData, setParsedData] = useState(null);
 
 	useEffect(() => {
+		console.log(data)
 		setParsedData(JSON.parse(data.comment));
 	}, [])
 	return (

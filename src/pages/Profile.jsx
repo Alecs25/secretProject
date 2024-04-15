@@ -5,6 +5,9 @@ import { Toast } from "primereact/toast";
 import { Avatar } from "primereact/avatar";
 import { signUp } from "../controllers/user-controller";
 import "../pages/profile.css" 
+import { getCommentsFromUser } from "../controllers/comment-controller";
+import { json } from "react-router";
+import { Comment } from "../components/comments/Comment";
 
 
 export function Profile() {
@@ -23,14 +26,21 @@ export function Profile() {
 		setLoginInput({ username: "", password: "" });
 		setSignUpInput({ username: "", password: "" });
 	};
+	async function OKUser(){
+		const response = await getCommentsFromUser(userInfo.user_id)
+		setParsedData(response)
+	}
 	useEffect(() => {
-		setParsedData(JSON.parse(data.comment));
-	}, []);
+		if(userInfo){
+			OKUser()
+		}else{
+			console.log("tua madre è zoccola")
+		}
+	}, [userInfo]);
 
 	async function handleLogin(e) {
 		e.preventDefault();
 		const user = await loginContext(loginInput.username, loginInput.password);
-		console.log(user);
 		user === null ? showError(toast, "Credenziali non valide") : resetStates();
 	}
 
@@ -67,8 +77,8 @@ export function Profile() {
 						</div>
 						<hr />
 						<h2> ✎ Commenti</h2>
-						<div className="backgroundProfile">
-
+						<div className="backgroundProfile" style={{color:"white"}}>
+						{Array.isArray(parseData) && parseData.map((e, i) => <Comment key={i} data={e} />)}
 						</div>
 						<hr />
 					</div>

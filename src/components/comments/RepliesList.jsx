@@ -15,19 +15,19 @@ export function RepliesList({ data }) {
 	async function fetchReplies() {
 		if (data) {
 			const foundReplies = await getReplies(data.article_id, data.comment_id);
-			console.log(foundReplies);
+			// console.log(foundReplies);
 			setReplies(foundReplies);
 		}
 	}
 
 	useEffect(() => {
-		console.log(data);
+		// console.log(data);
 		fetchReplies();
 	}, [newReply]);
 
 	useEffect(() => {
 		// console.log(typeof comments);
-		console.log(replies);
+		// console.log(replies);
 	}, [replies]);
 
 	return (
