@@ -36,7 +36,6 @@ async function createReply(req, res) {
 	const article_id = Number(req.params.id);
 	const parent_id = Number(req.params.comment_id);
 
-	console.log(article_id);
 
 	const getUserid = await db.get(
 		`SELECT user_id FROM users WHERE username = ? `,

@@ -12,7 +12,6 @@ const[newComment, setNewComment] = useState(true)
 	async function fetchComments() {
 		if (article_id) {
 			const foundComments = await getComments(article_id);
-			console.log(foundComments);
 			setComments(foundComments);
 		}
 	}

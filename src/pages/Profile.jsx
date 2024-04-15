@@ -7,6 +7,7 @@ import { Toast } from "primereact/toast";
 import { Avatar } from "primereact/avatar";
 import { signUp } from "../controllers/user-controller";
 import "../pages/profile.css" 
+import { CommentsList } from "../components/comments/CommentsList";
 
 
 export function Profile() {
@@ -66,64 +67,11 @@ export function Profile() {
 						<hr />
 						<h2> ✎ Commenti</h2>
 						<div className="backgroundProfile">
-							<p>Ancora nessun commento</p>
+						
 						</div>
 						<hr />
-						{/* <div className="flex flex-column gap-2">
-							<label htmlFor="username">Username</label>
-							<InputText disabled={true} id="username" value={userInfo.username} />
-							<label htmlFor="isAdmin">Tipo utente</label>
-							<InputText disabled={true} id="isAdmin" value={userInfo.isAdmin === 1 ? "Admin" : "User"} />
-							<Button onClick={logout}>Logout</Button>
-						</div> */}
 					</div>
 				)}
-
-				{/* REGISTRATI
-				{!isLoggedIn && (
-					<div className="card flex justify-content-center">
-						<form className="flex flex-column gap-3" onSubmit={handleSignup}>
-							<h3>Registrati</h3>
-							<label htmlFor="usernameSignup">Username</label>
-							<InputText
-								id="usernameSignup"
-								placeholder="Username"
-								onChange={(e) => setSignUpInput({ username: e.target.value, password: signUpInput.password })}
-								value={signUpInput.username}
-							></InputText>
-							<label htmlFor="passwordSignup">Password</label>
-							<InputText
-								id="passwordSignup"
-								placeholder="Password"
-								onChange={(e) => setSignUpInput({ username: signUpInput.username, password: e.target.value })}
-								value={signUpInput.password}
-							></InputText>
-							<Button className="w-5 align-self-end" label="Registrati"></Button>
-						</form>
-					</div>
-				)}
-				// {/* LOGIN */}
-				{/* // {!isLoggedIn && (
-				// 	<div className="card flex justify-content-center">
-				// 		<form className="flex flex-column gap-3" onSubmit={handleLogin}>
-				// 			<h3>Login</h3>
-
-				// 			<label htmlFor="username">Username</label>
-				// 			<InputText
-				// 				placeholder="Username"
-				// 				onChange={(e) => setLoginInput({ username: e.target.value, password: loginInput.password })}
-				// 				value={loginInput.username}
-				// 			></InputText>
-				// 			<label htmlFor="password">Password</label>
-				// 			<InputText
-				// 				placeholder="Password"
-				// 				onChange={(e) => setLoginInput({ username: loginInput.username, password: e.target.value })}
-				// 				value={loginInput.password}
-				// 			></InputText>
-				// 			<Button className="w-5 align-self-end" label="Login"></Button>
-				// 		</form>
-				// 	</div>
-				// )} */}
 			</div>
 		</Card>
 	);

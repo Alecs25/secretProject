@@ -43,7 +43,7 @@ const showSuccess = () => {
 				placeholder="Aggiungi un commento..."
 			></InputTextarea>
 			<div className="card flex justify-content-end">
-				<Button label="Rispondi"></Button>
+				<Button label="Commenta"></Button>
 			</div>
 		</form>
 	);

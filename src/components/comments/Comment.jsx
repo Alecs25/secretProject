@@ -11,12 +11,7 @@ export function Comment({ data }) {
 
 	useEffect(() => {
 		setParsedData(JSON.parse(data.comment));
-		// console.log(data)
 	}, []);
-
-
-
-
 	return (
 		parsedData && (
 			<div
