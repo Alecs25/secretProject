@@ -70,3 +70,6 @@
 .navbarLogo{
     user-select: none;
 }
+.avatar-Text{
+    text-decoration: none;
+}
