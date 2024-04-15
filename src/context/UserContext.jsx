@@ -26,7 +26,6 @@ export const UserProvider = ({ children }) => {
 
 	async function loginContext(username, password) {
 		const user = await logIn({ username: username, password: password });
-		//console.log(user);
 		if (user.token) {
 			localStorage.clear("userinfo");
 			setUserInfo(user);

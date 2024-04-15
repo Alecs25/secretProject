@@ -7,7 +7,10 @@ import { Toast } from "primereact/toast";
 export function AddReply({ data, userInfo, callback, newReply }) {
 	const [commentInput, setCommentInput] = useState("");
 	const toast = useRef(null);
-
+	const [visibleReply, setVisibleReply] = useState(false)
+	function HandleReply(){
+		setVisibleReply(!visibleReply)
+	}
 	const showSuccess = () => {
 		toast.current.show({
 			severity: "success",
@@ -40,16 +43,18 @@ export function AddReply({ data, userInfo, callback, newReply }) {
 			className="flex m-auto flex-column bg-black-alpha-50 border-round p-2 gap-2 justify-content-start w-7"
 		>
 			<Toast ref={toast} />
-
-			<InputTextarea
+		{!visibleReply && <div className="card flex justify-content-end">
+			<button onClick={HandleReply}>Rispondi</button>
+		</div>}
+		{visibleReply && <InputTextarea
 				autoResize={true}
 				onChange={(e) => setCommentInput(e.target.value)}
 				value={commentInput}
 				placeholder="Aggiungi un commento..."
-			></InputTextarea>
-			<div className="card flex justify-content-end">
+			></InputTextarea>}
+			{visibleReply && <div className="card flex justify-content-end">
 				<Button label="Rispondi"></Button>
-			</div>
+			</div>}
 		</form>
 	);
 }
