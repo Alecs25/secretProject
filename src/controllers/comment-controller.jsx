@@ -34,6 +34,17 @@ export async function getComments(article_id) {
 	}
 }
 
+export async function getCommentsFromUser(user_id) {
+	console.log(user_id);
+	try {
+		const response = await fetch(`http://localhost:3000/user/${user_id}/comments/all`);
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.error("there has been an error" + error);
+	}
+}
+
 export async function getReplies(article_id, parent_id) {
 	// console.log(article_id);
 	try {
