@@ -13,23 +13,21 @@ export function ChiSiamo() {
   );
 
   return (
-    <div className="flex flex-column w-11 bg-pink-400 p-3 gap-3 border-round overflow-hidden align-self-center">
-      <section className="flex flex-row flex-wrap ">
-        <div className=" flex flex-row w-6 p-3  gap-3 bg-blue-400 shadow-8 ">
+    <div className="flex flex-column w-11 p-3 gap-3 border-round overflow-hidden align-self-center">
+      <section className="flex flex-column justify-content-center align-items-center flex-wrap ">
+        <div className=" flex flex-row w-6 p-3  gap-3">
           <p className="text-center font-medium text-xl">
             <h1> Hello world! </h1>
             <h2>Chi siamo ?</h2>
-            Siamo 5 amici che si sono conosciuti in un corso di programmazione, ovvero{" "}
-            <strong>Develhope</strong>. 
-            Ciò che ci ha fatto intraprendere quest'esperienza è una gran voglia di conoscenza. 
-            Abbiamo il cuore nel coding e la testa nel cloud, non potevamo non
-            diventare amici. 
-            Il percorso con Develhope ci ha aiutato tanto e ci
-            ha fatto scoprire molte potenzialità in ogniuno di noi,
-            fino a cimentarci nel realizzare quest'applicazione web.
+            Benvenuti nel nostro sito, nato dall'incontro di cinque appassionati di videogames nel corso di programmazione di Develhope. 
+            Siamo un gruppo di menti creative unite da una sete insaziabile di conoscenza e una passione condivisa per il coding e il cloud computing. 
+            Ci siamo incontrati e abbiamo immediatamente capito di essere destinati a diventare più di semplici colleghi: siamo diventati amici.
+            L'esperienza con Develhope è stata fondamentale per il nostro percorso di crescita. 
+            Grazie ad essa, abbiamo scoperto e coltivato le nostre potenzialità, 
+            fino a decidere di metterle in gioco per realizzare un'applicazione web che rappresentasse la nostra visione.
           </p>
         </div>
-        <div className="h-6 w-6 ">
+        <div className="h-5 w-5">
           <img
             src="https://st2.depositphotos.com/1594308/11853/i/450/depositphotos_118532846-stock-photo-business-partnership-concept.jpg"
             alt="fotocollage"
@@ -40,26 +38,22 @@ export function ChiSiamo() {
 
       <hr className="w-3" />
 
-      <section className="flex flex-row flex-wrap">
-        <div className=" flex flex-row w-6 p-3  gap-3 ">
+      <section className="flex flex-column justify-content-center align-items-center">
+        <div className=" flex flex-column w-6 p-3  gap-3 ">
           <p className="text-center font-medium text-xl chiSiamoStyle">
             <h1>La Nostra "Mission"</h1>
-            Per creare questo sito ci siamo confrontati un interminabile tempo
-            di 10 minuti. Siamo tutti e 5 dei nerd quindi la scelta del
-            settore sul quale sviluppare il progetto è stata abbastanza
-            facile...
-            <strong>I Videogames</strong>
-            <br />
-            E cosa accomuna tutti i videogiocatori ?
-            La Curiosità verso le nuove uscite. <br /> Di recente E3 ha chiuso  i battenti 
-            quindi abbiamo deciso di creare un HUB informativo sui videogames, che riporti tutte le news
-            sui giochi più attesi e le console più innovative!
-            <h3>ENJOY!</h3>
+            Immagina un brainstorming tra cinque nerd. 
+            Non ci è voluto altro che un'intenso confronto di 10 minuti per decidere il settore su cui concentrarci: i videogiochi. 
+            È la nostra passione comune, il terreno su cui ci sentiamo a casa.
+            E cosa accomuna ogni videogiocatore degno di questo nome? La sete insaziabile di novità, l'elettrizzante attesa 
+            per le prossime grandi uscite. Così è nato il nostro progetto: un'epica avventura nel mondo dei videogiochi, un HUB informativo che vi terrà 
+            costantemente aggiornati sulle ultime novità, dai titoli più attesi alle console più innovative.
+            Bentornati nel mondo del gaming. Preparatevi ad esplorare, a scoprire e a vivere ogni emozione insieme a noi. ENJOY!!
           </p>
         </div>
-        <div className="h-6 w-6 surface-200">
+        <div className="h-7 w-7 surface-200">
           <img
-            src="https://media.istockphoto.com/id/1334436084/photo/top-down-view-of-colorful-illuminated-gaming-accessories-laying-on-table.jpg?s=612x612&w=0&k=20&c=E9xnbAZoBS5LlUX0q-zxT_3m6gEZpyB2k51_U4LLMNs="
+            src="https://media.gqitalia.it/photos/64800e0d5dd81c9fc9cbdff7/16:9/w_1920,c_limit/100-best-games-hp-b.jpg"
             alt="fotocollage"
             className="h-full w-full "
           />
@@ -67,8 +61,8 @@ export function ChiSiamo() {
       </section>
       <hr className="w-3 " />
 
-      <section className="flex gap-4 flex-wrap justify-content-evenly">
-        <div className="card flex  justify-content-center">
+      <section className="flex flex-row w-33 gap-2 flex-wrap justify-content-center">
+        <div className="card flex justify-content-center">
           <Card
             title="AleDevel"
             subTitle="Junior Full Stack Developer"

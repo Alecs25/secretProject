@@ -6,7 +6,7 @@ export function CarouselHome(Img) {
 			<div className="m-2 text-center py-5 px-3">
 				<div className="mb-3">
 					 <a href={image.href} className="carousel-Link">
-					<img src={image.src} className="w-6  shadow-2">
+					<img src={image.src} className="w-6  shadow-2" style={{borderRadius:"23px"}}>
 					</img>
 					<h1 className="carousel-Title">{image.title}</h1>
 					<p className="carousel-Description">{image.description}</p>

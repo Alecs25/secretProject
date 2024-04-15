@@ -1,9 +1,19 @@
 .carousel-Title,.carousel-Description{
-    color: #c298d8;
+    padding: 10px;
+    border-radius: 15px;
+    color: hwb(0 100% 0%);
     width: 50%;
     text-align: left;
     margin-left: 25%;
 }
+
+.carousel-Title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(185, 138, 186);
+}
+
 .carousel-Description{
     font-weight: 700;
     font-size: medium;

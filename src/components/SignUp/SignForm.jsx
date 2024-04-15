@@ -31,7 +31,7 @@ export function SignForm({ callback }) {
 
 	return (
 		<div className="cardSign">
-			<h2 style={{ color: "#565efa" }}>Iscriviti</h2>
+			<h2 style={{ color: "black" }}>Iscriviti</h2>
 			<form onSubmit={HandleSubmit} className="form-control">
 				<input
 					className="Username"

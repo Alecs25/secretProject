@@ -45,10 +45,8 @@
   }
   
   .form-control input:focus {
-    margin: 5px;
     outline: none;
-    border-color: #646cff;
-    padding: 2px
+    border-color: #000000;
   }
   
   .button-container {
@@ -78,7 +76,7 @@
   
   .button-container button {
     background-color: #c298d8;
-    color: #565ee6;
+    color: #000000;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -87,7 +85,7 @@
 }
 
 .button-container button:hover {
-  background-color: #151515;
+  background-color: #926890;
 }
   
   .button-container button:disabled {

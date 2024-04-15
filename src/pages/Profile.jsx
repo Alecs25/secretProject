@@ -1,12 +1,10 @@
 import { Card } from "primereact/card";
-import { InputText } from "primereact/inputtext";
 import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../context/UserContext";
-import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
 import { Avatar } from "primereact/avatar";
 import { signUp } from "../controllers/user-controller";
-import "../pages/profile.css" 
+
 
 
 export function Profile() {

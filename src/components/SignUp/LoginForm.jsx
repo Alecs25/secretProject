@@ -20,7 +20,7 @@ export function LoginForm({ callback }) {
 	return (
 		<div className="Container">
 			<div className="cardLogin" style={{ display: SignUpButton ? "none" : "flex" }}>
-				<h2 style={{ color: "#565efa" }}>Accedi</h2>
+				<h2 style={{ color: "black" }}>Accedi</h2>
 				<form onSubmit={HandleSubmit} className="form-control">
 					<input
 						className="Username"
